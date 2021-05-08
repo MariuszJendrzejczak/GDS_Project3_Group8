@@ -22,17 +22,13 @@ public class Light : InteractableObject, ISwitchable
 
     }
     public void SwitchObject()
-    {
-        Debug.Log("switch light");
-      
+    {  
         if (currentStateId == "on")
         {
-            Debug.Log("changeState to off");
             stateMachine.Change("off", light);
         }
         else if (currentStateId == "off")
         {
-            Debug.Log("changeState to on");
             stateMachine.Change("on", light);
         }
         currentStateId = stateMachine.currentStateId;

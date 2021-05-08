@@ -27,7 +27,6 @@ public class InteractableObject : MonoBehaviour, IInteractable
 
     public virtual void Interact()
     {
-        Debug.Log("Interact");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -40,7 +39,6 @@ public class InteractableObject : MonoBehaviour, IInteractable
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Collision Exit");
         if (collision.tag == "Player")
         {
             collision.GetComponent<BasicPlayerController>().InteractWithObject -= Interact;

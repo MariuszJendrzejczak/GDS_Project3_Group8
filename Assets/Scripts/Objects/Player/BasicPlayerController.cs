@@ -37,7 +37,6 @@ public class BasicPlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpForce);
-            Debug.Log(jumpForce);
         }
     }
     private void Torch()

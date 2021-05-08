@@ -5,7 +5,6 @@ public class LightsOffState : IState
 {
     public void Enter(params object[] args)
     {
-        Debug.Log("Gasze światło");
         Light2D light = (Light2D)args[0];
         light.enabled = false;
     }

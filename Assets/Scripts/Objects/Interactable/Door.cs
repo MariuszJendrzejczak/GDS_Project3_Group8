@@ -5,6 +5,8 @@ public class Door : InteractableObject, ISwitchable
     enum StartingStateKay {locked, close, open}
     [SerializeField]
     private StartingStateKay startingState;
+    [SerializeField] SpriteRenderer openDoorRenderer, closeDoorRenderer;
+    [SerializeField] BoxCollider2D closedDoorCollider;
     protected override void Start()
     {
         stateMachine.Add("locked", new LockedDoorState());
@@ -22,13 +24,14 @@ public class Door : InteractableObject, ISwitchable
         else if (currentStateId == "close")
         {
             Debug.Log("Otwieram drzwi");
-            stateMachine.Change("open");
+            stateMachine.Change("open", openDoorRenderer, closeDoorRenderer, closedDoorCollider);
         }
         else if (currentStateId == "open")
         {
             Debug.Log("Zamykam Drzwi");
-            stateMachine.Change("close");
+            stateMachine.Change("close", openDoorRenderer, closeDoorRenderer, closedDoorCollider);
         }
+        currentStateId = stateMachine.currentStateId;
     }
 
     public void SwitchObject()
