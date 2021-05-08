@@ -1,22 +1,24 @@
-﻿public class LightsOffState : IState
+﻿using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
+
+public class LightsOffState : IState
 {
     public void Enter(params object[] args)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Gasze światło");
+        Light2D light = (Light2D)args[0];
+        light.enabled = false;
     }
 
     public void Exit()
-    {
-        throw new System.NotImplementedException();
+    { 
     }
 
     public void HandleInput()
     {
-        throw new System.NotImplementedException();
     }
 
     public void Update()
     {
-        throw new System.NotImplementedException();
     }
 }

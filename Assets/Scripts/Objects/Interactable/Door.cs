@@ -5,7 +5,7 @@ public class Door : InteractableObject, ISwitchable
     enum StartingStateKay {locked, close, open}
     [SerializeField]
     private StartingStateKay startingState;
-    public override void Start()
+    protected override void Start()
     {
         stateMachine.Add("locked", new LockedDoorState());
         stateMachine.Add("close", new ClosedDoorState());

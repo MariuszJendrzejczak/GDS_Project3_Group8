@@ -7,33 +7,43 @@ public class InteractableObject : MonoBehaviour, IInteractable
     public Dictionary<string, IState> stateDictionary;
     public List<InteractableObject> toSwitchList;
     protected string currentStateId;
-    public void Awake()
+    protected SpriteRenderer renderer;
+    protected virtual void Awake()
     {
-     
+        renderer = GetComponent<SpriteRenderer>();
     }
 
-    public virtual void Start()
+    protected virtual void Start()
     {
-        currentStateId = stateMachine.currentStateId;
+       currentStateId = stateMachine.currentStateId;
     }
 
     public void Update()
     {
         stateMachine.Update();
         stateMachine.HandleInput();
+        //currentStateId = stateMachine.currentStateId;
     }
 
     public virtual void Interact()
     {
+        Debug.Log("Interact");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // miejsce na subskrybowanie eventu
+        if (collision.tag == "Player")
+        {
+            collision.GetComponent<BasicPlayerController>().InteractWithObject += Interact;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        //miejsce na unsubskrybowanie eventu
+        Debug.Log("Collision Exit");
+        if (collision.tag == "Player")
+        {
+            collision.GetComponent<BasicPlayerController>().InteractWithObject -= Interact;
+        }
     }
 }
