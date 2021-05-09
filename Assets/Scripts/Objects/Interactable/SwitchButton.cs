@@ -33,4 +33,9 @@ public class SwitchButton : InteractableObject, IInteractable
         }
         currentStateId = stateMachine.currentStateId;
     }
+    private void Update()
+    {
+        stateMachine.Update();
+        stateMachine.HandleInput();
+    }
 }
