@@ -8,7 +8,8 @@ public class BasicPlayerController : MonoBehaviour
     [SerializeField]
     private GameObject lighter;
     private Rigidbody2D rigidbody;
-    [SerializeField] [Range(0f, 5f)] float speed;
+    private Animator animator;
+    [SerializeField] [Range(1f, 5f)] float speed;
     [SerializeField] [Range(10f, 30f)] float jumpForce;
 
     public event Action InteractWithObject;
@@ -17,6 +18,7 @@ public class BasicPlayerController : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -31,6 +33,21 @@ public class BasicPlayerController : MonoBehaviour
     {
         float move = Input.GetAxis("Horizontal");
         rigidbody.velocity = new Vector2(move * speed, rigidbody.velocity.y);
+        if(move < 0)
+        {
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+            animator.SetTrigger("run");
+        }
+        else if (move > 0)
+        {
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+            animator.SetTrigger("run");
+        }
+        else
+        {
+            animator.SetTrigger("idle");
+        }
+
     }
     private void Jump()
     {
