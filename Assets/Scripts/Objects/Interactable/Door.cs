@@ -23,12 +23,10 @@ public class Door : InteractableObject, ISwitchable
         }
         else if (currentStateId == "close")
         {
-            Debug.Log("Otwieram drzwi");
             stateMachine.Change("open", openDoorRenderer, closeDoorRenderer, closedDoorCollider);
         }
         else if (currentStateId == "open")
         {
-            Debug.Log("Zamykam Drzwi");
             stateMachine.Change("close", openDoorRenderer, closeDoorRenderer, closedDoorCollider);
         }
         currentStateId = stateMachine.currentStateId;

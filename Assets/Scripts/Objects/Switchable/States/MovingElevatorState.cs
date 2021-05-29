@@ -9,7 +9,6 @@ public class MovingElevatorState : IState
     private bool startingPositionBool;
     public void Enter(params object[] args)
     {
-        Debug.Log("moving");
         elevator = (Elevator)args[0];
         moveToTransform = (Transform)args[1];
         moveSpeed = (float)args[2];

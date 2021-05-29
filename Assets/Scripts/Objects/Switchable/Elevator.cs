@@ -13,13 +13,11 @@ public class Elevator : InteractableObject, ISwitchable
     {
         if (startingPositionBool)
         {
-            Debug.Log("go up");
             stateMachine.Change("move", this, moveToTransform, moveSpeed, stateMachine);
         }
         else
         {
             stateMachine.Change("move", this, startTransform, moveSpeed, stateMachine);
-            Debug.Log("go down");
             startingPositionBool = true;
         }
     }
