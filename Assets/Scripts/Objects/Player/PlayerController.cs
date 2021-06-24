@@ -4,21 +4,26 @@ using UnityEngine;
 
 public partial class PlayerController : MonoBehaviour
 {
-    Rigidbody2D rigidbody;
-    BoxCollider2D collider;
-    Animator animator;
-    StateMachine stateMachine;
-    GameObject interactableObject;
-    enum Facing {right, left}
+    private Rigidbody2D rigidbody;
+    private BoxCollider2D collider;
+    private Animator animator;
+    private StateMachine stateMachine;
+    private GameObject interactableObject;
+    private enum Facing { right, left }
     private Facing faceing;
+    private enum Armed { none, pistol }
+    [SerializeField] private Armed armed = Armed.none;
 
-    [SerializeField] LayerMask platforemLayerMask;
-    [SerializeField] GameObject lighter;
-    [SerializeField] [Range(1f, 5f)] float speed;
-    [SerializeField] [Range(10f, 20f)] float jumpForce;
-    [SerializeField] [Range(10f, 20f)] float jumpForceVertical;
-    [SerializeField] [Range(1f, 10f)] float climbLedderSpeed;
+    [SerializeField] private LayerMask platforemLayerMask;
+    [SerializeField] private GameObject lighter;
+    [SerializeField] [Range(1f, 5f)] private float speed;
+    [SerializeField] [Range(10f, 20f)] private float jumpForce;
+    [SerializeField] [Range(10f, 20f)] private float jumpForceVertical;
+    [SerializeField] [Range(1f, 10f)] private float climbLedderSpeed;
     [Range(0.01f, 0.2f)] public float climbEdgeSpeed;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] [Range(1f, 10f)] private float bulletSpeed;
+    [SerializeField] [Range(0, 5f)] private float bulletXOffset, bulletYOffset;
 
     public event Action InteractWithObject;
 
@@ -40,6 +45,7 @@ public partial class PlayerController : MonoBehaviour
         collider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
         stateMachine.Change("idle", this);
+        PlayerArmedAndUnarmedSpriteSwitch();
     }
 
     void Update()
@@ -48,7 +54,7 @@ public partial class PlayerController : MonoBehaviour
         stateMachine.Update();
         Torch();
         PlayerInteract();
-
+        Shoot();
     }
     private void Movement(float move)
     {
@@ -137,6 +143,43 @@ public partial class PlayerController : MonoBehaviour
         Debug.DrawRay(collider.bounds.center - new Vector3(0, collider.bounds.extents.y), Vector2.right, rayColor, collider.bounds.extents.x);
 
         return rayCastHit.collider != null;
+    }
+
+    private void PlayerArmedAndUnarmedSpriteSwitch()
+    {
+        switch (armed)
+        {
+            case Armed.none:
+                // placeing sprite without pistol
+                break;
+            case Armed.pistol:
+                // uplaceing spirte with pistol
+                break;
+        }
+    }
+
+    private void Shoot()
+    {
+        if (Input.GetKeyDown(KeyCode.L) && armed == Armed.pistol)
+        {
+            bool shootLeftBool = true;
+            var offset = new Vector2(transform.position.x + bulletXOffset, transform.position.y + bulletYOffset);
+            switch (faceing)
+            {
+                case Facing.left:
+                    offset = new Vector2 (transform.position.x + (bulletXOffset * -1f), transform.position.y + bulletYOffset);
+                    shootLeftBool = true;
+                    break;
+                case Facing.right:
+                    shootLeftBool = false;
+                    break;
+            }
+ 
+            GameObject bullet =  Instantiate(bulletPrefab, offset , Quaternion.identity);
+            Bullet script = bullet.GetComponent<Bullet>();
+            script.UpdateBulletSpeed(bulletSpeed);
+            script.UpdateShootTo(shootLeftBool);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
