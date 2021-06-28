@@ -248,6 +248,33 @@ Transform:
   m_Father: {fileID: 1729033625608428729}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 22.316}
+--- !u!114 &7811887180899923976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5150077573294500554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 097b551f2844b054290f18a39bf892e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Solvers:
+  - {fileID: 5665636013297917410}
+  - {fileID: 7595742148840978283}
+  - {fileID: 5881225278258061113}
+  - {fileID: 7366922714334458423}
+  m_Weight: 1
+  m_SolverEditorData:
+  - color: {r: 0, g: 1, b: 0, a: 1}
+    showGizmo: 1
+  - color: {r: 0, g: 1, b: 0, a: 1}
+    showGizmo: 1
+  - color: {r: 0, g: 1, b: 0, a: 1}
+    showGizmo: 1
+  - color: {r: 0, g: 1, b: 0, a: 1}
+    showGizmo: 1
 --- !u!1 &5883076412822280478
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,33 +651,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!114 &7811887180899923976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5150077573294500554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 097b551f2844b054290f18a39bf892e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Solvers:
-  - {fileID: 5665636013297917410}
-  - {fileID: 7595742148840978283}
-  - {fileID: 5881225278258061113}
-  - {fileID: 7366922714334458423}
-  m_Weight: 1
-  m_SolverEditorData:
-  - color: {r: 0, g: 1, b: 0, a: 1}
-    showGizmo: 1
-  - color: {r: 0, g: 1, b: 0, a: 1}
-    showGizmo: 1
-  - color: {r: 0, g: 1, b: 0, a: 1}
-    showGizmo: 1
-  - color: {r: 0, g: 1, b: 0, a: 1}
-    showGizmo: 1
 --- !u!1 &7554508734763302382
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,9 +826,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba9fdfce778fb74ea12df0b886fb006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  armed: 0
+  platforemLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   lighter: {fileID: 7486276981309138080}
   speed: 5
   jumpForce: 10
+  jumpForceVertical: 10
+  climbLedderSpeed: 1
+  climbEdgeSpeed: 0.01
+  bulletPrefab: {fileID: 0}
+  bulletSpeed: 1
+  bulletXOffset: 0
+  bulletYOffset: 0
 --- !u!1001 &7842082588936411976
 PrefabInstance:
   m_ObjectHideFlags: 0
