@@ -208,6 +208,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba9fdfce778fb74ea12df0b886fb006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  armed: 0
+  platforemLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   lighter: {fileID: 1866747569565068365}
   speed: 3
   jumpForce: 14
+  jumpForceVertical: 10
+  climbLedderSpeed: 1
+  climbEdgeSpeed: 0.01
+  bulletPrefab: {fileID: 0}
+  bulletSpeed: 1
+  bulletXOffset: 0
+  bulletYOffset: 0
