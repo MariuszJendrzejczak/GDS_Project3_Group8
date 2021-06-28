@@ -175,10 +175,9 @@ public partial class PlayerController : MonoBehaviour
                     break;
             }
  
-            GameObject bullet =  Instantiate(bulletPrefab, offset , Quaternion.identity);
-            Bullet script = bullet.GetComponent<Bullet>();
-            script.UpdateBulletSpeed(bulletSpeed);
-            script.UpdateShootTo(shootLeftBool);
+            GameObject projectile =  Instantiate(bulletPrefab, offset , Quaternion.identity);
+            var movement = projectile.GetComponent<HorizontalProjectileMovement>();
+            movement.UpdateShootTo(shootLeftBool);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
