@@ -16,16 +16,22 @@ public class Edge : MonoBehaviour
         {
             player = collision.GetComponent<PlayerController>();
             player.GetInteractableObject(this.gameObject);
+            if (player.IsGrounded() == false)
+            {
+                player.ChangeState("hang");
+            }
+
   //          colliderToIngrre.enabled = false;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        player.GetInteractableObject(null);
+        //player.GetInteractableObject(null);
  //       colliderToIngrre.enabled = true;
     }
     public void ClimbDown()
     {
         player.transform.position = Vector2.MoveTowards(player.transform.position, transformList[0].position, player.climbEdgeSpeed);
+        player.ChangeState("hang");
     }
 }

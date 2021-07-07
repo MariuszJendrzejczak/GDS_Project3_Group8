@@ -20,7 +20,6 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         stateMachine.Change(startingState.ToString(), this, stateMachine, patrolPoints, playerLeyerMask, raycastDistance, null);
-        Debug.Log(stateMachine.currentStateId);
     }
     private void Update()
     {

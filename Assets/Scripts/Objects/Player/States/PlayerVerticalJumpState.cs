@@ -7,7 +7,7 @@ public partial class PlayerController
         public void Enter(params object[] args)
         {
             player = (PlayerController)args[0];
-            player.Jump(player.jumpForceVertical);
+            player.Jump(player.jumpForce);
         }
 
         public void Exit()
@@ -23,7 +23,7 @@ public partial class PlayerController
             }
             if (Input.GetKeyDown(KeyCode.W))
             {
-                player.Jump(player.jumpForceVertical);
+                player.Jump(player.jumpForce);
             }
         }
 

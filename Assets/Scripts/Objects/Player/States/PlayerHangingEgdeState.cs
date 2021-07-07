@@ -37,7 +37,8 @@ public partial class PlayerController
             }
             if (Input.GetKeyDown(KeyCode.S))
             {
-                player.stateMachine.Change("idle", player);
+                player.ChangeState("idle");
+                Debug.Log("tu jestem");
             }
         }
 
@@ -47,6 +48,7 @@ public partial class PlayerController
             {
                 ClimbUp();
             }
+
         }
         private void ClimbUp()
         {

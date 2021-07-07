@@ -29,11 +29,6 @@ public partial class PlayerController
                 float directionVelocity = horizontalInputValue;
                 player.stateMachine.Change("jump", player, directionVelocity);
             }
-
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                player.stateMachine.Change("verjump", player);
-            }
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 player.Jump(player.jumpForce);

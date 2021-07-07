@@ -18,7 +18,6 @@ public partial class PlayerController : MonoBehaviour
     [SerializeField] private GameObject lighter;
     [SerializeField] [Range(1f, 5f)] private float speed;
     [SerializeField] [Range(10f, 20f)] private float jumpForce;
-    [SerializeField] [Range(10f, 20f)] private float jumpForceVertical;
     [SerializeField] [Range(1f, 10f)] private float climbLedderSpeed;
     [Range(0.01f, 0.2f)] public float climbEdgeSpeed;
     [SerializeField] private GameObject bulletPrefab;
@@ -55,6 +54,7 @@ public partial class PlayerController : MonoBehaviour
         Torch();
         PlayerInteract();
         Shoot();
+        Debug.Log(stateMachine.currentStateId);
     }
     private void Movement(float move)
     {
