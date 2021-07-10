@@ -36,7 +36,7 @@ public partial class PlayerController
             if (player != null)
             {
                 player.animator.SetTrigger("run");
-                player.Movement(horizontalInputValue);
+                player.Movement(horizontalInputValue, player.speed);
                 player.HorizontalTurn(horizontalInputValue);
 
             }

@@ -33,7 +33,7 @@ public partial class PlayerController
 
         public void Update()
         {
-            player.Movement(horizontalInputValue);
+            player.Movement(horizontalInputValue, player.speed);
         }
     }
 }

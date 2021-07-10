@@ -4,6 +4,8 @@ using UnityEngine;
 
 public partial class PlayerController : MonoBehaviour
 {
+    public float PushSpeed { get { return pushSpeed; } }
+
     private Rigidbody2D rigidbody;
     private BoxCollider2D collider;
     private Animator animator;
@@ -17,6 +19,7 @@ public partial class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask platforemLayerMask;
     [SerializeField] private GameObject lighter;
     [SerializeField] [Range(1f, 5f)] private float speed;
+    [SerializeField] [Range(1f, 5f)] private float pushSpeed;
     [SerializeField] [Range(10f, 20f)] private float jumpForce;
     [SerializeField] [Range(1f, 10f)] private float climbLedderSpeed;
     [Range(0.01f, 0.2f)] public float climbEdgeSpeed;
@@ -36,6 +39,7 @@ public partial class PlayerController : MonoBehaviour
         stateMachine.Add("hang", new PlayerHangingEgdeState());
         stateMachine.Add("climb", new PlayerClimbingState());
         stateMachine.Add("climbdown", new PlayerClimbinDownState());
+        stateMachine.Add("push", new PlayerPushState());
         
     }
     void Start()
@@ -56,7 +60,7 @@ public partial class PlayerController : MonoBehaviour
         Shoot();
         Debug.Log(stateMachine.currentStateId);
     }
-    private void Movement(float move)
+    private void Movement(float move, float speed)
     {
         rigidbody.velocity = new Vector2(move * speed, rigidbody.velocity.y);
     }
