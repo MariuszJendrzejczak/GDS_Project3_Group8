@@ -9,7 +9,7 @@ public class MoveableBox : MonoBehaviour, IInteractable
     private Rigidbody2D rigidbody;
     private PlayerController player;
     private float handleInpusHorizontal;
-    [SerializeField] private GameObject myParent;
+    [SerializeField] private Transform myParent;
     public void Interact()
     {
         if(moveMe == false)
@@ -23,7 +23,7 @@ public class MoveableBox : MonoBehaviour, IInteractable
         {
             moveMe = false;
             player.ChangeState("idle");
-            transform.SetParent(myParent.transform);
+            transform.SetParent(myParent);
             player.InteractWithObject -= Interact;
         }
     }

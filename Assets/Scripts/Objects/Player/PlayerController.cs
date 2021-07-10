@@ -15,7 +15,6 @@ public partial class PlayerController : MonoBehaviour
     private Facing faceing;
     private enum Armed { none, pistol }
     [SerializeField] private Armed armed = Armed.none;
-
     [SerializeField] private LayerMask platforemLayerMask;
     [SerializeField] private GameObject lighter;
     [SerializeField] [Range(1f, 5f)] private float speed;
@@ -26,6 +25,8 @@ public partial class PlayerController : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] [Range(1f, 10f)] private float bulletSpeed;
     [SerializeField] [Range(0, 5f)] private float bulletXOffset, bulletYOffset;
+    bool cooldown = false;
+    [SerializeField][Range(0.1f, 3f)] float colddownTime;
 
     public event Action InteractWithObject;
 
@@ -164,25 +165,33 @@ public partial class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
-        if (Input.GetKeyDown(KeyCode.L) && armed == Armed.pistol)
+        if (cooldown == false)
         {
-            bool shootLeftBool = true;
-            var offset = new Vector2(transform.position.x + bulletXOffset, transform.position.y + bulletYOffset);
-            switch (faceing)
+
+            if (Input.GetKeyDown(KeyCode.L) && armed == Armed.pistol)
             {
-                case Facing.left:
-                    offset = new Vector2 (transform.position.x + (bulletXOffset * -1f), transform.position.y + bulletYOffset);
-                    shootLeftBool = true;
-                    break;
-                case Facing.right:
-                    shootLeftBool = false;
-                    break;
+                Debug.Log("Shoot");
+                bool shootLeftBool = true;
+                var offset = new Vector2(transform.position.x + bulletXOffset, transform.position.y + bulletYOffset);
+                switch (faceing)
+                {
+                    case Facing.left:
+                        offset = new Vector2(transform.position.x + (bulletXOffset * -1f), transform.position.y + bulletYOffset);
+                        shootLeftBool = true;
+                        break;
+                    case Facing.right:
+                        shootLeftBool = false;
+                        break;
+                }
+
+                GameObject projectile = Instantiate(bulletPrefab, offset, Quaternion.identity);
+                var movement = projectile.GetComponent<HorizontalProjectileMovement>();
+                movement.UpdateShootTo(shootLeftBool);
+                StartCoroutine(Cooldown(colddownTime));
+                cooldown = true;
             }
- 
-            GameObject projectile =  Instantiate(bulletPrefab, offset , Quaternion.identity);
-            var movement = projectile.GetComponent<HorizontalProjectileMovement>();
-            movement.UpdateShootTo(shootLeftBool);
         }
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -201,5 +210,10 @@ public partial class PlayerController : MonoBehaviour
         {
             stateMachine.Change("idle", this);
         }
+    }
+    private IEnumerator Cooldown(float value)
+    {
+        yield return new WaitForSeconds(value);
+        cooldown = false;
     }
 }
