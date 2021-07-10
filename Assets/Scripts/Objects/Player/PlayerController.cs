@@ -187,8 +187,9 @@ public partial class PlayerController : MonoBehaviour
                 GameObject projectile = Instantiate(bulletPrefab, offset, Quaternion.identity);
                 var movement = projectile.GetComponent<HorizontalProjectileMovement>();
                 movement.UpdateShootTo(shootLeftBool);
-                StartCoroutine(Cooldown(colddownTime));
                 cooldown = true;
+                StartCoroutine(Cooldown(colddownTime));
+                
             }
         }
         

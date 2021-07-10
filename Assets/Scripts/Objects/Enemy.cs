@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public Faceing EnemyFaceing
+    {
+        get { return facing; }
+        set { facing = value; }
+    }
     [SerializeField] private List<Transform> patrolPoints;
-    private enum StartingState { patrol, attack}
+    private enum StartingState { patrol, attack }
     [SerializeField] StartingState startingState;
     private StateMachine stateMachine;
     [SerializeField] LayerMask playerLeyerMask;
     [SerializeField] [Range(3f, 20f)] private float raycastDistance;
+    [SerializeField] GameObject proyectilePrefab;
+    [SerializeField] [Range(0, 5f)] private float bulletXOffset, bulletYOffset;
+    private bool cooldown = false;
+    [SerializeField] [Range(0.5f, 5f)] private float cooldownTime;
+    public enum Faceing { left, right }
+    private Faceing facing;
 
     private void Awake()
     {
@@ -27,7 +38,30 @@ public class Enemy : MonoBehaviour
     }
     public void Shoot()
     {
-        Debug.Log("Shoot");
+        if (cooldown == false)
+        {
+            bool shootLeftBool = true;
+            var offset = new Vector2(transform.position.x + bulletXOffset, transform.position.y + bulletYOffset);
+            if (facing == Faceing.left)
+            {
+                offset = new Vector2(transform.position.x + (bulletXOffset * -1f), transform.position.y + bulletYOffset);
+                shootLeftBool = true;
+            }
+            else if (facing == Faceing.right)
+            {
+                shootLeftBool = false;
+            }
+            GameObject projectile = Instantiate(proyectilePrefab, offset, Quaternion.identity);
+            projectile.GetComponent<HorizontalProjectileMovement>().UpdateShootTo(shootLeftBool);
+            cooldown = true;
+            StartCoroutine(Cooldown(cooldownTime));
+        }
+    }
+    private IEnumerator Cooldown(float value)
+    {
+        yield return new WaitForSeconds(value);
+        cooldown = false;
+
     }
 }
 
@@ -63,10 +97,13 @@ public class EnemyStateFields
         if (enemy.transform.position.x > target.x)
         {
             facing = Faceing.left;
+            enemy.EnemyFaceing = Enemy.Faceing.left;
+
         }
         if (enemy.transform.position.x < target.x)
         {
             facing = Faceing.right;
+            enemy.EnemyFaceing = Enemy.Faceing.right;
         }
     }
 
