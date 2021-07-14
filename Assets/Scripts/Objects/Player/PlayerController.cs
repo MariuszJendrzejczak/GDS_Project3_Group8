@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public partial class PlayerController : MonoBehaviour
 {
@@ -60,6 +61,7 @@ public partial class PlayerController : MonoBehaviour
         PlayerInteract();
         Shoot();
         Debug.Log(stateMachine.currentStateId);
+        QuitGame();
     }
     private void Movement(float move, float speed)
     {
@@ -192,7 +194,13 @@ public partial class PlayerController : MonoBehaviour
                 
             }
         }
-        
+    }
+    private void QuitGame()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
