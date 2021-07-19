@@ -9,15 +9,16 @@ public partial class PlayerController
         public void Enter(params object[] args)
         {
             player = (PlayerController)args[0];
+            player.animator.SetTrigger("idle");
         }
 
         public void Exit()
         {
+            player.animator.ResetTrigger("idle");
         }
 
         public void HandleInput()
         {
-           player.animator.SetTrigger("idle");
            horizontalInputValue = Input.GetAxis("Horizontal");
             if (horizontalInputValue != 0)
             {

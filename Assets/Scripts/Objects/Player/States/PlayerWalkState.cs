@@ -7,10 +7,12 @@ public partial class PlayerController
         public void Enter(params object[] args)
         {
             player = (PlayerController)args[0];
+            player.animator.SetTrigger("run");
         }
 
         public void Exit()
         {
+            player.animator.ResetTrigger("run");
         }
 
         public void HandleInput()

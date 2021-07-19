@@ -14,7 +14,7 @@ public class KillOnColision : MonoBehaviour
         {
             if (killCollidedObject)
             {
-                Destroy(collision.gameObject);
+                collision.GetComponent<IDestroyAble>().Death();
             }
             if (killSelf)
             {

@@ -3,13 +3,13 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public partial class PlayerController : MonoBehaviour
+public partial class PlayerController : MonoBehaviour, IDestroyAble
 {
     public float PushSpeed { get { return pushSpeed; } }
 
     private Rigidbody2D rigidbody;
-    private BoxCollider2D collider;
-    private Animator animator;
+    private CapsuleCollider2D collider;
+    [SerializeField] private Animator animator;
     private StateMachine stateMachine;
     private GameObject interactableObject;
     private enum Facing { right, left }
@@ -27,9 +27,10 @@ public partial class PlayerController : MonoBehaviour
     [SerializeField] [Range(1f, 20f)] private float bulletSpeed;
     [SerializeField] [Range(0, 5f)] private float bulletXOffset, bulletYOffset;
     bool cooldown = false;
-    [SerializeField][Range(0.1f, 10f)] float colddownTime;
+    [SerializeField] [Range(0.1f, 10f)] float colddownTime;
 
     public event Action InteractWithObject;
+    public event Action PlayerDeath;
 
     private void Awake()
     {
@@ -42,13 +43,13 @@ public partial class PlayerController : MonoBehaviour
         stateMachine.Add("climb", new PlayerClimbingState());
         stateMachine.Add("climbdown", new PlayerClimbinDownState());
         stateMachine.Add("push", new PlayerPushState());
-        
+        stateMachine.Add("death", new PlayerDeathState());
+
     }
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        collider = GetComponent<BoxCollider2D>();
-        animator = GetComponent<Animator>();
+        collider = GetComponent<CapsuleCollider2D>();
         stateMachine.Change("idle", this);
         PlayerArmedAndUnarmedSpriteSwitch();
     }
@@ -136,7 +137,7 @@ public partial class PlayerController : MonoBehaviour
         Color rayColor;
         float extraHightText = 1f;
 
-        if(rayCastHit.collider != null)
+        if (rayCastHit.collider != null)
         {
             rayColor = Color.green;
         }
@@ -167,12 +168,12 @@ public partial class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
-        if (cooldown == false)
+        if (cooldown == false && stateMachine.currentStateId == "idle")
         {
-
             if (Input.GetKeyDown(KeyCode.L) && armed == Armed.pistol)
             {
                 Debug.Log("Shoot");
+                animator.SetTrigger("shoot");
                 bool shootLeftBool = true;
                 var offset = new Vector2(transform.position.x + bulletXOffset, transform.position.y + bulletYOffset);
                 switch (faceing)
@@ -185,15 +186,18 @@ public partial class PlayerController : MonoBehaviour
                         shootLeftBool = false;
                         break;
                 }
-
                 GameObject projectile = Instantiate(bulletPrefab, offset, Quaternion.identity);
                 var movement = projectile.GetComponent<HorizontalProjectileMovement>();
                 movement.UpdateShootTo(shootLeftBool);
                 cooldown = true;
                 StartCoroutine(Cooldown(colddownTime));
-                
+                // animator.ResetTrigger("shoot");
             }
         }
+    }
+    public void Death()
+    {
+        ChangeState("death");
     }
     private void QuitGame()
     {
@@ -202,7 +206,8 @@ public partial class PlayerController : MonoBehaviour
             SceneManager.LoadScene(0);
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Edge" && stateMachine.currentStateId == "verjump")
         {
@@ -226,3 +231,4 @@ public partial class PlayerController : MonoBehaviour
         cooldown = false;
     }
 }
+ 

@@ -8,11 +8,12 @@ public partial class PlayerController
         {
             player = (PlayerController)args[0];
             horizontalInputValue = (float)args[1];
-            //player.animator.SetTrigger("jump");
+            player.animator.SetTrigger("jump");
         }
 
         public void Exit()
         {
+            player.animator.ResetTrigger("jump");
         }
 
         public void HandleInput()

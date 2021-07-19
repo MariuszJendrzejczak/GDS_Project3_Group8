@@ -26,8 +26,8 @@ public class EnemyPatrolState : EnemyStateFields, IState
         RaycastMethod();
         if (hitInfo.collider != null)
         {
-            stateMachine.Change("attack", enemy, stateMachine, patrolPoints, playerLayerMask, raycastDistance, hitInfo);
-            Debug.Log(hitInfo.collider.name);
+             stateMachine.Change("attack", enemy, stateMachine, patrolPoints, playerLayerMask, raycastDistance, hitInfo);
+             Debug.Log(hitInfo.collider.name);
         }
     }
 
