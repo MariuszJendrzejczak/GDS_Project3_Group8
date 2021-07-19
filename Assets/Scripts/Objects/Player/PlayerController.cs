@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public partial class PlayerController : MonoBehaviour
 {
@@ -17,16 +18,16 @@ public partial class PlayerController : MonoBehaviour
     [SerializeField] private Armed armed = Armed.none;
     [SerializeField] private LayerMask platforemLayerMask;
     [SerializeField] private GameObject lighter;
-    [SerializeField] [Range(1f, 5f)] private float speed;
-    [SerializeField] [Range(1f, 5f)] private float pushSpeed;
-    [SerializeField] [Range(10f, 20f)] private float jumpForce;
-    [SerializeField] [Range(1f, 10f)] private float climbLedderSpeed;
+    [SerializeField] [Range(1f, 20f)] private float speed;
+    [SerializeField] [Range(1f, 20f)] private float pushSpeed;
+    [SerializeField] [Range(5f, 40f)] private float jumpForce;
+    [SerializeField] [Range(1f, 200f)] private float climbLedderSpeed;
     [Range(0.01f, 0.2f)] public float climbEdgeSpeed;
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] [Range(1f, 10f)] private float bulletSpeed;
+    [SerializeField] [Range(1f, 20f)] private float bulletSpeed;
     [SerializeField] [Range(0, 5f)] private float bulletXOffset, bulletYOffset;
     bool cooldown = false;
-    [SerializeField][Range(0.1f, 3f)] float colddownTime;
+    [SerializeField][Range(0.1f, 10f)] float colddownTime;
 
     public event Action InteractWithObject;
 
@@ -60,6 +61,7 @@ public partial class PlayerController : MonoBehaviour
         PlayerInteract();
         Shoot();
         Debug.Log(stateMachine.currentStateId);
+        QuitGame();
     }
     private void Movement(float move, float speed)
     {
@@ -192,7 +194,13 @@ public partial class PlayerController : MonoBehaviour
                 
             }
         }
-        
+    }
+    private void QuitGame()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
