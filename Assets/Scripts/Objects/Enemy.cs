@@ -9,35 +9,31 @@ public class Enemy : MonoBehaviour, IDestroyAble
         get { return facing; }
         set { facing = value; }
     }
-    [SerializeField] private List<Transform> patrolPoints;
-    private enum StartingState { patrol, attack }
-    [SerializeField] StartingState startingState;
-    private StateMachine stateMachine;
-    [SerializeField] LayerMask playerLeyerMask;
-    [SerializeField] [Range(3f, 20f)] private float raycastDistance;
-    [SerializeField] GameObject proyectilePrefab;
+ 
+    protected StateMachine stateMachine;
+    [SerializeField] protected LayerMask playerLeyerMask;
+    [SerializeField][Range(3f, 20f)] protected float raycastDistance;
+    [SerializeField] [Range(0f, 5f)] protected float rayCastOffsetX, rayCastOffsetY;
+    [SerializeField] protected GameObject proyectilePrefab;
     [SerializeField] [Range(0, 5f)] private float bulletXOffset, bulletYOffset;
     private bool cooldown = false;
     [SerializeField] [Range(0.5f, 5f)] private float cooldownTime;
     public enum Faceing { left, right }
-    private Faceing facing;
+    [SerializeField] protected Faceing facing;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         stateMachine = new StateMachine();
-        stateMachine.Add("patrol", new EnemyPatrolState());
-        stateMachine.Add("attack", new EnemyAttackState());
         stateMachine.Add("empty", new EmptyState());
     }
-    private void Start()
+    protected virtual void Start()
     {
-        stateMachine.Change(startingState.ToString(), this, stateMachine, patrolPoints, playerLeyerMask, raycastDistance, null);
         EventBroker.PlayerDeath += OnPlayerDeath;
     }
-    private void Update()
+    protected virtual void Update()
     {
-        Debug.Log(facing);
         stateMachine.Update();
+        stateMachine.HandleInput();
     }
     public void Shoot()
     {
@@ -63,11 +59,11 @@ public class Enemy : MonoBehaviour, IDestroyAble
         }
     }
 
-    private void OnPlayerDeath()
+    protected void OnPlayerDeath()
     {
         stateMachine.Change("empty");
     }
-    private IEnumerator Cooldown(float value)
+    protected IEnumerator Cooldown(float value)
     {
         yield return new WaitForSeconds(value);
         cooldown = false;

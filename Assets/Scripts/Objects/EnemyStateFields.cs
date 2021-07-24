@@ -9,11 +9,13 @@ public class EnemyStateFields
     protected List<Transform> patrolPoints;
     protected float step = 0.015f;
     protected LayerMask playerLayerMask;
+    protected float rayCastOffsetX, rayCastOffsetY;
     protected enum Faceing { left, right}
     protected Faceing facing;
     protected Vector2 target;
     protected float raycastDistance;
     protected RaycastHit2D hitInfo;
+    protected float localScaleXbase, localScaleXrevers;
 
     protected void AddParmsToVaribles(params object[] args)
     {
@@ -26,6 +28,15 @@ public class EnemyStateFields
         {
             hitInfo = (RaycastHit2D)args[5];
         }
+        rayCastOffsetX = (float)args[6];
+        rayCastOffsetY = (float)args[7];
+        if(args[8] != null)
+        {
+            facing = (Faceing)args[8];
+        }
+
+        localScaleXbase = enemy.transform.localScale.x;
+        localScaleXrevers = enemy.transform.localScale.x * -1f;
     }
     protected void FacingCheck()
     {
@@ -47,15 +58,15 @@ public class EnemyStateFields
         switch (facing)
         {
             case Faceing.left:
-                hitInfo = Physics2D.Raycast(new Vector2(enemy.transform.position.x, enemy.transform.position.y + 2.5f), Vector2.left, raycastDistance, playerLayerMask);
-                Debug.DrawRay(new Vector2(enemy.transform.position.x, enemy.transform.position.y + 2.5f), Vector2.left * raycastDistance, Color.green, 0.1f);
-                enemy.transform.localScale = new Vector2(-0.5f, enemy.transform.localScale.y);
+                hitInfo = Physics2D.Raycast(new Vector2(enemy.transform.position.x - rayCastOffsetX, enemy.transform.position.y + rayCastOffsetY), Vector2.left, raycastDistance, playerLayerMask);
+                Debug.DrawRay(new Vector2(enemy.transform.position.x - rayCastOffsetX, enemy.transform.position.y + rayCastOffsetY), Vector2.left * raycastDistance, Color.green, 0.1f);
+                enemy.transform.localScale = new Vector2(localScaleXbase, enemy.transform.localScale.y);
                 break;
 
             case Faceing.right:
-                hitInfo = Physics2D.Raycast(new Vector2(enemy.transform.position.x, enemy.transform.position.y + 2.5f), Vector2.right, raycastDistance, playerLayerMask);
-                Debug.DrawRay(new Vector2(enemy.transform.position.x, enemy.transform.position.y + 2.5f), Vector2.right * raycastDistance, Color.green, 0.1f);
-                enemy.transform.localScale = new Vector2(0.5f, enemy.transform.localScale.y);
+                hitInfo = Physics2D.Raycast(new Vector2(enemy.transform.position.x + rayCastOffsetX, enemy.transform.position.y + rayCastOffsetY), Vector2.right, raycastDistance, playerLayerMask);
+                Debug.DrawRay(new Vector2(enemy.transform.position.x + rayCastOffsetX, enemy.transform.position.y + rayCastOffsetY), Vector2.right * raycastDistance, Color.green, 0.1f);
+                enemy.transform.localScale = new Vector2(localScaleXrevers, enemy.transform.localScale.y);
                 break;
         }
     }

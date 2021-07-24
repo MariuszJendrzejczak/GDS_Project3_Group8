@@ -28,7 +28,7 @@ public class EnemyPatrolState : EnemyStateFields, IState
         {
             if (hitInfo.transform.tag == "Player")
             {
-                stateMachine.Change("attack", enemy, stateMachine, patrolPoints, playerLayerMask, raycastDistance, hitInfo);
+                stateMachine.Change("attack", enemy, stateMachine, patrolPoints, playerLayerMask, raycastDistance, hitInfo, rayCastOffsetX, rayCastOffsetY, null);
                 Debug.Log(hitInfo.collider.name);
             }
         }

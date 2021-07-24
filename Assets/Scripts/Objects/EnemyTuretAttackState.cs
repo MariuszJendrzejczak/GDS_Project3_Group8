@@ -1,6 +1,5 @@
-﻿public class EnemyAttackState : EnemyStateFields, IState
+﻿public class EnemyTuretAttackState : EnemyStateFields, IState
 {
-
     public void Enter(params object[] args)
     {
         AddParmsToVaribles(args);
@@ -16,12 +15,11 @@
 
     public void Update()
     {
-        FacingCheck();
         RaycastMethod();
         enemy.Shoot();
         if (hitInfo.collider == null)
         {
-            stateMachine.Change("patrol", enemy, stateMachine, patrolPoints, playerLayerMask, raycastDistance, hitInfo, rayCastOffsetX, rayCastOffsetY, null);
+            stateMachine.Change("patrol", enemy, stateMachine, null, playerLayerMask, raycastDistance, hitInfo, rayCastOffsetX, rayCastOffsetY, null);
         }
     }
 }
