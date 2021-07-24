@@ -14,4 +14,13 @@ public class EventBroker : MonoBehaviour
             PlayerDeath();
         }
     }
+
+    public static event Action InteractWithObject;
+    public static void CallInteractWithObject()
+    {
+        if (InteractWithObject != null)
+        {
+            InteractWithObject();
+        }
+    }
 }

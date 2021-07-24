@@ -33,7 +33,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
     {
         if (collision.tag == "Player")
         {
-            collision.GetComponent<PlayerController>().InteractWithObject += Interact;
+            EventBroker.InteractWithObject += Interact;
         }
     }
 
@@ -41,7 +41,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
     {
         if (collision.tag == "Player")
         {
-            collision.GetComponent<PlayerController>().InteractWithObject -= Interact;
+            EventBroker.InteractWithObject -= Interact;
         }
     }
 }

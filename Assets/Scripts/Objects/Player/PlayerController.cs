@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public partial class PlayerController : MonoBehaviour, IDestroyAble
+public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeInteraction
 {
     public float PushSpeed { get { return pushSpeed; } }
 
@@ -15,6 +15,8 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble
     private enum Facing { right, left }
     private Facing faceing;
     private enum Armed { none, pistol }
+    private SpriteRenderer hideSquare;
+    private bool hidedPlayer = false;
     [SerializeField] private Armed armed = Armed.none;
     [SerializeField] private LayerMask platforemLayerMask;
     [SerializeField] private GameObject lighter;
@@ -28,9 +30,7 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble
     [SerializeField] [Range(0, 5f)] private float bulletXOffset, bulletYOffset;
     bool cooldown = false;
     [SerializeField] [Range(0.1f, 10f)] float colddownTime;
-
-    public event Action InteractWithObject;
-    public event Action PlayerDeath;
+    [SerializeField] bool godMode = false;
 
     private void Awake()
     {
@@ -59,13 +59,46 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble
         stateMachine.HandleInput();
         stateMachine.Update();
         Torch();
-        PlayerInteract();
+        MakeInteraction();
         Shoot();
         Debug.Log(stateMachine.currentStateId);
         QuitGame();
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            GodModeMethod();
+        }
+    }
+    private void GodModeMethod()
+    {
+        if (godMode == true)
+        {
+            godMode = false;
+        }
+        else if (godMode == false)
+        {
+            godMode = true;
+        }
+    }
+    public void HideMethod(SpriteRenderer value)
+    {
+        hideSquare = value;
+        transform.tag = "Hide";
+        hidedPlayer = true;
+    }
+
+    private void UnHideMethod()
+    {
+        hideSquare.enabled = false;
+        hideSquare = null;
+        transform.tag = "Player";
+        hidedPlayer = false;
     }
     private void Movement(float move, float speed)
     {
+        if (hidedPlayer == true && move != 0)
+        {
+            UnHideMethod();
+        }
         rigidbody.velocity = new Vector2(move * speed, rigidbody.velocity.y);
     }
     private void ClimbLedder(float value)
@@ -87,6 +120,10 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble
     }
     private void Jump(float value)
     {
+        if (hidedPlayer == true)
+        {
+            UnHideMethod();
+        }
         if (IsGrounded())
         {
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, value);
@@ -107,14 +144,11 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble
             }
         }
     }
-    private void PlayerInteract()
+    public void MakeInteraction()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (InteractWithObject != null)
-            {
-                InteractWithObject();
-            }
+            EventBroker.CallInteractWithObject();
         }
     }
     public void GetInteractableObject(GameObject obj)
@@ -197,7 +231,10 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble
     }
     public void Death()
     {
-        ChangeState("death");
+        if (godMode == false)
+        {
+            ChangeState("death");
+        }
     }
     private void QuitGame()
     {

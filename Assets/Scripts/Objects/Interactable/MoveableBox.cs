@@ -24,7 +24,7 @@ public class MoveableBox : MonoBehaviour, IInteractable
             moveMe = false;
             player.ChangeState("idle");
             transform.SetParent(myParent);
-            player.InteractWithObject -= Interact;
+            EventBroker.InteractWithObject += Interact;
         }
     }
 
@@ -33,7 +33,7 @@ public class MoveableBox : MonoBehaviour, IInteractable
         if (collision.tag == "Player")
         {
             player = collision.GetComponent<PlayerController>();
-            player.InteractWithObject += Interact;
+            EventBroker.InteractWithObject -= Interact;
         }
     }
    /* private void OnTriggerExit2D(Collider2D collision)

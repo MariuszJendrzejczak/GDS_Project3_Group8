@@ -49,11 +49,13 @@ public class EnemyStateFields
             case Faceing.left:
                 hitInfo = Physics2D.Raycast(new Vector2(enemy.transform.position.x, enemy.transform.position.y + 2.5f), Vector2.left, raycastDistance, playerLayerMask);
                 Debug.DrawRay(new Vector2(enemy.transform.position.x, enemy.transform.position.y + 2.5f), Vector2.left * raycastDistance, Color.green, 0.1f);
+                enemy.transform.localScale = new Vector2(-0.5f, enemy.transform.localScale.y);
                 break;
 
             case Faceing.right:
                 hitInfo = Physics2D.Raycast(new Vector2(enemy.transform.position.x, enemy.transform.position.y + 2.5f), Vector2.right, raycastDistance, playerLayerMask);
                 Debug.DrawRay(new Vector2(enemy.transform.position.x, enemy.transform.position.y + 2.5f), Vector2.right * raycastDistance, Color.green, 0.1f);
+                enemy.transform.localScale = new Vector2(0.5f, enemy.transform.localScale.y);
                 break;
         }
     }

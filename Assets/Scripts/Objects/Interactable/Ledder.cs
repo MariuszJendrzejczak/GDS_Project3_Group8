@@ -29,7 +29,7 @@ public class Ledder : MonoBehaviour, IInteractable
         if(collision.tag == "Player")
         {
             player = collision.GetComponent<PlayerController>();
-            player.InteractWithObject += Interact;
+            EventBroker.InteractWithObject += Interact;
         }
     }
 
@@ -37,7 +37,7 @@ public class Ledder : MonoBehaviour, IInteractable
     {
         if(collision.tag == "Player")
         {
-            player.InteractWithObject -= Interact;
+            EventBroker.InteractWithObject -= Interact;
             coliderToIngnore.enabled = true;
         }
     }

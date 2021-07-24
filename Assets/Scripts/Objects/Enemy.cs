@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour, IDestroyAble
     }
     private void Update()
     {
+        Debug.Log(facing);
         stateMachine.Update();
     }
     public void Shoot()
@@ -46,11 +47,13 @@ public class Enemy : MonoBehaviour, IDestroyAble
             var offset = new Vector2(transform.position.x + bulletXOffset, transform.position.y + bulletYOffset);
             if (facing == Faceing.left)
             {
+                Debug.Log("EnemyShootFaceing LEFT!");
                 offset = new Vector2(transform.position.x + (bulletXOffset * -1f), transform.position.y + bulletYOffset);
                 shootLeftBool = true;
             }
             else if (facing == Faceing.right)
             {
+                Debug.Log("EnemyShootFaceing Right!");
                 shootLeftBool = false;
             }
             GameObject projectile = Instantiate(proyectilePrefab, offset, Quaternion.identity);
@@ -73,6 +76,7 @@ public class Enemy : MonoBehaviour, IDestroyAble
     public void Death()
     {
         EventBroker.PlayerDeath -= OnPlayerDeath;
+        Destroy(this.gameObject);
     }
 }
 
