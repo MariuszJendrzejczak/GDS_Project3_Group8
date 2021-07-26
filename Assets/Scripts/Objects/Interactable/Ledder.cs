@@ -13,12 +13,18 @@ public class Ledder : MonoBehaviour, IInteractable
         {
             player.GetInteractableObject(this.gameObject);
             player.ChangeState("climb");
-            coliderToIngnore.enabled = false;
             climbing = true;
+            if (coliderToIngnore != null)
+            {
+                coliderToIngnore.enabled = false;
+            }
         }
         else if (climbing == true)
         {
-            coliderToIngnore.enabled = true;
+            if (coliderToIngnore != null)
+            {
+                coliderToIngnore.enabled = true;
+            }
             climbing = false;
         }
 
@@ -38,7 +44,10 @@ public class Ledder : MonoBehaviour, IInteractable
         if(collision.tag == "Player")
         {
             EventBroker.InteractWithObject -= Interact;
-            coliderToIngnore.enabled = true;
+            if (coliderToIngnore != null)
+            {
+                coliderToIngnore.enabled = true;
+            }
         }
     }
 }
