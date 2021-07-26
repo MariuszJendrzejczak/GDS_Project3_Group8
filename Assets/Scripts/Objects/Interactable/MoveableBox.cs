@@ -24,23 +24,23 @@ public class MoveableBox : MonoBehaviour, IInteractable
             moveMe = false;
             player.ChangeState("idle");
             transform.SetParent(myParent);
-            EventBroker.InteractWithObject += Interact;
+            EventBroker.InteractWithObject -= Interact;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        player = collision.GetComponent<PlayerController>();
         if (collision.tag == "Player")
         {
-            player = collision.GetComponent<PlayerController>();
-            EventBroker.InteractWithObject -= Interact;
+            EventBroker.InteractWithObject += Interact;
         }
     }
-   /* private void OnTriggerExit2D(Collider2D collision)
+    /*private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
-            player.InteractWithObject -= Interact;
+            EventBroker.InteractWithObject -= Interact;
         }
     }*/
     private void Start()
