@@ -6,7 +6,7 @@ public class HorizontalProjectileMovement : MonoBehaviour
 {
     private enum ShootTo { right, left }
     private ShootTo shootTo;
-    [SerializeField][Range(1f, 10f)] private float bulletSpeed = 1f;
+    [SerializeField][Range(1f, 25f)] private float bulletSpeed = 1f;
 
     // Update is called once per frame
     void Update()
