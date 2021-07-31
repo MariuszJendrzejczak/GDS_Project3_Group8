@@ -38,5 +38,9 @@ public class PlaceholderMainMenu : MonoBehaviour
         {
             SceneManager.LoadScene(3);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            SceneManager.LoadScene(4);
+        }
     }
 }
