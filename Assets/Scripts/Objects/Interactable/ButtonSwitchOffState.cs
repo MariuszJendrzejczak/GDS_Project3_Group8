@@ -3,11 +3,14 @@ using UnityEngine;
 
 public class ButtonSwitchOffState : IState
 {
+    private Sprite onSprite, offSprite;
     public void Enter(params object[] args)
     {
         List<InteractableObject> toSwitchList = (List<InteractableObject>)args[0];
         SpriteRenderer renderer = (SpriteRenderer)args[1];
-        renderer.color = Color.red;
+        onSprite = (Sprite)args[2];
+        offSprite = (Sprite)args[3];
+        renderer.sprite = offSprite;
     }
 
     public void Exit()

@@ -10,7 +10,7 @@ public partial class PlayerController
             GameObject ledder = (GameObject)args[1];
             
             player.SetGravityValue(0);
-            player.transform.position = new Vector2(ledder.transform.position.x, player.transform.position.y);
+            player.transform.position = new Vector2(ledder.transform.position.x - 1f, player.transform.position.y);
         }
 
         public void Exit()

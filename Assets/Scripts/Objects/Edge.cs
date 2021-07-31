@@ -8,7 +8,7 @@ public class Edge : MonoBehaviour
     public enum FaceingRequirement { right, left }
     public FaceingRequirement facingRequirement;
     public List<Transform> transformList;
-    public BoxCollider2D colliderToIngrre;
+    public EdgeCollider2D colliderToIngrre;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

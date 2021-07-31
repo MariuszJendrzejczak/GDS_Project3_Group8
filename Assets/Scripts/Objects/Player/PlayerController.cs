@@ -15,7 +15,7 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
     private enum Facing { right, left }
     private Facing faceing;
     private enum Armed { none, pistol }
-    private SpriteRenderer hideSquare;
+    private SpriteRenderer hideRenderer;
     private bool hidedPlayer = false;
     [SerializeField] private Armed armed = Armed.none;
     [SerializeField] private LayerMask platforemLayerMask;
@@ -81,15 +81,15 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
     }
     public void HideMethod(SpriteRenderer value)
     {
-        hideSquare = value;
+        hideRenderer = value;
         transform.tag = "Hide";
         hidedPlayer = true;
     }
 
     private void UnHideMethod()
     {
-        hideSquare.enabled = false;
-        hideSquare = null;
+        hideRenderer.sortingOrder = 10;
+        hideRenderer = null;
         transform.tag = "Player";
         hidedPlayer = false;
     }

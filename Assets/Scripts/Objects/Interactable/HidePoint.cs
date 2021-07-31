@@ -5,11 +5,11 @@ using UnityEngine;
 public class HidePoint : MonoBehaviour, IInteractable
 {
     private PlayerController player;
-    [SerializeField] SpriteRenderer hideSquare;
+    [SerializeField] SpriteRenderer renderer;
     public void Interact()
     {
-        hideSquare.enabled = true;
-        player.HideMethod(hideSquare);
+        renderer.sortingOrder = 100;
+        player.HideMethod(renderer);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,17 +27,5 @@ public class HidePoint : MonoBehaviour, IInteractable
         {
             EventBroker.InteractWithObject -= Interact;
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

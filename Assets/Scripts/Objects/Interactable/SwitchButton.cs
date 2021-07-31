@@ -1,7 +1,9 @@
 ﻿using System.Diagnostics;
+using UnityEngine;
 
 public class SwitchButton : InteractableObject, IInteractable
 {
+    [SerializeField] private Sprite onSprite, offSprite;
     public enum StartingStateKay { on, off }
     public StartingStateKay startingState;
     protected override void Awake()
@@ -9,11 +11,11 @@ public class SwitchButton : InteractableObject, IInteractable
         base.Awake();
         stateMachine.Add("on", new ButtonSwitchOnState());
         stateMachine.Add("off", new ButtonSwitchOffState());
-        stateMachine.Change(startingState.ToString(), toSwitchList, renderer);
+        ChangeState(startingState.ToString());
     }
     protected override void Start()
     {
-        stateMachine.SetStartingState("off");
+        stateMachine.SetStartingState(startingState.ToString());
         base.Start();
     }
     public override void Interact()
@@ -21,11 +23,11 @@ public class SwitchButton : InteractableObject, IInteractable
         base.Interact();
         if (currentStateId == "off")
         {
-            stateMachine.Change("on", toSwitchList, renderer);
+            ChangeState("on");
         }
         else if (currentStateId == "on")
         {
-            stateMachine.Change("off", toSwitchList, renderer);
+            ChangeState("off");
         }
         foreach(ISwitchable obj in toSwitchList)
         {
@@ -37,5 +39,9 @@ public class SwitchButton : InteractableObject, IInteractable
     {
         stateMachine.Update();
         stateMachine.HandleInput();
+    }
+    public void ChangeState(string kay)
+    {
+        stateMachine.Change(kay, toSwitchList, renderer, onSprite, offSprite);
     }
 }
