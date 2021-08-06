@@ -44,6 +44,7 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
         stateMachine.Add("climbdown", new PlayerClimbinDownState());
         stateMachine.Add("push", new PlayerPushState());
         stateMachine.Add("death", new PlayerDeathState());
+        stateMachine.Add("fall", new PlayerFallState());
 
     }
     void Start()
@@ -61,6 +62,7 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
         Torch();
         MakeInteraction();
         Shoot();
+        FallCheck();
         Debug.Log(stateMachine.currentStateId);
         QuitGame();
         if (Input.GetKeyDown(KeyCode.G))
@@ -167,7 +169,7 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
 
     public bool IsGrounded()
     {
-        RaycastHit2D rayCastHit = Physics2D.BoxCast(collider.bounds.center, collider.bounds.size, 0f, Vector2.down, 1f, platforemLayerMask);
+        RaycastHit2D rayCastHit = Physics2D.BoxCast(collider.bounds.center, collider.bounds.size, 0f, Vector2.down, 0.75f, platforemLayerMask);
         Color rayColor;
         float extraHightText = 1f;
 
@@ -229,6 +231,17 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
             }
         }
     }
+    private void FallCheck()
+    {
+        if (rigidbody.velocity.y < 0 && IsGrounded() == false)
+        {
+            ChangeState("fall");
+        }
+    }
+    public void LaunchLandCoroutine()
+    {
+        StartCoroutine(Land());
+    }
     public void Death()
     {
         if (godMode == false)
@@ -273,6 +286,13 @@ private void OnTriggerEnter2D(Collider2D collision)
     {
         yield return new WaitForSeconds(value);
         cooldown = false;
+    }
+    private IEnumerator Land()
+    {
+        animator.SetTrigger("land");
+        yield return new WaitForSeconds(0.1f);
+        animator.SetTrigger("idle");
+        ChangeState("idle");
     }
 }
  
