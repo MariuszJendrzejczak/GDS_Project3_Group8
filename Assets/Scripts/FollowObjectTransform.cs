@@ -5,7 +5,8 @@ using UnityEngine;
 public class FollowObjectTransform : MonoBehaviour
 {
     [SerializeField] Transform objectToFollow;
-    [SerializeField][Range(-10f, 10f)] private float offsetX, offsetY, offsetZ;
+    [SerializeField] private Vector3 offset;
+    [SerializeField][Range(2, 15)] private float smoothSpeed = 0.125f;
 
     void Start()
     {
@@ -13,8 +14,10 @@ public class FollowObjectTransform : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.position = new Vector3(objectToFollow.position.x + offsetX, objectToFollow.position.y + offsetY, objectToFollow.position.z + offsetZ);
+        Vector3 desiredPosition = objectToFollow.position + offset;
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+        transform.position = smoothedPosition;
     }
 }
