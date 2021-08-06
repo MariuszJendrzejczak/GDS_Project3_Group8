@@ -23,4 +23,22 @@ public class EventBroker : MonoBehaviour
             InteractWithObject();
         }
     }
+
+    public static event Action RespawnToCheckPoint;
+    public static void CallRespawntoCheckPoint()
+    {
+        if (RespawnToCheckPoint != null)
+        {
+            RespawnToCheckPoint();
+        }
+    }
+
+    public static event Action<GameObject> CheckPointReached;
+    public static void CallCheckPointReached(GameObject value)
+    {
+        if (CheckPointReached != null)
+        {
+            CheckPointReached(value);
+        }
+    }
 }

@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour, IDestroyAble
     [SerializeField] [Range(0.5f, 5f)] private float cooldownTime;
     public enum Faceing { left, right }
     [SerializeField] protected Faceing facing;
+    private IRespawnAble respawn;
 
     protected virtual void Awake()
     {
@@ -29,6 +30,8 @@ public class Enemy : MonoBehaviour, IDestroyAble
     protected virtual void Start()
     {
         EventBroker.PlayerDeath += OnPlayerDeath;
+
+        respawn = GetComponent<IRespawnAble>();
     }
     protected virtual void Update()
     {
@@ -72,7 +75,8 @@ public class Enemy : MonoBehaviour, IDestroyAble
     public void Death()
     {
         EventBroker.PlayerDeath -= OnPlayerDeath;
-        Destroy(this.gameObject);
+        respawn.OnMyDeath();
+        this.gameObject.SetActive(false);
     }
 }
 

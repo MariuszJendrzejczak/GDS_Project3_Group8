@@ -16,12 +16,27 @@ public class EnemyPawn : Enemy
     protected override void Start()
     {
         base.Start();
-        stateMachine.Change(startingState.ToString(), this, stateMachine, patrolPoints, playerLeyerMask, raycastDistance, null, rayCastOffsetX, rayCastOffsetY, null);
+        ChangeState(startingState.ToString());
+    }
+
+    public void ChangeState(string key)
+    {
+        stateMachine.Change(key, this, stateMachine, patrolPoints, playerLeyerMask, raycastDistance, null, rayCastOffsetX, rayCastOffsetY, null);
     }
 
     // Update is called once per frame
     protected override void Update()
     {
         base.Update();
+    }
+
+    /*public override void RespawnMe()
+    {
+        base.RespawnMe();
+        ChangeState(startingState.ToString());
+    }*/
+    private void OnEnable()
+    {
+        ChangeState(startingState.ToString());
     }
 }

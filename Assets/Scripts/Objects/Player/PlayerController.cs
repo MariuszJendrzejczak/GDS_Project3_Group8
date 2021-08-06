@@ -236,6 +236,13 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
             ChangeState("death");
         }
     }
+    public void Respawn(Vector2 value)
+    {
+        Debug.Log("RespawnPlayer");
+        transform.position = value;
+        this.gameObject.SetActive(true);
+        ChangeState("idle");
+    }
     private void QuitGame()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
