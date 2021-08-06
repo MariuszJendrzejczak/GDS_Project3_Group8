@@ -8,7 +8,8 @@
             player.animator.SetTrigger("death");
             EventBroker.CallPlayerDeath();
             player.animator.SetTrigger("death");
-            player.gameObject.SetActive(false);
+            //player.gameObject.SetActive(false);
+            player.LaunchDeathCoroutine();
         }
 
         public void Exit()

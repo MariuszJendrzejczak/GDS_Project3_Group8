@@ -242,6 +242,11 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
     {
         StartCoroutine(Land());
     }
+
+    public void LaunchDeathCoroutine()
+    {
+        StartCoroutine(DeathRutine());
+    }
     public void Death()
     {
         if (godMode == false)
@@ -281,6 +286,11 @@ private void OnTriggerEnter2D(Collider2D collision)
         {
             stateMachine.Change("idle", this);
         }
+    }
+    private IEnumerator DeathRutine()
+    {
+        yield return new WaitForSeconds(2f);
+        this.gameObject.SetActive(false);
     }
     private IEnumerator Cooldown(float value)
     {
