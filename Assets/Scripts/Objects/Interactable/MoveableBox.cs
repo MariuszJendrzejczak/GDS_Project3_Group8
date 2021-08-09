@@ -3,14 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveableBox : MonoBehaviour, IInteractable
+public class MoveableBox : InteractableObject, IInteractable
 {
     private bool moveMe = false;
     private Rigidbody2D rigidbody;
-    private PlayerController player;
     private float handleInpusHorizontal;
     [SerializeField] private Transform myParent;
-    public void Interact()
+    public override void Interact()
     {
         if(moveMe == false)
         {
@@ -28,21 +27,22 @@ public class MoveableBox : MonoBehaviour, IInteractable
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         player = collision.GetComponent<PlayerController>();
         if (collision.tag == "Player")
         {
             EventBroker.InteractWithObject += Interact;
+            EventBroker.CallUpdateTipText(tipText);
         }
-    }
-    /*private void OnTriggerExit2D(Collider2D collision)
+    }*/
+    protected override void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
-            EventBroker.InteractWithObject -= Interact;
+            EventBroker.CallUpdateTipText("");
         }
-    }*/
+    }
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();

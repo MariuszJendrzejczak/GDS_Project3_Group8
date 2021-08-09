@@ -7,7 +7,9 @@ public class InteractableObject : MonoBehaviour, IInteractable
     public Dictionary<string, IState> stateDictionary;
     public List<InteractableObject> toSwitchList;
     protected string currentStateId;
+    protected PlayerController player;
     protected SpriteRenderer renderer;
+    [SerializeField] protected string tipText;
     protected virtual void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
@@ -33,15 +35,18 @@ public class InteractableObject : MonoBehaviour, IInteractable
     {
         if (collision.tag == "Player")
         {
+            player = collision.GetComponent<PlayerController>();
             EventBroker.InteractWithObject += Interact;
+            EventBroker.CallUpdateTipText(tipText);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected virtual void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
             EventBroker.InteractWithObject -= Interact;
+            EventBroker.CallUpdateTipText("");
         }
     }
 }

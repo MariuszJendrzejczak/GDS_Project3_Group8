@@ -41,4 +41,13 @@ public class EventBroker : MonoBehaviour
             CheckPointReached(value);
         }
     }
+
+    public static event Action<String> UpdateTipText;
+    public static void CallUpdateTipText(String value)
+    {
+        if (UpdateTipText != null)
+        {
+            UpdateTipText(value);
+        }
+    }
 }
