@@ -1,25 +1,22 @@
 fileFormatVersion: 2
-guid: e08888c1a1539024fb4cf123b1d6a835
+guid: efe792c750a3a5f4488a15b85d33282d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2794945942374919788
-    second: asset_ledge_left_solo
+      213: -2603317412757829357
+    second: asset_cannon_0
   - first:
-      213: 8366532466909398119
-    second: asset_ledge_right_solo
+      213: 5979725892475747209
+    second: asset_cannon_1
   - first:
-      213: -7085809764190560154
-    second: asset_ledge_left_solo
+      213: 3101447163241302491
+    second: asset_cannon_2
   - first:
-      213: 2771754484048891274
-    second: asset_ledge_right_solo
+      213: -1923139803528613067
+    second: asset_cannon_3
   - first:
-      213: 5594254308358951329
-    second: asset_ledge_left_1lvl
-  - first:
-      213: -7196058066770120531
-    second: asset_ledge_right_1lvl
+      213: -2203058165376849818
+    second: asset_cannon_loaded
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -105,53 +102,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: asset_ledge_left_solo
+      name: asset_cannon_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 149
-        width: 224
-        height: 74
+        y: 112
+        width: 84
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,41 +120,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 491d252497b5639d0800000000000000
-      internalID: -2794945942374919788
+      spriteID: 3190bf62b982fdbd0800000000000000
+      internalID: -2603317412757829357
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asset_ledge_right_solo
-      rect:
-        serializedVersion: 2
-        x: 226
-        y: 149
-        width: 224
-        height: 74
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 76448eb63f4eb1470800000000000000
-      internalID: 8366532466909398119
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: asset_ledge_left
+      name: asset_cannon_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 74
-        width: 225
-        height: 75
+        y: 84
+        width: 84
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,20 +141,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6606d6bcf852aad90800000000000000
-      internalID: -7085809764190560154
+      spriteID: 98bf83b64014cf250800000000000000
+      internalID: 5979725892475747209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asset_ledge_right
+      name: asset_cannon_2
       rect:
         serializedVersion: 2
-        x: 225
-        y: 74
-        width: 225
-        height: 75
+        x: 0
+        y: 56
+        width: 84
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,20 +162,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8d84529400477620800000000000000
-      internalID: 2771754484048891274
+      spriteID: bd904a643cd8a0b20800000000000000
+      internalID: 3101447163241302491
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asset_ledge_left_1lvl
+      name: asset_cannon_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 28
+        width: 84
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5333345b982af45e0800000000000000
+      internalID: -1923139803528613067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asset_cannon_loaded
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 225
-        height: 74
+        width: 84
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,29 +204,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a11fe067a8c2ad40800000000000000
-      internalID: 5594254308358951329
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: asset_ledge_right_1lvl
-      rect:
-        serializedVersion: 2
-        x: 225
-        y: 0
-        width: 225
-        height: 74
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: da0351b8057722c90800000000000000
-      internalID: -7196058066770120531
+      spriteID: 6686039554a2d61e0800000000000000
+      internalID: -2203058165376849818
       vertices: []
       indices: 
       edges: []

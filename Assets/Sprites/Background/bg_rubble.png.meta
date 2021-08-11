@@ -1,25 +1,19 @@
 fileFormatVersion: 2
-guid: e08888c1a1539024fb4cf123b1d6a835
+guid: b2e598015f4bb0344b659bd812ba03a7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2794945942374919788
-    second: asset_ledge_left_solo
+      213: -6708074750662260372
+    second: bg_rubble_0
   - first:
-      213: 8366532466909398119
-    second: asset_ledge_right_solo
+      213: 3855571171482353324
+    second: bg_rubble_1
   - first:
-      213: -7085809764190560154
-    second: asset_ledge_left_solo
+      213: -3373505617976482784
+    second: bg_rubble_2
   - first:
-      213: 2771754484048891274
-    second: asset_ledge_right_solo
-  - first:
-      213: 5594254308358951329
-    second: asset_ledge_left_1lvl
-  - first:
-      213: -7196058066770120531
-    second: asset_ledge_right_1lvl
+      213: 1704907145106538638
+    second: bg_rubble_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -105,53 +99,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: asset_ledge_left_solo
+      name: bg_rubble_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 149
-        width: 224
-        height: 74
+        y: 44
+        width: 196
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +117,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 491d252497b5639d0800000000000000
-      internalID: -2794945942374919788
+      spriteID: c6942002e8128e2a0800000000000000
+      internalID: -6708074750662260372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asset_ledge_right_solo
+      name: bg_rubble_1
       rect:
         serializedVersion: 2
-        x: 226
-        y: 149
-        width: 224
-        height: 74
+        x: 196
+        y: 44
+        width: 164
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,62 +138,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76448eb63f4eb1470800000000000000
-      internalID: 8366532466909398119
+      spriteID: cae31728d8db18530800000000000000
+      internalID: 3855571171482353324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asset_ledge_left
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 74
-        width: 225
-        height: 75
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6606d6bcf852aad90800000000000000
-      internalID: -7085809764190560154
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: asset_ledge_right
-      rect:
-        serializedVersion: 2
-        x: 225
-        y: 74
-        width: 225
-        height: 75
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a8d84529400477620800000000000000
-      internalID: 2771754484048891274
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: asset_ledge_left_1lvl
+      name: bg_rubble_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 225
-        height: 74
+        width: 259
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,20 +159,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a11fe067a8c2ad40800000000000000
-      internalID: 5594254308358951329
+      spriteID: 0242ab89386ee21d0800000000000000
+      internalID: -3373505617976482784
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asset_ledge_right_1lvl
+      name: bg_rubble_3
       rect:
         serializedVersion: 2
-        x: 225
+        x: 259
         y: 0
-        width: 225
-        height: 74
+        width: 102
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -264,8 +180,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da0351b8057722c90800000000000000
-      internalID: -7196058066770120531
+      spriteID: e80c917f30c09a710800000000000000
+      internalID: 1704907145106538638
       vertices: []
       indices: 
       edges: []
