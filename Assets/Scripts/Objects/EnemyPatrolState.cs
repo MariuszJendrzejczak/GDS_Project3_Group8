@@ -21,9 +21,10 @@ public class EnemyPatrolState : EnemyStateFields, IState
 
     public void Update()
     {
-        FacingCheck();
         Patrol();
         RaycastMethod();
+        FacingCheck();
+        FlipMethod();
         if (hitInfo.collider != null)
         {
             if (hitInfo.transform.tag == "Player")

@@ -44,12 +44,25 @@ public class EnemyStateFields
         {
             facing = Faceing.left;
             enemy.EnemyFaceing = Enemy.Faceing.left;
-
         }
         if (enemy.transform.position.x < target.x)
         {
             facing = Faceing.right;
             enemy.EnemyFaceing = Enemy.Faceing.right;
+        }
+    }
+
+    protected void FlipMethod()
+    {
+        switch (facing)
+        {
+            case Faceing.left:
+                enemy.transform.localScale = new Vector2(localScaleXbase, enemy.transform.localScale.y);
+                break;
+
+            case Faceing.right:
+                enemy.transform.localScale = new Vector2(localScaleXrevers, enemy.transform.localScale.y);
+                break;
         }
     }
 
@@ -60,13 +73,11 @@ public class EnemyStateFields
             case Faceing.left:
                 hitInfo = Physics2D.Raycast(new Vector2(enemy.transform.position.x - rayCastOffsetX, enemy.transform.position.y + rayCastOffsetY), Vector2.left, raycastDistance, playerLayerMask);
                 Debug.DrawRay(new Vector2(enemy.transform.position.x - rayCastOffsetX, enemy.transform.position.y + rayCastOffsetY), Vector2.left * raycastDistance, Color.green, 0.1f);
-                enemy.transform.localScale = new Vector2(localScaleXbase, enemy.transform.localScale.y);
                 break;
 
             case Faceing.right:
                 hitInfo = Physics2D.Raycast(new Vector2(enemy.transform.position.x + rayCastOffsetX, enemy.transform.position.y + rayCastOffsetY), Vector2.right, raycastDistance, playerLayerMask);
                 Debug.DrawRay(new Vector2(enemy.transform.position.x + rayCastOffsetX, enemy.transform.position.y + rayCastOffsetY), Vector2.right * raycastDistance, Color.green, 0.1f);
-                enemy.transform.localScale = new Vector2(localScaleXrevers, enemy.transform.localScale.y);
                 break;
         }
     }

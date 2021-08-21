@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour, IDestroyAble
     }
     protected virtual void Update()
     {
+        Debug.Log(facing.ToString());
         stateMachine.Update();
         stateMachine.HandleInput();
     }

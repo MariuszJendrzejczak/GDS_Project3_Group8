@@ -1,4 +1,6 @@
-﻿public class EnemyAttackState : EnemyStateFields, IState
+﻿using UnityEngine;
+using System.Collections;
+public class EnemyAttackState : EnemyStateFields, IState
 {
 
     public void Enter(params object[] args)
@@ -16,13 +18,15 @@
 
     public void Update()
     {
-        FacingCheck();
-        RaycastMethod();
         enemy.Shoot();
+        facing = (Faceing)enemy.EnemyFaceing;
         if (hitInfo.collider == null)
         {
             stateMachine.Change("patrol", enemy, stateMachine, patrolPoints, playerLayerMask, raycastDistance, hitInfo, rayCastOffsetX, rayCastOffsetY, null);
         }
+        RaycastMethod();
     }
+
+
 }
 

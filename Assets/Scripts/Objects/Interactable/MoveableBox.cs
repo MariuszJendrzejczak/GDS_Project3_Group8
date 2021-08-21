@@ -7,7 +7,6 @@ public class MoveableBox : InteractableObject, IInteractable
 {
     private bool moveMe = false;
     [SerializeField] private LayerMask platformLayerMask;
-    private PlayerController player;
     private Rigidbody2D rigidbody;
     private BoxCollider2D collider;
     private float handleInpusHorizontal;
@@ -49,7 +48,6 @@ public class MoveableBox : InteractableObject, IInteractable
     }
     private void Update()
     {
-        Debug.Log(moveMe);
         if (moveMe && Input.GetKeyDown(KeyCode.E))
         {
             RealeseBox();
