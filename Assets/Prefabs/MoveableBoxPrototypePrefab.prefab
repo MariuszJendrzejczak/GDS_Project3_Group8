@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3957590311906297807}
   - component: {fileID: 3957590311906297806}
   - component: {fileID: 3957590311906297841}
+  - component: {fileID: 712810333}
+  - component: {fileID: 712810332}
   m_Layer: 8
   m_Name: MoveableBoxPrototypePrefab
   m_TagString: Box
@@ -46,7 +48,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.3424313, y: -0.12730357}
+  m_Offset: {x: -0.007347107, y: -0.1273036}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -57,7 +59,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.4738498, y: 1.6925035}
+  m_Size: {x: 3.6584625, y: 1.6925035}
   m_EdgeRadius: 0
 --- !u!114 &3957590311906297841
 MonoBehaviour:
@@ -71,7 +73,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 339632bef266d704c8f515761999501e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toSwitchList: []
+  tipText: "Wci\u015Bnij E, \u017Ceby przesun\u0105\u0107 kamie\u0144"
+  platformLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
   myParent: {fileID: 0}
+--- !u!50 &712810333
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3957590311906297843}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 100
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &712810332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3957590311906297843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b1d2ed5300e404e99e158fdf9f166a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPosition: {x: 0, y: 0}
 --- !u!1 &3957590312492096682
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,7 +125,7 @@ GameObject:
   - component: {fileID: 3957590312492096681}
   - component: {fileID: 3957590312492096680}
   m_Layer: 8
-  m_Name: Square
+  m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,8 +139,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3957590312492096682}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2732, y: -0.255, z: 0}
-  m_LocalScale: {x: 2.5464, y: 2.51, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3957590311906297807}
   m_RootOrder: 0
@@ -144,7 +185,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7,
+  m_Sprite: {fileID: 6992495701589853109, guid: 318f0dde161d0244183bdb4e51f63ad4,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -169,16 +210,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.014930725, y: -0.044795513}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 3.125, y: 3.125}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.0605774, y: 2.9411259}
   m_EdgeRadius: 0
