@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeInteraction
 {
     public float PushSpeed { get { return pushSpeed; } }
+    public LayerMask PlatformLayerMask { get { return platforemLayerMask; } }
 
     private Rigidbody2D rigidbody;
     private CapsuleCollider2D collider;
