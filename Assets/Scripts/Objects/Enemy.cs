@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
  
     protected StateMachine stateMachine;
     [SerializeField] protected LayerMask playerLeyerMask;
-    [SerializeField][Range(3f, 20f)] protected float raycastDistance;
+    [SerializeField] [Range(3f, 20f)] protected float raycastDistance;
     [SerializeField] [Range(0f, 5f)] protected float rayCastOffsetX, rayCastOffsetY;
     [SerializeField] protected GameObject proyectilePrefab;
     [SerializeField] [Range(0, 5f)] private float bulletXOffset, bulletYOffset;

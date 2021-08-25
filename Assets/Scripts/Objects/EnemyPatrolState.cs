@@ -24,6 +24,7 @@ public class EnemyPatrolState : EnemyStateFields, IState
         RaycastMethod();
         FacingCheck();
         FlipMethod();
+        Patrol();
         if (hitInfo.collider != null)
         {
             if (hitInfo.transform.tag == "Player")
@@ -32,7 +33,7 @@ public class EnemyPatrolState : EnemyStateFields, IState
                 Debug.Log(hitInfo.collider.name);
             }
         }
-        Patrol();
+
     }
 
     private void Patrol()
