@@ -37,6 +37,9 @@ public class EnemyPawn : Enemy
     }*/
     private void OnEnable()
     {
-        ChangeState(startingState.ToString());
+        if(respawned)
+        {
+            ChangeState(startingState.ToString());
+        }
     }
 }

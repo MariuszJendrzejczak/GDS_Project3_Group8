@@ -29,6 +29,9 @@ public class EnemyTurret : Enemy
     }
     private void OnEnable()
     {
-        ChangeState(startingState.ToString());
+        if (respawned)
+        {
+            ChangeState(startingState.ToString());
+        }
     }
 }

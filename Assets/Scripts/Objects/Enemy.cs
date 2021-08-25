@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IDestroyAble
+public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
 {
     public Faceing EnemyFaceing
     {
@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour, IDestroyAble
     public enum Faceing { left, right }
     [SerializeField] protected Faceing facing;
     private IRespawnAble respawn;
+    protected bool respawned = false;
 
     protected virtual void Awake()
     {
@@ -78,6 +79,10 @@ public class Enemy : MonoBehaviour, IDestroyAble
         EventBroker.PlayerDeath -= OnPlayerDeath;
         respawn.OnMyDeath();
         this.gameObject.SetActive(false);
+    }
+    public void ChangeRespawnedBool()
+    {
+        respawned = true;
     }
 }
 
