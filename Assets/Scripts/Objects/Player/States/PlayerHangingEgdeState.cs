@@ -19,6 +19,7 @@ public partial class PlayerController
             player.SetGravityValue(0);
             target = transformList[1];
             edge.colliderToIngrre.enabled = false;
+            player.animator.SetTrigger("fall");
             
         }
 
@@ -48,11 +49,12 @@ public partial class PlayerController
             {
                 ClimbUp();
             }
-
+            player.animator.SetTrigger("climb");
         }
         private void ClimbUp()
         {
             player.transform.position = Vector2.MoveTowards(player.transform.position, target.position, player.climbEdgeSpeed);
+            player.animator.SetTrigger("climb");
             int counter = 2;
             if (player.transform.position == target.position)
             {

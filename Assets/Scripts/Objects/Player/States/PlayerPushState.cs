@@ -10,6 +10,7 @@ public partial class PlayerController
 
         public void Exit()
         {
+            player.animator.SetTrigger("idle");
         }
 
         public void HandleInput()
@@ -45,10 +46,6 @@ public partial class PlayerController
                 {
                     player.animator.SetTrigger("push");
                 }
-            }
-            if (horizontalInputValue == 0)
-            {
-                player.animator.SetTrigger("idle");
             }
         }
     }

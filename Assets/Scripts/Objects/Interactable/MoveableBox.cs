@@ -69,7 +69,10 @@ public class MoveableBox : InteractableObject, IInteractable
     {
         moveMe = false;
         edgeCollider.enabled = false;
-        player.ChangeState("idle");
+        if (player != null)
+        {
+            player.ChangeState("idle");
+        }
         transform.SetParent(myParent);
         rigidbody.gravityScale = 1;
         SetLayers(8);

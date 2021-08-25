@@ -51,6 +51,7 @@ public partial class PlayerController
         {
             player.Movement(horizontalInputValue, player.speed);
             player.HorizontalTurn(horizontalInputValue);
+            player.animator.SetTrigger("idle");
         }
     }
 }
