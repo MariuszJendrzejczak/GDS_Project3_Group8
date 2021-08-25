@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
     [SerializeField] protected Faceing facing;
     private IRespawnAble respawn;
     protected bool respawned = false;
+    public Animator animator;
 
     protected virtual void Awake()
     {
@@ -33,6 +34,7 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
         EventBroker.PlayerDeath += OnPlayerDeath;
 
         respawn = GetComponent<IRespawnAble>();
+        animator = GetComponent<Animator>();
     }
     protected virtual void Update()
     {
@@ -60,6 +62,7 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
             GameObject projectile = Instantiate(proyectilePrefab, offset, Quaternion.identity);
             projectile.GetComponent<HorizontalProjectileMovement>().UpdateShootTo(shootLeftBool);
             cooldown = true;
+            animator.SetTrigger("shoot");
             StartCoroutine(Cooldown(cooldownTime));
         }
     }
@@ -78,11 +81,24 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
     {
         EventBroker.PlayerDeath -= OnPlayerDeath;
         respawn.OnMyDeath();
-        this.gameObject.SetActive(false);
+        StartCoroutine(DeathRutine());
     }
     public void ChangeRespawnedBool()
     {
         respawned = true;
+    }
+    IEnumerator DeathRutine()
+    {
+        stateMachine.Change("empty");
+        animator.SetTrigger("death");
+        yield return new WaitForSeconds(3f);
+        this.gameObject.SetActive(false);
+    }
+
+    public void Respawn(Vector2 value)
+    {
+        animator.SetTrigger("respawn");
+        transform.position = value;
     }
 }
 

@@ -53,6 +53,7 @@ public class EnemyPatrolState : EnemyStateFields, IState
             patrolCounter = 0;
         }
         enemy.transform.position = Vector2.MoveTowards(enemy.transform.position, target, step);
+        enemy.animator.SetTrigger("move");
     }
 }
 

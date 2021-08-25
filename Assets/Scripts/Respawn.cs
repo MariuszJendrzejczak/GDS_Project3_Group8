@@ -32,8 +32,16 @@ public class Respawn : MonoBehaviour, IRespawnAble
     {
         this.gameObject.SetActive(false);
         Debug.Log("Respawn " + this.name);
-        transform.position = startPosition;
-        GetComponent<IRespawnBool>().ChangeRespawnedBool();
+        var respawnBool = GetComponent<IRespawnBool>();
+        if (respawnBool != null)
+        {
+            respawnBool.ChangeRespawnedBool();
+        }
+        var respawn = GetComponent<IDestroyAble>();
+        if(respawn != null)
+        {
+            respawn.Respawn(startPosition);
+        }
         this.gameObject.SetActive(true);
         myDeath = false;
     }
