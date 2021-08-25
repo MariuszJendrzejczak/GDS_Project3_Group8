@@ -38,7 +38,7 @@ EdgeCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2320862847014739481}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -142,6 +142,11 @@ PrefabInstance:
       propertyPath: myParent
       value: 
       objectReference: {fileID: 1646473707434989717}
+    - target: {fileID: 3957590311906297841, guid: eeb247bd5cdf0cc40bb6ac5235fbdd60,
+        type: 3}
+      propertyPath: edgeCollider
+      value: 
+      objectReference: {fileID: 9185907720642200354}
     - target: {fileID: 3957590311906297843, guid: eeb247bd5cdf0cc40bb6ac5235fbdd60,
         type: 3}
       propertyPath: m_Name

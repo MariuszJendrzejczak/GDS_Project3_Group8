@@ -62,7 +62,10 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
             GameObject projectile = Instantiate(proyectilePrefab, offset, Quaternion.identity);
             projectile.GetComponent<HorizontalProjectileMovement>().UpdateShootTo(shootLeftBool);
             cooldown = true;
-            animator.SetTrigger("shoot");
+            if (animator != null)
+            {
+                animator.SetTrigger("shoot");
+            }
             StartCoroutine(Cooldown(cooldownTime));
         }
     }
