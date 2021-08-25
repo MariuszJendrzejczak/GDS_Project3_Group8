@@ -15,11 +15,41 @@ public partial class PlayerController
         public void HandleInput()
         {
             horizontalInputValue = Input.GetAxis("Horizontal");
+            PushAndPullAnimationHandle();
         }
 
         public void Update()
         {
             player.Movement(horizontalInputValue, player.pushSpeed);
+        }
+        private void PushAndPullAnimationHandle()
+        {
+            if (player.faceing == Facing.right)
+            {
+                if(horizontalInputValue > 0)
+                {
+                    player.animator.SetTrigger("push");
+                }
+                else if (horizontalInputValue < 0)
+                {
+                    player.animator.SetTrigger("pull");
+                }
+            }
+            if (player.faceing == Facing.left)
+            {
+                if (horizontalInputValue > 0)
+                {
+                    player.animator.SetTrigger("pull");
+                }
+                else if (horizontalInputValue < 0)
+                {
+                    player.animator.SetTrigger("push");
+                }
+            }
+            if (horizontalInputValue == 0)
+            {
+                player.animator.SetTrigger("idle");
+            }
         }
     }
 }

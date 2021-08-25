@@ -10,7 +10,7 @@ public partial class PlayerController
             GameObject ledder = (GameObject)args[1];
             
             player.SetGravityValue(0);
-            player.transform.position = new Vector2(ledder.transform.position.x - 1f, player.transform.position.y);
+            player.transform.position = new Vector2(ledder.transform.position.x - 1.4f, player.transform.position.y);
         }
 
         public void Exit()
@@ -22,6 +22,10 @@ public partial class PlayerController
         public void HandleInput()
         {
             verticalInputValue = Input.GetAxis("Vertical");
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S))
+            {
+                player.animator.SetTrigger("lclimb");
+            }
             if (Input.GetKeyDown(KeyCode.E))
             {
                 player.stateMachine.Change("idle", player);

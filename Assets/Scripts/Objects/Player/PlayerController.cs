@@ -87,6 +87,7 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
         hideRenderer = value;
         transform.tag = "Hide";
         hidedPlayer = true;
+        animator.SetTrigger("cover");
     }
 
     private void UnHideMethod()
@@ -205,7 +206,7 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
 
     private void Shoot()
     {
-        if (cooldown == false && stateMachine.currentStateId == "idle")
+        if (cooldown == false && stateMachine.currentStateId == "idle" && hidedPlayer == false)
         {
             if (Input.GetKeyDown(KeyCode.L) && armed == Armed.pistol)
             {

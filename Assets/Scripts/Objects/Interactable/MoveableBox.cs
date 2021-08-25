@@ -9,6 +9,7 @@ public class MoveableBox : InteractableObject, IInteractable
     [SerializeField] private LayerMask platformLayerMask;
     private Rigidbody2D rigidbody;
     private BoxCollider2D collider;
+    [SerializeField] private EdgeCollider2D edgeCollider;
     private float handleInpusHorizontal;
     [SerializeField] private Transform myParent;
     public override void Interact()
@@ -16,6 +17,7 @@ public class MoveableBox : InteractableObject, IInteractable
         if(moveMe == false)
         {
             Debug.Log("Interact");
+            edgeCollider.enabled = true;
             moveMe = true;
             player.ChangeState("push");
             transform.SetParent(player.transform);
@@ -45,6 +47,7 @@ public class MoveableBox : InteractableObject, IInteractable
     {
         rigidbody = GetComponent<Rigidbody2D>();
         collider = GetComponent<BoxCollider2D>();
+
     }
     private void Update()
     {
@@ -65,6 +68,7 @@ public class MoveableBox : InteractableObject, IInteractable
     public void RealeseBox()
     {
         moveMe = false;
+        edgeCollider.enabled = false;
         player.ChangeState("idle");
         transform.SetParent(myParent);
         rigidbody.gravityScale = 1;
