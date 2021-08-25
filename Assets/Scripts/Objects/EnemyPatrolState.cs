@@ -21,7 +21,6 @@ public class EnemyPatrolState : EnemyStateFields, IState
 
     public void Update()
     {
-        Patrol();
         RaycastMethod();
         FacingCheck();
         FlipMethod();
@@ -33,6 +32,7 @@ public class EnemyPatrolState : EnemyStateFields, IState
                 Debug.Log(hitInfo.collider.name);
             }
         }
+        Patrol();
     }
 
     private void Patrol()
