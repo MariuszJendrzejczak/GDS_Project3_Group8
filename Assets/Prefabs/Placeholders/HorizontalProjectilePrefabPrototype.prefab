@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4968689640597376466}
   - component: {fileID: 4968689640597376467}
   - component: {fileID: 4968689640597376470}
+  - component: {fileID: 1622279752145279056}
   m_Layer: 0
   m_Name: HorizontalProjectilePrefabPrototype
   m_TagString: PlayerBullet
@@ -178,3 +179,17 @@ MonoBehaviour:
   killCollidedObject: 1
   killSelf: 1
   collisionTag: Enemy
+--- !u!114 &1622279752145279056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4968689640597376471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d057748d30a3e5040aaf5d3bcc8addc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  killSelf: 1
+  collisonTag: Switch
