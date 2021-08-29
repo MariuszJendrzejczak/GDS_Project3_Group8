@@ -40,6 +40,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toSwitchList:
   - {fileID: 7988730430198478051}
+  tipText: 
   onSprite: {fileID: -3523893405748047192, guid: 453fdfcc5d63f7547ab79929183a2051,
     type: 3}
   offSprite: {fileID: 6744803850101243893, guid: 453fdfcc5d63f7547ab79929183a2051,
@@ -140,7 +141,7 @@ GameObject:
   - component: {fileID: 7988730430198478061}
   - component: {fileID: 7988730430198478050}
   - component: {fileID: 7988730430198478051}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Elevator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,6 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toSwitchList:
   - {fileID: 7988730430198478051}
+  tipText: 
   moveToTransform: {fileID: 7988730430086288861}
   startTransform: {fileID: 7988730430594388004}
   startingPositionBool: 1
@@ -280,7 +282,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7988730430441604363}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 21.21, y: 0.82742476, z: 17.671724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -380,15 +382,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7988730430198478048}
     m_Modifications:
+    - target: {fileID: 1995513300, guid: 26bb8887579c4b742ab1b4b9e8f1c244, type: 3}
+      propertyPath: toSwitchList.Array.data[0]
+      value: 
+      objectReference: {fileID: 7988730430198478051}
     - target: {fileID: 1944350825316677557, guid: 26bb8887579c4b742ab1b4b9e8f1c244,
         type: 3}
       propertyPath: m_Name
       value: SwitchPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1944350825316677557, guid: 26bb8887579c4b742ab1b4b9e8f1c244,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4009448424866259975, guid: 26bb8887579c4b742ab1b4b9e8f1c244,
         type: 3}
       propertyPath: m_Name
       value: SwitchButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009448424866259975, guid: 26bb8887579c4b742ab1b4b9e8f1c244,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4065576831227451228, guid: 26bb8887579c4b742ab1b4b9e8f1c244,
         type: 3}
