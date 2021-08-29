@@ -31,10 +31,11 @@ public class InteractableObject : MonoBehaviour, IInteractable
     {
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
+            Debug.Log("Kolizja z: " + collision.name);
             player = collision.GetComponent<PlayerController>();
             EventBroker.InteractWithObject += Interact;
             EventBroker.CallUpdateTipText(tipText);

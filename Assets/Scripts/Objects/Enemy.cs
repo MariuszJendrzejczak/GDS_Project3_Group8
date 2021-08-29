@@ -38,7 +38,6 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
     }
     protected virtual void Update()
     {
-        Debug.Log(facing.ToString());
         stateMachine.Update();
         stateMachine.HandleInput();
     }

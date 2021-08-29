@@ -10,7 +10,7 @@ public partial class PlayerController
 
         public void Exit()
         {
-            player.animator.SetTrigger("idle");
+            //player.animator.SetTrigger("idle");
         }
 
         public void HandleInput()

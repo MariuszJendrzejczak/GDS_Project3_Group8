@@ -19,22 +19,16 @@ public class MoveableBox : InteractableObject, IInteractable
             Debug.Log("Interact");
             edgeCollider.enabled = true;
             moveMe = true;
-            player.ChangeState("push");
-            transform.SetParent(player.transform);
+            if(player!= null)
+            {
+                player.ChangeState("push");
+                transform.SetParent(player.transform);
+            }
             rigidbody.gravityScale = 0;
             SetLayers(0);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        player = collision.GetComponent<PlayerController>();
-        if (collision.tag == "Player")
-        {
-            EventBroker.InteractWithObject += Interact;
-            EventBroker.CallUpdateTipText(tipText);
-        }
-    }
     protected override void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.tag == "Player")
@@ -47,6 +41,14 @@ public class MoveableBox : InteractableObject, IInteractable
     {
         rigidbody = GetComponent<Rigidbody2D>();
         collider = GetComponent<BoxCollider2D>();
+        if (edgeCollider == null)
+        {
+            edgeCollider = GetComponent<EdgeCollider2D>();
+            if (edgeCollider == null)
+            {
+                Debug.LogError(this.name + " prefab jest niekompletny. Brakuje EdgeColidera2D na Swoim miejscu!");
+            }
+        }
 
     }
     private void Update()

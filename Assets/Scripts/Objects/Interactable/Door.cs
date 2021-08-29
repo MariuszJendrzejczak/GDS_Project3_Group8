@@ -34,6 +34,6 @@ public class Door : InteractableObject, ISwitchable
 
     public void SwitchObject()
     {
-        stateMachine.Change("close");
+        stateMachine.Change("close", openDoorRenderer, closeDoorRenderer, closedDoorCollider);
     }
 }
