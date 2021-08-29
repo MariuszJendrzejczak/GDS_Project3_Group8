@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2909034961734144710
+--- !u!1 &173678286207420969
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2909034961734144728}
-  - component: {fileID: 2909034961734144729}
+  - component: {fileID: 173678286207420968}
+  - component: {fileID: 173678286207420971}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: SceneSetup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2909034961734144728
+--- !u!4 &173678286207420968
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2909034961734144710}
+  m_GameObject: {fileID: 173678286207420969}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -8.324849, y: 6.971411, z: -24.669947}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2909034961734144729
+--- !u!114 &173678286207420971
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2909034961734144710}
+  m_GameObject: {fileID: 173678286207420969}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77ba03612af5295459e994001f6fe4d8, type: 3}
+  m_Script: {fileID: 11500000, guid: 333dad541c2e6914fa7ec7c3e1929615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObject: {fileID: 4053226347020246052, guid: 80fa7d43df1f37c439900a8cd2f7e452,
+  gameManager: {fileID: 1231756716123142496, guid: 4944235e76dc9264aaf46f8af0405091,
+    type: 3}
+  canvas: {fileID: 3352248758689513191, guid: 8955cb1f4d10c6e43bf060a9bdf2a412, type: 3}
+  playAble: 1
+  mainMenu: 0
+  playerCharacter: {fileID: 4053226347020246052, guid: 80fa7d43df1f37c439900a8cd2f7e452,
+    type: 3}
+  startingPoint: {fileID: 0}
+  mainCamera: {fileID: 3192364671650768152, guid: d03f07b7883c8be43b950f3b3bddaa58,
     type: 3}

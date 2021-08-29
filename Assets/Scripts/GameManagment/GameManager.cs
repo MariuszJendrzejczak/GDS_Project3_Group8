@@ -1,32 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private GameObject currentCheckPoint;
     [SerializeField] private GameObject playerObject;
     private PlayerController player;
+    private GameObject mainCamera;
     private bool playerDeath = false;
+    private int currentScenebuildIndex;
 
     private void Awake()
     {
-        // defensive programing for protection from always forgeting to attach obj to script designers!
-        if (playerObject == null)
-        {
-            playerObject = GameObject.FindGameObjectWithTag("Player");
-            if (playerObject == null)
-            {
-                Debug.LogError("Without a player character placed and attached on the scene, we can't play the scene my dear designer!");
-            }
-        }
     }
 
     void Start()
     {
         EventBroker.CheckPointReached += GetCurrentCheckPoint;
         EventBroker.PlayerDeath += OnPlayerDeath;
-        player = playerObject.GetComponent<PlayerController>();
     }
 
     void Update()
@@ -36,6 +29,21 @@ public class GameManager : MonoBehaviour
             RespawnPlayer(currentCheckPoint.transform.position);
             EventBroker.CallRespawntoCheckPoint();
         }
+    }
+
+    public void GetParmsFromSceneSetup(params object[] args)
+    {
+        playerObject = (GameObject)args[0];
+        player = playerObject.GetComponent<PlayerController>();
+        currentCheckPoint = (GameObject)args[1];
+        mainCamera = (GameObject)args[2];
+    }
+    public void StartScene()
+    {
+        var spownedPlayer = Instantiate(playerObject, currentCheckPoint.transform);
+        spownedPlayer.name = "PlayerCharacter";
+        spownedPlayer.transform.SetParent(null);
+        mainCamera.GetComponent<FollowObjectTransform>().SetObjectToFollow(spownedPlayer.transform);
     }
     public void OnPlayerDeath()
     {
