@@ -18,7 +18,6 @@ public class MoveableBox : InteractableObject, IInteractable
         {
             Debug.Log("Interact");
             edgeCollider.enabled = true;
-            moveMe = true;
             if(player!= null)
             {
                 player.ChangeState("push");
@@ -26,6 +25,7 @@ public class MoveableBox : InteractableObject, IInteractable
             }
             rigidbody.gravityScale = 0;
             SetLayers(0);
+            StartCoroutine(WaitForEndFrameToChangeMoveMeBool());
         }
     }
 
@@ -56,15 +56,18 @@ public class MoveableBox : InteractableObject, IInteractable
         if (moveMe && Input.GetKeyDown(KeyCode.E))
         {
             RealeseBox();
+            Debug.Log("Realese po E");
         }
         if (moveMe && IsGrounded() == false)
         {
             RealeseBox();
+            Debug.Log("Realese po grounded");
         }
         if (moveMe && Input.GetKeyUp(KeyCode.A) || moveMe && Input.GetKeyUp(KeyCode.D))
         {
             RealeseBox();
             EventBroker.InteractWithObject += Interact;
+            Debug.Log("Release po podniesieniu A lub W");
         }
     }
     public void RealeseBox()
@@ -106,4 +109,9 @@ public class MoveableBox : InteractableObject, IInteractable
 
         return rayCastHit.collider != null;
     }
+    IEnumerator WaitForEndFrameToChangeMoveMeBool()
+    {
+        yield return new WaitForEndOfFrame();
+        moveMe = true;
+    }    
 }
