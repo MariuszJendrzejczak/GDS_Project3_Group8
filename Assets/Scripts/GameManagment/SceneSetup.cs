@@ -37,7 +37,7 @@ public class SceneSetup : MonoBehaviour
             currentGameManager.name = "GameManagerContainer";
         }
         var script = currentGameManager.GetComponent<GameManager>();
-        script.GetParmsFromSceneSetup(playerCharacter, startingPoint, currentMainCamera);
+        script.GetParmsFromSceneSetup(playerCharacter, startingPoint, currentMainCamera, currentCanvas);
 
     }
     private void StartScene()

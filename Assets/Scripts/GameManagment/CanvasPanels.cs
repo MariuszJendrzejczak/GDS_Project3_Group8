@@ -6,4 +6,5 @@ public class CanvasPanels : MonoBehaviour
 {
     public GameObject MainMenuPanel;
     public GameObject TipsPanel;
+    public GameObject StoryPanel;
 }

@@ -6,14 +6,49 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] Text tipText;
+    [SerializeField] private Text tipText;
+    [SerializeField] private Text storyIndex;
+    [SerializeField] private Text storyHeader;
+    [SerializeField] private Text storyText;
+    private CanvasPanels canvasPanels;
+    private bool storyPanelOn = false;
+
     private void Start()
     {
+        canvasPanels = GetComponent<CanvasPanels>();
         EventBroker.UpdateTipText += UpdateTipText;
+        EventBroker.UpdateStoryText += UpdateStroyText;
+        EventBroker.SwitchOnOffStoryPanel += SwitchOnOffStoryPanel;
+        EventBroker.SwitchOffStoryPanel += SwitchOffStoryPanel;
     }
 
     private void UpdateTipText(string value)
     {
         tipText.text = value;
+    }
+    private void UpdateStroyText(string index, string header, string story )
+    {
+        Debug.Log("Index: " + index + " Header: " + header + " Story: " + story);
+        storyIndex.text = "#" + index;
+        storyHeader.text = header;
+        storyText.text = story;
+    }
+    private void SwitchOnOffStoryPanel()
+    {
+        if (storyPanelOn == true)
+        {
+            canvasPanels.StoryPanel.SetActive(false);
+            storyPanelOn = false;
+        }
+        else if (storyPanelOn == false)
+        {
+            canvasPanels.StoryPanel.SetActive(true);
+            storyPanelOn = true;
+        }
+    }
+    private void SwitchOffStoryPanel()
+    {
+        canvasPanels.StoryPanel.SetActive(false);
+        storyPanelOn = false;
     }
 }

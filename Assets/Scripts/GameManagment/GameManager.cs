@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject playerObject;
     private PlayerController player;
     private GameObject mainCamera;
+    private GameObject canvas;
     private bool playerDeath = false;
     private int currentScenebuildIndex;
 
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
         player = playerObject.GetComponent<PlayerController>();
         currentCheckPoint = (GameObject)args[1];
         mainCamera = (GameObject)args[2];
+        canvas = (GameObject)args[3];
     }
     public void StartScene()
     {
