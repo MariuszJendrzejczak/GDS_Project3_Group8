@@ -14,12 +14,15 @@ public class SceneSetup : MonoBehaviour
     [SerializeField] private GameObject startingPoint;
     [SerializeField] private GameObject mainCamera;
     private GameObject currentMainCamera;
+    [SerializeField] private GameObject globalLight2D;
+    [SerializeField] private GameObject currentGlobalLight2d;
     private bool firstApperence;
     void Awake()
     {
         MakeMainCamera();
         MakeGameManager();
         MakeCanvas();
+        MakeGlobalLight();
         StartScene();
     }
 
@@ -37,7 +40,7 @@ public class SceneSetup : MonoBehaviour
             currentGameManager.name = "GameManagerContainer";
         }
         var script = currentGameManager.GetComponent<GameManager>();
-        script.GetParmsFromSceneSetup(playerCharacter, startingPoint, currentMainCamera, currentCanvas);
+        script.GetParmsFromSceneSetup(playerCharacter, startingPoint, currentMainCamera, currentCanvas, currentGlobalLight2d);
 
     }
     private void StartScene()
@@ -75,6 +78,16 @@ public class SceneSetup : MonoBehaviour
         {
             currentMainCamera = Instantiate(mainCamera);
             currentMainCamera.name = "MainCamera";
+        }
+    }
+
+    private void MakeGlobalLight()
+    {
+        currentGlobalLight2d = GameObject.Find("Global Light 2D");
+        if(currentGlobalLight2d == null)
+        {
+            currentGlobalLight2d = Instantiate(globalLight2D);
+            currentGlobalLight2d.name = "Global Light 2D";
         }
     }
 }

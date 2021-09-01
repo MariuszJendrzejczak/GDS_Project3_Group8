@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private PlayerController player;
     private GameObject mainCamera;
     private GameObject canvas;
+    private GameObject globalLight2D;
     private bool playerDeath = false;
     private int currentScenebuildIndex;
 
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
         currentCheckPoint = (GameObject)args[1];
         mainCamera = (GameObject)args[2];
         canvas = (GameObject)args[3];
+        globalLight2D = (GameObject)args[4];
     }
     public void StartScene()
     {
