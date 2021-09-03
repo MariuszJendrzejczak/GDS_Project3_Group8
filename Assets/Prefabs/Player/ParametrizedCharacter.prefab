@@ -318,7 +318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4053226347020246052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4, y: -7.24, z: 0}
+  m_LocalPosition: {x: -38, y: -11.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5743754297625277850}
@@ -370,8 +370,7 @@ MonoBehaviour:
   jumpForce: 13
   climbLedderSpeed: 5
   climbEdgeSpeed: 0.05
-  bulletPrefab: {fileID: 4968689640597376471, guid: c54700665114ebd4d8a5f9d5194a4034,
-    type: 3}
+  bulletPrefab: {fileID: 0}
   bulletSpeed: 5
   bulletXOffset: 1
   bulletYOffset: 2.25
