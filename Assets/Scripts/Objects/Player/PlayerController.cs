@@ -70,6 +70,7 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
         {
             GodModeMethod();
         }
+        Debug.Log("Wartoœæ y velocity: " + rigidbody.velocity.y) ;
     }
     private void GodModeMethod()
     {

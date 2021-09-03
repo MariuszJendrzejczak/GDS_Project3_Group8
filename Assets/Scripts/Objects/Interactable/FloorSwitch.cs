@@ -11,26 +11,21 @@ public class FloorSwitch : SwitchButton, IInteractable
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        base.OnTriggerEnter2D(collision);
         if(collision.tag == "Box")
         {
-            EventBroker.InteractWithObject += Interact;
-            EventBroker.CallUpdateTipText(tipText);
             stepedByBox = true;
         }
         if(collision.tag == "Player")
         {
+            player = collision.GetComponent<PlayerController>();
             stepedByPlayer = true;
         }
     }
 
     protected override void OnTriggerExit2D(Collider2D collision)
     {
-        base.OnTriggerExit2D(collision);
         if (collision.tag == "Box")
         {
-            EventBroker.InteractWithObject -= Interact;
-            EventBroker.CallUpdateTipText("");
             stepedByBox = false;
         }
         if (collision.tag == "Player")
