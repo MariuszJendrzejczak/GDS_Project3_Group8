@@ -1097,6 +1097,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe5d4c380e796f488aee8cc1926f059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toSwitchList: []
+  tipText: 
   coliderToIngnore: {fileID: 1464045127}
 --- !u!61 &344025852
 BoxCollider2D:
@@ -2093,7 +2095,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005874131}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.34, y: -1.07, z: 0}
+  m_LocalPosition: {x: 24.34, y: -0.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2525,6 +2527,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1557961566}
     m_Modifications:
+    - target: {fileID: 512134887, guid: e20bcec438cfd6e4fb9359cab50aaff3, type: 3}
+      propertyPath: tipText
+      value: "Wci\u015Bnij E, \u017Ceby wej\u015B\u0107 po drabinie"
+      objectReference: {fileID: 0}
     - target: {fileID: 512134888, guid: e20bcec438cfd6e4fb9359cab50aaff3, type: 3}
       propertyPath: m_Size.y
       value: 7.82296
@@ -5953,6 +5959,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8521213984554036184, guid: df4af075eafcc494d8b351c9942339db,
+        type: 3}
+      propertyPath: storyNote
+      value: 
+      objectReference: {fileID: 11400000, guid: 8fcc36bee6884b1489f1cf27843b9799,
+        type: 2}
     - target: {fileID: 8521213984554036185, guid: df4af075eafcc494d8b351c9942339db,
         type: 3}
       propertyPath: m_Name
@@ -6119,12 +6131,12 @@ PrefabInstance:
     - target: {fileID: 8997578993478146107, guid: 2420a7b6230cd0743bbf7eec6e78a496,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.99
+      value: 27.13
       objectReference: {fileID: 0}
     - target: {fileID: 8997578993478146107, guid: 2420a7b6230cd0743bbf7eec6e78a496,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.63
+      value: -0.17
       objectReference: {fileID: 0}
     - target: {fileID: 8997578993478146107, guid: 2420a7b6230cd0743bbf7eec6e78a496,
         type: 3}

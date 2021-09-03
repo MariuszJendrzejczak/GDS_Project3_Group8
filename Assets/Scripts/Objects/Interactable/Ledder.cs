@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ledder : MonoBehaviour, IInteractable
+public class Ledder : InteractableObject, IInteractable
 {
-    PlayerController player;
     [SerializeField] BoxCollider2D coliderToIngnore;
     bool climbing = false;
-    public void Interact()
+    public override void Interact()
     {
         if(climbing == false)
         {
@@ -30,20 +29,11 @@ public class Ledder : MonoBehaviour, IInteractable
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnTriggerExit2D(Collider2D collision)
     {
+        base.OnTriggerExit2D(collision);
         if(collision.tag == "Player")
         {
-            player = collision.GetComponent<PlayerController>();
-            EventBroker.InteractWithObject += Interact;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.tag == "Player")
-        {
-            EventBroker.InteractWithObject -= Interact;
             if (coliderToIngnore != null)
             {
                 coliderToIngnore.enabled = true;
