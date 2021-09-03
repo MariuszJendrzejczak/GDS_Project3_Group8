@@ -31,7 +31,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
     {
     }
 
-    protected void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {

@@ -19,7 +19,6 @@ public class Light : InteractableObject, ISwitchable
     protected override void Start()
     {
         base.Start();
-
     }
     public void SwitchObject()
     {  

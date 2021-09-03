@@ -29,13 +29,16 @@ public class SwitchButton : InteractableObject, IInteractable
         {
             ChangeState("off");
         }
-        foreach(ISwitchable obj in toSwitchList)
+        if(toSwitchList != null)
         {
-            obj.SwitchObject();
+            foreach (ISwitchable obj in toSwitchList)
+            {
+                obj.SwitchObject();
+            }
         }
         currentStateId = stateMachine.currentStateId;
     }
-    private void Update()
+    protected void Update()
     {
         stateMachine.Update();
         stateMachine.HandleInput();
