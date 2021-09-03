@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     }
     public void StartScene()
     {
-        var spownedPlayer = Instantiate(playerObject, currentCheckPoint.transform);
+        var spownedPlayer = Instantiate(playerObject, currentCheckPoint.transform.position, Quaternion.identity);
         spownedPlayer.name = "PlayerCharacter";
         spownedPlayer.transform.SetParent(null);
         mainCamera.GetComponent<FollowObjectTransform>().SetObjectToFollow(spownedPlayer.transform);
