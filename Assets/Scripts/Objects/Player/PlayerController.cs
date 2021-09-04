@@ -228,7 +228,7 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
                         shootLeftBool = false;
                         break;
                 }
-                GameObject projectile = bulletPool.GetPooledObject();//, offset, Quaternion.identity);
+                GameObject projectile = bulletPool.GetPooledObject();
                 if(projectile != null)
                 {
                     projectile.transform.position = offset;
