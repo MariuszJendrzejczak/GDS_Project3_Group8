@@ -3732,12 +3732,12 @@ PrefabInstance:
     - target: {fileID: 8997578993478146107, guid: 2420a7b6230cd0743bbf7eec6e78a496,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 92.12
+      value: 88.9
       objectReference: {fileID: 0}
     - target: {fileID: 8997578993478146107, guid: 2420a7b6230cd0743bbf7eec6e78a496,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -29.3
+      value: -33.1
       objectReference: {fileID: 0}
     - target: {fileID: 8997578993478146107, guid: 2420a7b6230cd0743bbf7eec6e78a496,
         type: 3}
@@ -10331,6 +10331,7 @@ MonoBehaviour:
   rayCastOffsetX: 0
   rayCastOffsetY: 2.5
   proyectilePrefab: {fileID: 1049859215834710576}
+  bulletsPool: {fileID: 0}
   bulletXOffset: 0
   bulletYOffset: 2
   cooldownTime: 1
@@ -12474,6 +12475,7 @@ MonoBehaviour:
   rayCastOffsetX: 0
   rayCastOffsetY: 2.5
   proyectilePrefab: {fileID: 1049859215834710576}
+  bulletsPool: {fileID: 0}
   bulletXOffset: 0
   bulletYOffset: 2
   cooldownTime: 1

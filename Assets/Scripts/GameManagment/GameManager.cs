@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private GameObject currentCheckPoint;
-    [SerializeField] private GameObject playerObject;
+    private GameObject playerObject;
     private PlayerController player;
     private GameObject mainCamera;
     private GameObject canvas;
     private GameObject globalLight2D;
     private bool playerDeath = false;
     private int currentScenebuildIndex;
+    [SerializeField] private PoolingObject playerBullets, enemyBullets;
 
     private void Awake()
     {
@@ -41,12 +42,16 @@ public class GameManager : MonoBehaviour
         mainCamera = (GameObject)args[2];
         canvas = (GameObject)args[3];
         globalLight2D = (GameObject)args[4];
+        playerBullets = (PoolingObject)args[5];
+        enemyBullets = (PoolingObject)args[6];
     }
     public void StartScene()
     {
         var spownedPlayer = Instantiate(playerObject, currentCheckPoint.transform.position, Quaternion.identity);
         spownedPlayer.name = "PlayerCharacter";
         spownedPlayer.transform.SetParent(null);
+        spownedPlayer.GetComponent<PlayerController>().GetParamsFromGameManager(playerBullets);
+        EventBroker.CallGiveAllEnemyesOnSceneBulletPoolReference(enemyBullets);
         mainCamera.GetComponent<FollowObjectTransform>().SetObjectToFollow(spownedPlayer.transform);
     }
     public void OnPlayerDeath()

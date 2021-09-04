@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
     [SerializeField] [Range(3f, 20f)] protected float raycastDistance;
     [SerializeField] [Range(0f, 5f)] protected float rayCastOffsetX, rayCastOffsetY;
     [SerializeField] protected GameObject proyectilePrefab;
+    [SerializeField] PoolingObject bulletsPool;
     [SerializeField] [Range(0, 5f)] private float bulletXOffset, bulletYOffset;
     private bool cooldown = false;
     [SerializeField] [Range(0.5f, 5f)] private float cooldownTime;
@@ -28,6 +29,8 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
     {
         stateMachine = new StateMachine();
         stateMachine.Add("empty", new EmptyState());
+
+        EventBroker.GiveAllEnemyesOnSceneBulletPoolReference += GetBulletsPool;
     }
     protected virtual void Start()
     {
@@ -58,7 +61,10 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
                 Debug.Log("EnemyShootFaceing Right!");
                 shootLeftBool = false;
             }
-            GameObject projectile = Instantiate(proyectilePrefab, offset, Quaternion.identity);
+            //GameObject projectile = Instantiate(proyectilePrefab, offset, Quaternion.identity);
+            GameObject projectile = bulletsPool.GetPooledObject();
+            projectile.transform.position = offset;
+            projectile.SetActive(true);
             projectile.GetComponent<HorizontalProjectileMovement>().UpdateShootTo(shootLeftBool);
             cooldown = true;
             if (animator != null)
@@ -96,11 +102,15 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
         yield return new WaitForSeconds(3f);
         this.gameObject.SetActive(false);
     }
-
     public void Respawn(Vector2 value)
     {
         animator.SetTrigger("respawn");
         transform.position = value;
+    }
+
+    private void GetBulletsPool(PoolingObject pool)
+    {
+        bulletsPool = pool;
     }
 }
 

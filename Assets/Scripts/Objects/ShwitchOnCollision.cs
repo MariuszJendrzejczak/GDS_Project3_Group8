@@ -12,7 +12,7 @@ public class ShwitchOnCollision : MonoBehaviour
             collision.GetComponent<IInteractable>().Interact();
             if(killSelf)
             {
-                Destroy(this.gameObject);
+                gameObject.SetActive(false);
             }
         }
     }

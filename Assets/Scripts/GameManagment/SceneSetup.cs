@@ -16,13 +16,19 @@ public class SceneSetup : MonoBehaviour
     private GameObject currentMainCamera;
     [SerializeField] private GameObject globalLight2D;
     [SerializeField] private GameObject currentGlobalLight2d;
+    [SerializeField] private GameObject poolingObjects;
+    [SerializeField] private PoolingObject playerBullets, enemyBullets;
     private bool firstApperence;
     void Awake()
     {
         MakeMainCamera();
+        MakeObjectPools();
         MakeGameManager();
         MakeCanvas();
         MakeGlobalLight();
+    }
+    private void Start()
+    {
         StartScene();
     }
 
@@ -40,7 +46,7 @@ public class SceneSetup : MonoBehaviour
             currentGameManager.name = "GameManagerContainer";
         }
         var script = currentGameManager.GetComponent<GameManager>();
-        script.GetParmsFromSceneSetup(playerCharacter, startingPoint, currentMainCamera, currentCanvas, currentGlobalLight2d);
+        script.GetParmsFromSceneSetup(playerCharacter, startingPoint, currentMainCamera, currentCanvas, currentGlobalLight2d, playerBullets, enemyBullets);
 
     }
     private void StartScene()
@@ -89,5 +95,12 @@ public class SceneSetup : MonoBehaviour
             currentGlobalLight2d = Instantiate(globalLight2D);
             currentGlobalLight2d.name = "Global Light 2D";
         }
+    }
+    private void MakeObjectPools()
+    {
+        GameObject pool = Instantiate(poolingObjects);
+        playerBullets = pool.transform.GetChild(0).GetComponent<PoolingObject>();
+        enemyBullets = pool.transform.GetChild(1).GetComponent<PoolingObject>();
+
     }
 }

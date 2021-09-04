@@ -18,7 +18,7 @@ public class KillOnColision : MonoBehaviour
             }
             if (killSelf)
             {
-                Destroy(this.gameObject);
+                gameObject.SetActive(false);
             }
         }
     }

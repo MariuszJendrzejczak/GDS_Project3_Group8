@@ -26,7 +26,7 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
     [SerializeField] [Range(5f, 40f)] private float jumpForce;
     [SerializeField] [Range(1f, 200f)] private float climbLedderSpeed;
     [Range(0.01f, 0.2f)] public float climbEdgeSpeed;
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private PoolingObject bulletPool;
     [SerializeField] [Range(1f, 20f)] private float bulletSpeed;
     [SerializeField] [Range(0, 5f)] private float bulletXOffset, bulletYOffset;
     bool cooldown = false;
@@ -70,7 +70,10 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
         {
             GodModeMethod();
         }
-        Debug.Log("Wartoœæ y velocity: " + rigidbody.velocity.y) ;
+    }
+    public void GetParamsFromGameManager(params object[] args)
+    {
+        bulletPool = (PoolingObject)args[0];
     }
     private void GodModeMethod()
     {
@@ -225,9 +228,15 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
                         shootLeftBool = false;
                         break;
                 }
-                GameObject projectile = Instantiate(bulletPrefab, offset, Quaternion.identity);
-                var movement = projectile.GetComponent<HorizontalProjectileMovement>();
-                movement.UpdateShootTo(shootLeftBool);
+                GameObject projectile = bulletPool.GetPooledObject();//, offset, Quaternion.identity);
+                if(projectile != null)
+                {
+                    projectile.transform.position = offset;
+                    projectile.SetActive(true);
+                    var movement = projectile.GetComponent<HorizontalProjectileMovement>();
+                    movement.UpdateShootTo(shootLeftBool);
+                }
+
                 cooldown = true;
                 StartCoroutine(Cooldown(colddownTime));
                 // animator.ResetTrigger("shoot");

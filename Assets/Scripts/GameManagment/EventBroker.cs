@@ -76,4 +76,12 @@ public class EventBroker : MonoBehaviour
             SwitchOffStoryPanel();
         }
     }
+    public static event Action<PoolingObject> GiveAllEnemyesOnSceneBulletPoolReference;
+    public static void CallGiveAllEnemyesOnSceneBulletPoolReference(PoolingObject pool)
+    {
+        if (GiveAllEnemyesOnSceneBulletPoolReference != null)
+        {
+            GiveAllEnemyesOnSceneBulletPoolReference(pool);
+        }
+    }
 }
