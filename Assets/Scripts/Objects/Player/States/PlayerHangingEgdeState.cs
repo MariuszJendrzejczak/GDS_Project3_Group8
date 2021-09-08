@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public partial class PlayerController
 {
@@ -49,12 +51,12 @@ public partial class PlayerController
             {
                 ClimbUp();
             }
-            player.animator.SetTrigger("climb");
         }
         private void ClimbUp()
         {
-            player.transform.position = Vector2.MoveTowards(player.transform.position, target.position, player.climbEdgeSpeed);
+            //player.transform.position = Vector2.MoveTowards(player.transform.position, target.position, player.climbEdgeSpeed);
             player.animator.SetTrigger("climb");
+            player.StartCoroutine(ClimbingUPRutine());
             int counter = 2;
             if (player.transform.position == target.position)
             {
@@ -66,12 +68,17 @@ public partial class PlayerController
             }
             if (player.transform.position == target.position && counter == transformList.Count)
             {
-                player.stateMachine.Change("idle", player);
                 if(player.interactableObject != null)
                 {
                     edge.colliderToIngrre.enabled = true;
                 }
             }
+        }
+        private IEnumerator ClimbingUPRutine()
+        {
+            yield return new WaitForSeconds(2f);
+            player.transform.position = target.position;
+            player.stateMachine.Change("idle", player);
         }
     }
 }

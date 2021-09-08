@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 public partial class PlayerController
 {
+    // not used state. Cuted by design decision.
     public class PlayerClimbinDownState : PlayerStateFields, IState
     {
         List<Transform> transformList;

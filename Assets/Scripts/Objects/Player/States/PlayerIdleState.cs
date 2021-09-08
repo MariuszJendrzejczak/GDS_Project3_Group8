@@ -34,7 +34,8 @@ public partial class PlayerController
             {
                 player.Jump(player.jumpForce);
             }
-            if (Input.GetKeyDown(KeyCode.S))
+            // ClimbingDown Feateure swiched off by design decision.
+            /*if (Input.GetKeyDown(KeyCode.S))
             {
                 if(player.interactableObject != null)
                 {
@@ -44,7 +45,7 @@ public partial class PlayerController
                         player.stateMachine.Change("climbdown", player);
                     }
                 }
-            }
+            }*/
         }
 
         public void Update()
