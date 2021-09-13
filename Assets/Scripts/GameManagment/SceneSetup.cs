@@ -28,7 +28,7 @@ public class SceneSetup : MonoBehaviour
     {
         if (scenetype == SceneType.hub)
         {
-            MakeHubLevel();
+            //MakeHubLevel(); to uncomment when prefabs will be ready;
         }
         MakeMainCamera();
         MakeObjectPools();

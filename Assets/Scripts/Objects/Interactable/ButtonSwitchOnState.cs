@@ -10,7 +10,10 @@ public class ButtonSwitchOnState : IState
         SpriteRenderer renderer = (SpriteRenderer)args[1];
         onSprite = (Sprite)args[2];
         offSprite = (Sprite)args[3];
-        renderer.sprite = onSprite;
+        if(renderer != null)
+        {
+            renderer.sprite = onSprite;
+        }
     }
 
     public void Exit()
