@@ -311,7 +311,7 @@ private void OnTriggerEnter2D(Collider2D collision)
     }
     private IEnumerator Land()
     {
-        animator.SetTrigger("land");
+        animator.SetTrigger("idle");
         yield return new WaitForSeconds(0.1f);
         animator.SetTrigger("idle");
         ChangeState("idle");

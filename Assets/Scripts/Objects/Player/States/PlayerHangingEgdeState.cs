@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public partial class PlayerController
 {
@@ -8,7 +10,7 @@ public partial class PlayerController
         List<Transform> transformList;
         Transform target;
         Edge edge;
-        bool climbUp = false;
+        private bool climbedUp = false;
         public void Enter(params object[] args)
         {
             player = (PlayerController)args[0];
@@ -20,13 +22,13 @@ public partial class PlayerController
             target = transformList[1];
             edge.colliderToIngrre.enabled = false;
             player.animator.SetTrigger("fall");
+            climbedUp = false;
             
         }
 
         public void Exit()
         {
             player.SetGravityValue(1);
-            climbUp = false;
             edge.colliderToIngrre.enabled = true;
         }
 
@@ -34,7 +36,10 @@ public partial class PlayerController
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                climbUp = true;
+                if (climbedUp == false)
+                {
+                    ClimbUp();
+                }
             }
             if (Input.GetKeyDown(KeyCode.S))
             {
@@ -45,16 +50,12 @@ public partial class PlayerController
 
         public void Update()
         {
-            if (climbUp)
-            {
-                ClimbUp();
-            }
-            player.animator.SetTrigger("climb");
         }
         private void ClimbUp()
         {
-            player.transform.position = Vector2.MoveTowards(player.transform.position, target.position, player.climbEdgeSpeed);
+            climbedUp = true;
             player.animator.SetTrigger("climb");
+            player.StartCoroutine(ClimbingUPRutine());
             int counter = 2;
             if (player.transform.position == target.position)
             {
@@ -66,12 +67,17 @@ public partial class PlayerController
             }
             if (player.transform.position == target.position && counter == transformList.Count)
             {
-                player.stateMachine.Change("idle", player);
                 if(player.interactableObject != null)
                 {
                     edge.colliderToIngrre.enabled = true;
                 }
             }
+        }
+        private IEnumerator ClimbingUPRutine()
+        {
+            yield return new WaitForSeconds(2f);
+            player.transform.position = target.position;
+            player.stateMachine.Change("idle", player);
         }
     }
 }
