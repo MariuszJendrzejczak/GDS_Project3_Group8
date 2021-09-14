@@ -10,7 +10,7 @@ public partial class PlayerController
         List<Transform> transformList;
         Transform target;
         Edge edge;
-        bool climbUp = false;
+        private bool climbedUp = false;
         public void Enter(params object[] args)
         {
             player = (PlayerController)args[0];
@@ -22,13 +22,13 @@ public partial class PlayerController
             target = transformList[1];
             edge.colliderToIngrre.enabled = false;
             player.animator.SetTrigger("fall");
+            climbedUp = false;
             
         }
 
         public void Exit()
         {
             player.SetGravityValue(1);
-            climbUp = false;
             edge.colliderToIngrre.enabled = true;
         }
 
@@ -36,7 +36,10 @@ public partial class PlayerController
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                climbUp = true;
+                if (climbedUp == false)
+                {
+                    ClimbUp();
+                }
             }
             if (Input.GetKeyDown(KeyCode.S))
             {
@@ -47,14 +50,10 @@ public partial class PlayerController
 
         public void Update()
         {
-            if (climbUp)
-            {
-                ClimbUp();
-            }
         }
         private void ClimbUp()
         {
-            //player.transform.position = Vector2.MoveTowards(player.transform.position, target.position, player.climbEdgeSpeed);
+            climbedUp = true;
             player.animator.SetTrigger("climb");
             player.StartCoroutine(ClimbingUPRutine());
             int counter = 2;
