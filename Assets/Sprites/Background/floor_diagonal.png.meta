@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 53891657178560440a3537d9b76d4134
+guid: 16527b1dafbe59d47988194d7dc1f231
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5408135795722935318
-    second: walls_diagonal_lower_left
+      213: 3735194648550071297
+    second: floor_diagonal_left
   - first:
-      213: -6229873563695151439
-    second: walls_diagonal_lower_right
+      213: 5650841565543056360
+    second: floor_diagonal_right
+  - first:
+      213: 7788660273304635111
+    second: floor_diagonal_top_left
+  - first:
+      213: -1347189042102843407
+    second: floor_diagonal_top_right
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -97,43 +103,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: walls_diagonal_lower_left
+      name: floor_diagonal_left
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 390
+        width: 468
         height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 234, y: 0, z: 0, w: 0}
+      border: {x: 312, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61cd3294ade8d0b40800000000000000
-      internalID: 5408135795722935318
+      spriteID: 10c54c13eb316d330800000000000000
+      internalID: 3735194648550071297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walls_diagonal_lower_right
+      name: floor_diagonal_right
       rect:
         serializedVersion: 2
-        x: 234
+        x: 312
         y: 0
-        width: 390
+        width: 468
         height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 234, w: 0}
+      border: {x: 0, y: 0, z: 312, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b68a58400b0b89a0800000000000000
-      internalID: -6229873563695151439
+      spriteID: 8e3c434e672db6e40800000000000000
+      internalID: 5650841565543056360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_diagonal_top_left
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 152
+        width: 312
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 156, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e60582a041e61c60800000000000000
+      internalID: 7788660273304635111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_diagonal_top_right
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 152
+        width: 312
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 156, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f7492434b2dd4de0800000000000000
+      internalID: -1347189042102843407
       vertices: []
       indices: 
       edges: []
