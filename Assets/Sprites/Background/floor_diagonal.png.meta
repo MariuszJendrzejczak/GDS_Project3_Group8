@@ -14,6 +14,12 @@ TextureImporter:
   - first:
       213: -1347189042102843407
     second: floor_diagonal_top_right
+  - first:
+      213: -3300234543578062615
+    second: floor_diagonal_left_end
+  - first:
+      213: 2094847407481159722
+    second: floor_diagonal_right_end
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -58,7 +64,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -182,6 +188,48 @@ TextureImporter:
       bones: []
       spriteID: 1f7492434b2dd4de0800000000000000
       internalID: -1347189042102843407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_diagonal_left_end
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 222
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e06e820b263332d0800000000000000
+      internalID: -3300234543578062615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_diagonal_right_end
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 0
+        width: 222
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a20009d3e94621d10800000000000000
+      internalID: 2094847407481159722
       vertices: []
       indices: 
       edges: []

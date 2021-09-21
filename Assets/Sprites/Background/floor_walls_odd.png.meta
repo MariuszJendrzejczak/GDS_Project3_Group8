@@ -7,13 +7,25 @@ TextureImporter:
     second: floor_walls_odd
   - first:
       213: -81077020018679189
-    second: floor_walls_center
+    second: floor_walls_center_down
   - first:
       213: -613139675871189833
     second: brick_down
   - first:
       213: -3116783235192659763
     second: brick_up
+  - first:
+      213: -769960323189334973
+    second: brick_down_left
+  - first:
+      213: 5012079196154237771
+    second: brick_down_right
+  - first:
+      213: -4184806591072197330
+    second: floor_walls_center_up
+  - first:
+      213: -26224678299501759
+    second: floor_1brick
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -124,7 +136,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: floor_walls_center
+      name: floor_walls_center_down
       rect:
         serializedVersion: 2
         x: 155
@@ -148,10 +160,10 @@ TextureImporter:
       name: brick_down
       rect:
         serializedVersion: 2
-        x: 156
-        y: 76
-        width: 154
-        height: 74
+        x: 155
+        y: 75
+        width: 156
+        height: 76
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,10 +181,10 @@ TextureImporter:
       name: brick_up
       rect:
         serializedVersion: 2
-        x: 234
-        y: 152
-        width: 154
-        height: 74
+        x: 233
+        y: 151
+        width: 156
+        height: 76
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,6 +194,90 @@ TextureImporter:
       bones: []
       spriteID: dc0e2783926feb4d0800000000000000
       internalID: -3116783235192659763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brick_down_left
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 75
+        width: 155
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34c972d5a2d8055f0800000000000000
+      internalID: -769960323189334973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brick_down_right
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 75
+        width: 155
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4316e8497b7e8540800000000000000
+      internalID: 5012079196154237771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_walls_center_up
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 75
+        width: 312
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e25ad65d3949ce5c0800000000000000
+      internalID: -4184806591072197330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_1brick
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 227
+        width: 156
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14bfb954bc4d2aff0800000000000000
+      internalID: -26224678299501759
       vertices: []
       indices: 
       edges: []
