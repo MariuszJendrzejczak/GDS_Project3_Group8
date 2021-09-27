@@ -268,10 +268,10 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
     }
     public void Respawn(Vector2 value)
     {
-        Debug.Log("RespawnPlayer");
+        Debug.Log("RespawnPlayer at: " + value.ToString());
         transform.position = value;
         this.gameObject.SetActive(true);
-        ChangeState("idle");
+        //ChangeState("idle");
     }
     private void QuitGame()
     {
@@ -311,7 +311,7 @@ private void OnTriggerEnter2D(Collider2D collision)
     }
     private IEnumerator Land()
     {
-        animator.SetTrigger("idle");
+        animator.SetTrigger("land");
         yield return new WaitForSeconds(0.1f);
         animator.SetTrigger("idle");
         ChangeState("idle");

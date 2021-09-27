@@ -27,11 +27,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (playerDeath && Input.GetKeyDown(KeyCode.Return))
-        {
-            RespawnPlayer(currentCheckPoint.transform.position);
-            EventBroker.CallRespawntoCheckPoint();
-        }
+        RespawnPlayer();
     }
 
     public void GetParmsFromSceneSetup(params object[] args)
@@ -63,12 +59,13 @@ public class GameManager : MonoBehaviour
     {
         currentCheckPoint = value;
     }
-
-    public void RespawnPlayer(Vector2 value)
+    private void RespawnPlayer()
     {
-        player.Respawn(value);
-        playerDeath = false;
+        if (playerDeath && Input.GetKeyDown(KeyCode.Return))
+        {
+            player.Respawn(currentCheckPoint.transform.position);
+            playerDeath = false;
+            EventBroker.CallRespawntoCheckPoint();
+        }
     }
-
-    
 }
