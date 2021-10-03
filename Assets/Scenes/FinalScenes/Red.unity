@@ -1055,6 +1055,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1338303767}
     m_Modifications:
+    - target: {fileID: 691080383, guid: be663be9b1258684e858ad3d16e0118f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677057764, guid: be663be9b1258684e858ad3d16e0118f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3090449455978265897, guid: be663be9b1258684e858ad3d16e0118f,
         type: 3}
       propertyPath: m_RootOrder
@@ -2106,6 +2114,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1338303767}
     m_Modifications:
+    - target: {fileID: 691080383, guid: be663be9b1258684e858ad3d16e0118f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677057764, guid: be663be9b1258684e858ad3d16e0118f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3090449455978265897, guid: be663be9b1258684e858ad3d16e0118f,
         type: 3}
       propertyPath: m_RootOrder
@@ -14290,6 +14306,7 @@ MonoBehaviour:
   cooldownTime: 1
   facing: 0
   animator: {fileID: 0}
+  patrolSpeed: 0
   patrolPoints:
   - {fileID: 1715685669725648274}
   - {fileID: 1715685669072779715}
@@ -16194,6 +16211,7 @@ MonoBehaviour:
   cooldownTime: 1
   facing: 0
   animator: {fileID: 0}
+  patrolSpeed: 0
   patrolPoints:
   - {fileID: 7091568877970053467}
   - {fileID: 7091568877287036170}
