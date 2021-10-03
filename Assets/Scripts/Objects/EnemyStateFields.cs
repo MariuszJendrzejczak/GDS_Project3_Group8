@@ -34,6 +34,10 @@ public class EnemyStateFields
         {
             facing = (Faceing)args[8];
         }
+        if(args[9] != null)
+        {
+            step = (float)args[9];
+        }
 
         localScaleXbase = enemy.transform.localScale.x;
         localScaleXrevers = enemy.transform.localScale.x * -1f;

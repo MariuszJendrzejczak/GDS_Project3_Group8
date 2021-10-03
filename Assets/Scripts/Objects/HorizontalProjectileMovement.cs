@@ -8,7 +8,6 @@ public class HorizontalProjectileMovement : MonoBehaviour
     private ShootTo shootTo;
     [SerializeField][Range(1f, 25f)] private float bulletSpeed = 1f;
 
-    // Update is called once per frame
     void Update()
     {
         switch (shootTo)
@@ -18,6 +17,7 @@ public class HorizontalProjectileMovement : MonoBehaviour
                 break;
             case ShootTo.right:
                 transform.Translate(Vector2.right * bulletSpeed * Time.deltaTime);
+                transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
                 break;
         }
     }

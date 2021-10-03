@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
     private IRespawnAble respawn;
     protected bool respawned = false;
     public Animator animator;
+    [SerializeField][Range(1f, 5f)] protected float patrolSpeed;
 
     protected virtual void Awake()
     {

@@ -21,7 +21,7 @@ public class EnemyPawn : Enemy
 
     public void ChangeState(string key)
     {
-        stateMachine.Change(key, this, stateMachine, patrolPoints, playerLeyerMask, raycastDistance, null, rayCastOffsetX, rayCastOffsetY, null);
+        stateMachine.Change(key, this, stateMachine, patrolPoints, playerLeyerMask, raycastDistance, null, rayCastOffsetX, rayCastOffsetY, null, patrolSpeed);
     }
 
     // Update is called once per frame

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7419442847065008232}
   - component: {fileID: 7419442847065008237}
   - component: {fileID: 3783038824075673067}
+  - component: {fileID: 1410808286700260885}
   m_Layer: 0
   m_Name: Character projectile
   m_TagString: PlayerBullet
@@ -192,3 +193,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   killSelf: 1
   collisonTag: Switch
+--- !u!114 &1410808286700260885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7419442847065008236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eee2875267f96ac44904c4e45cab7b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  killCollidedObject: 0
+  killSelf: 1
+  collisionTag: Wall
