@@ -21,7 +21,7 @@ public class EnemyTurret : Enemy
 
     public void ChangeState(string key)
     {
-        stateMachine.Change(key, this, stateMachine, null, playerLeyerMask, raycastDistance, null, rayCastOffsetX, rayCastOffsetY, facing);
+        stateMachine.Change(key, this, stateMachine, null, playerLeyerMask, raycastDistance, null, rayCastOffsetX, rayCastOffsetY, facing, null);
     }
     protected override void Update()
     {
