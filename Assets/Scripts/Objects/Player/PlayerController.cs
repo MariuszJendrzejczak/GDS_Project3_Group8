@@ -210,7 +210,7 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
 
     private void Shoot()
     {
-        if (cooldown == false && stateMachine.currentStateId == "idle" && hidedPlayer == false)
+        if (cooldown == false && stateMachine.currentStateId == "idle" && hidedPlayer == false && IsGrounded())
         {
             if (Input.GetKeyDown(KeyCode.L) && armed == Armed.pistol)
             {
