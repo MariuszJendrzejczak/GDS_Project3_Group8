@@ -1202,6 +1202,32 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1102 &5790050302423901588
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: player_char_hold
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 0f6de15b3831cc24f854217481b487b1, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &5817171980218549876
 AnimatorState:
   serializedVersion: 6
@@ -1430,6 +1456,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 2860854172238539512}
     m_Position: {x: 130, y: 870, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 5790050302423901588}
+    m_Position: {x: 165, y: 935, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 8116277358695713236}
