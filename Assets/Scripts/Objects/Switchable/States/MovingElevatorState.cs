@@ -7,6 +7,7 @@ public class MovingElevatorState : IState
     private float moveSpeed;
     private StateMachine stateMachine;
     private bool startingPositionBool;
+    private PlayerController player;
     public void Enter(params object[] args)
     {
         elevator = (Elevator)args[0];
@@ -14,10 +15,22 @@ public class MovingElevatorState : IState
         moveSpeed = (float)args[2];
         stateMachine = (StateMachine)args[3];
         elevator.startingPositionBool = false;
+        player = (PlayerController)args[4];
+        if (player != null)
+        {
+            player.GetElevatorAsParremt(elevator.gameObject);
+            player.ChangeState("empty");
+        }
+
     }
 
     public void Exit()
     {
+        if (player != null)
+        {
+            player.SetParrentNull();
+            player.ChangeState("idle");
+        }
     }
 
     public void HandleInput()

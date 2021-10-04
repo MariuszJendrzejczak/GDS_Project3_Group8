@@ -13,13 +13,23 @@ public class Elevator : InteractableObject, ISwitchable
     {
         if (startingPositionBool)
         {
-            stateMachine.Change("move", this, moveToTransform, moveSpeed, stateMachine);
+            stateMachine.Change("move", this, moveToTransform, moveSpeed, stateMachine, player);
         }
         else
         {
-            stateMachine.Change("move", this, startTransform, moveSpeed, stateMachine);
+            stateMachine.Change("move", this, startTransform, moveSpeed, stateMachine, player);
             startingPositionBool = true;
         }
+    }
+
+    public void GetPlayerControlerRef(PlayerController playercontroler)
+    {
+        player = playercontroler;
+    }
+    protected override void Awake()
+    {
+        base.Awake();
+        EventBroker.GiveToAllPlayerCharacterRef += GetPlayerControlerRef;
     }
 
     // Start is called before the first frame update

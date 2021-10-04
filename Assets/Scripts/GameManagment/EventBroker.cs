@@ -84,4 +84,13 @@ public class EventBroker : MonoBehaviour
             GiveAllEnemyesOnSceneBulletPoolReference(pool);
         }
     }
+
+    public static event Action<PlayerController> GiveToAllPlayerCharacterRef;
+    public static void CallGiveToAllPlayerCharacterRef(PlayerController player)
+    {
+        if (GiveToAllPlayerCharacterRef != null)
+        {
+            GiveToAllPlayerCharacterRef(player);
+        }
+    }
 }

@@ -36,6 +36,7 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
     private void Awake()
     {
         stateMachine = new StateMachine();
+        stateMachine.Add("empty", new EmptyState());
         stateMachine.Add("idle", new PlayerIdleState());
         stateMachine.Add("walk", new PlayerWalkState());
         stateMachine.Add("jump", new PlayerJumpState());
@@ -54,6 +55,7 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
         collider = GetComponent<CapsuleCollider2D>();
         stateMachine.Change("idle", this);
         PlayerArmedAndUnarmedSpriteSwitch();
+        EventBroker.CallGiveToAllPlayerCharacterRef(GetComponent<PlayerController>());
     }
 
     void Update()
@@ -279,6 +281,15 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
         {
             SceneManager.LoadScene(0);
         }
+    }
+    
+    public void GetElevatorAsParremt(GameObject elevator)
+    {
+        transform.SetParent(elevator.transform);
+    }
+    public void SetParrentNull()
+    {
+        transform.SetParent(null);
     }
 
 private void OnTriggerEnter2D(Collider2D collision)
