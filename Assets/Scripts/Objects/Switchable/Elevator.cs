@@ -51,7 +51,6 @@ public class Elevator : InteractableObject, ISwitchable
         if (collision.collider.tag == "Player")
         {
             EventBroker.CallChangeElevatorBoolOnPlayer(true);
-            Debug.Log("TRUE");
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
