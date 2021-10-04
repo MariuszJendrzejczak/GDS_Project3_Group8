@@ -75,6 +75,7 @@ public partial class PlayerController
         }
         private IEnumerator ClimbingUPRutine()
         {
+            EventBroker.CallCharacterPlaySfx("climb");
             yield return new WaitForSeconds(2f);
             player.transform.position = target.position;
             player.stateMachine.Change("idle", player);

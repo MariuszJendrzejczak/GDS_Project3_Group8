@@ -8,11 +8,13 @@ public partial class PlayerController
         {
             player = (PlayerController)args[0];
             player.animator.SetTrigger("run");
+            EventBroker.CallCharacterPlaySfx("run");
         }
 
         public void Exit()
         {
             player.animator.ResetTrigger("run");
+            EventBroker.CallStopPlayingCharacterSfx();
         }
 
         public void HandleInput()

@@ -10,6 +10,8 @@
             player.animator.SetTrigger("death");
             //player.gameObject.SetActive(false);
             player.LaunchDeathCoroutine();
+            EventBroker.CallCharacterPlaySfx("death");
+            EventBroker.CallPlayThemeSfx("deaththame");
         }
 
         public void Exit()

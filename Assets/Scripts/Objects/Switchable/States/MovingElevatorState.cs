@@ -18,10 +18,12 @@ public class MovingElevatorState : IState
         player = (PlayerController)args[4];
         if (player != null)
         {
-            player.GetElevatorAsParremt(elevator.gameObject);
-            player.ChangeState("empty");
+            player.GetElevatorAsParemt(elevator.gameObject);
+            if (player.onElevator)
+            {
+                player.ChangeState("empty");
+            }
         }
-
     }
 
     public void Exit()

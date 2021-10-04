@@ -32,6 +32,7 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
     bool cooldown = false;
     [SerializeField] [Range(0.1f, 10f)] float colddownTime;
     [SerializeField] bool godMode = false;
+    public bool onElevator = false;
 
     private void Awake()
     {
@@ -56,6 +57,7 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
         stateMachine.Change("idle", this);
         PlayerArmedAndUnarmedSpriteSwitch();
         EventBroker.CallGiveToAllPlayerCharacterRef(GetComponent<PlayerController>());
+        EventBroker.ChangeOnElevatorBoolOnPlayer += ChangeOnElevatorBool;
     }
 
     void Update()
@@ -218,6 +220,7 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
             {
                 Debug.Log("Shoot");
                 animator.SetTrigger("shoot");
+                EventBroker.CallCharacterPlaySfx("shoot");
                 bool shootLeftBool = true;
                 var offset = new Vector2(transform.position.x + bulletXOffset, transform.position.y + bulletYOffset);
                 switch (faceing)
@@ -283,13 +286,21 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
         }
     }
     
-    public void GetElevatorAsParremt(GameObject elevator)
+    public void GetElevatorAsParemt(GameObject elevator)
     {
-        transform.SetParent(elevator.transform);
+        if (onElevator)
+        {
+            transform.SetParent(elevator.transform);
+        }
     }
     public void SetParrentNull()
     {
         transform.SetParent(null);
+    }
+
+    public void ChangeOnElevatorBool(bool value)
+    {
+        onElevator = value;
     }
 
 private void OnTriggerEnter2D(Collider2D collision)
@@ -317,6 +328,7 @@ private void OnTriggerEnter2D(Collider2D collision)
     }
     private IEnumerator Cooldown(float value)
     {
+        EventBroker.CallCharacterPlaySfxLayer2("cooldown");
         yield return new WaitForSeconds(value);
         cooldown = false;
     }

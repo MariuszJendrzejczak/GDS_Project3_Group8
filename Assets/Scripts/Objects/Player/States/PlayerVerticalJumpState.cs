@@ -8,6 +8,7 @@ public partial class PlayerController
         {
             player = (PlayerController)args[0];
             player.Jump(player.jumpForce);
+            EventBroker.CallCharacterPlaySfx("jump");
         }
 
         public void Exit()

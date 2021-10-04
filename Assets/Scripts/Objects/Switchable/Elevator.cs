@@ -46,4 +46,19 @@ public class Elevator : InteractableObject, ISwitchable
         stateMachine.HandleInput();
        // Debug.Log(transform.position);
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Player")
+        {
+            EventBroker.CallChangeElevatorBoolOnPlayer(true);
+            Debug.Log("TRUE");
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Player")
+        {
+            EventBroker.CallChangeElevatorBoolOnPlayer(false);
+        }
+    }
 }

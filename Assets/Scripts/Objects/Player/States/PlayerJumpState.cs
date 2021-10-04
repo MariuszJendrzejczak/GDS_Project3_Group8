@@ -9,6 +9,7 @@ public partial class PlayerController
             player = (PlayerController)args[0];
             horizontalInputValue = (float)args[1];
             player.animator.SetTrigger("jump");
+            EventBroker.CallCharacterPlaySfxLayer2("jump");
         }
 
         public void Exit()
