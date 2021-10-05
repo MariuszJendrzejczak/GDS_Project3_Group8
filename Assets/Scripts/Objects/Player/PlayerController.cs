@@ -177,9 +177,33 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
         rigidbody.gravityScale = value;
     }
 
-    public bool IsGrounded()
+   /* public bool IsGrounded()
     {
-        RaycastHit2D rayCastHit = Physics2D.BoxCast(collider.bounds.center, collider.bounds.size, 0f, Vector2.down, 0.75f, platforemLayerMask);
+        RaycastHit2D rayCastHit = Physics2D.Raycast(collider.bounds.center, Vector2.down, 1.5f, platforemLayerMask);
+        Color rayColor;
+        float extraHightText = 1f;
+
+        if (rayCastHit.collider != null)
+        {
+            rayColor = Color.green;
+        }
+        else
+        {
+            rayColor = Color.red;
+        }
+        //Debug.DrawRay(collider.bounds.center, Vector2.down * 1.5f, rayColor, 1f);
+        
+        Debug.DrawRay(collider.bounds.center + new Vector3(collider.bounds.extents.x * 0.75f, 0), Vector2.down, rayColor, collider.bounds.extents.y + extraHightText);
+        Debug.DrawRay(collider.bounds.center - new Vector3(collider.bounds.extents.x * 0.75f, 0), Vector2.down, rayColor, collider.bounds.extents.y + extraHightText);
+        //Debug.DrawRay(collider.bounds.center - new Vector3(0, collider.bounds.extents.y), Vector2.right, rayColor, collider.bounds.extents.x);
+
+        return rayCastHit.collider != null;
+    }*/
+
+    //working version before changes
+    public bool IsGrounded() 
+    {
+        RaycastHit2D rayCastHit = Physics2D.BoxCast(collider.bounds.center, collider.bounds.size * 0.5f, 0f, Vector2.down, 0.75f, platforemLayerMask);
         Color rayColor;
         float extraHightText = 1f;
 
@@ -192,8 +216,8 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
             rayColor = Color.red;
         }
 
-        Debug.DrawRay(collider.bounds.center + new Vector3(collider.bounds.extents.x, 0), Vector2.down, rayColor, collider.bounds.extents.y + extraHightText);
-        Debug.DrawRay(collider.bounds.center - new Vector3(collider.bounds.extents.x, 0), Vector2.down, rayColor, collider.bounds.extents.y + extraHightText);
+        Debug.DrawRay(collider.bounds.center + new Vector3(collider.bounds.extents.x * 0.5f, 0), Vector2.down, rayColor, collider.bounds.extents.y + extraHightText);
+        Debug.DrawRay(collider.bounds.center - new Vector3(collider.bounds.extents.x * 0.5f, 0), Vector2.down, rayColor, collider.bounds.extents.y + extraHightText);
         Debug.DrawRay(collider.bounds.center - new Vector3(0, collider.bounds.extents.y), Vector2.right, rayColor, collider.bounds.extents.x);
 
         return rayCastHit.collider != null;
