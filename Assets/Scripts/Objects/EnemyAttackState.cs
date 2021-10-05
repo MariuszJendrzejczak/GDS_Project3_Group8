@@ -22,9 +22,9 @@ public class EnemyAttackState : EnemyStateFields, IState
         enemy.animator.SetTrigger("idle");
         enemy.Shoot();
         facing = (Faceing)enemy.EnemyFaceing;
-        if (hitInfo.collider == null)
+        if (hitInfo.collider == null || hitInfo.collider.tag == "Hide")
         {
-            stateMachine.Change("patrol", enemy, stateMachine, patrolPoints, playerLayerMask, raycastDistance, hitInfo, rayCastOffsetX, rayCastOffsetY, null);
+            stateMachine.Change("patrol", enemy, stateMachine, patrolPoints, playerLayerMask, raycastDistance, hitInfo, rayCastOffsetX, rayCastOffsetY, null, step);
         }
         RaycastMethod();
     }
