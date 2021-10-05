@@ -3,11 +3,10 @@ using UnityEngine;
 
 public class ThamesSFX : AudioManager
 {
-    [SerializeField] protected AudioClip mainMenuThame, mainMenuBtn, levelThame, levelEnd, deathThame;
+    [SerializeField] protected AudioClip mainMenuThame, levelThame, levelEnd, deathThame;
     protected override void Awake()
     {
         musicDictionary.Add("menu", mainMenuThame);
-        musicDictionary.Add("menubtn", mainMenuBtn);
         musicDictionary.Add("level", levelThame);
         musicDictionary.Add("levelend", levelEnd);
         musicDictionary.Add("deaththame", deathThame);

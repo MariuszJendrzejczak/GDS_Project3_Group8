@@ -12,11 +12,15 @@ public class EnemyPawn : Enemy
         base.Awake();
         stateMachine.Add("patrol", new EnemyPatrolState());
         stateMachine.Add("attack", new EnemyAttackState());
+
+        EventBroker.GiveAllEnemyesOnSceneBulletPoolReference += GetBulletsPool;
     }
     protected override void Start()
     {
         base.Start();
         ChangeState(startingState.ToString());
+
+        EventBroker.PlayerDeath += OnPlayerDeath;
     }
 
     public void ChangeState(string key)

@@ -16,13 +16,14 @@ public class SceneSetup : MonoBehaviour
     [SerializeField] private GameObject hubLevelFromYellow;
     [SerializeField] private GameObject hubLevelFromRed;
     [SerializeField] private GameObject playerCharacter;
+    [SerializeField] private GameObject audioManager;
     [SerializeField] private GameObject startingPoint;
     [SerializeField] private GameObject mainCamera;
     private GameObject currentMainCamera;
     [SerializeField] private GameObject globalLight2D;
     [SerializeField] private GameObject currentGlobalLight2d;
     [SerializeField] private GameObject poolingObjects;
-    [SerializeField] private PoolingObject playerBullets, enemyBullets;
+    [SerializeField] private PoolingObject playerBullets, enemyBullets, turretBullets;
     private bool firstApperence;
     void Awake()
     {
@@ -35,6 +36,7 @@ public class SceneSetup : MonoBehaviour
         MakeGameManager();
         MakeCanvas();
         MakeGlobalLight();
+        MakeAudioManager();
     }
     private void Start()
     {
@@ -76,7 +78,7 @@ public class SceneSetup : MonoBehaviour
             currentGameManager.name = "GameManagerContainer";
         }
         var script = currentGameManager.GetComponent<GameManager>();
-        script.GetParmsFromSceneSetup(playerCharacter, startingPoint, currentMainCamera, currentCanvas, currentGlobalLight2d, playerBullets, enemyBullets);
+        script.GetParmsFromSceneSetup(playerCharacter, startingPoint, currentMainCamera, currentCanvas, currentGlobalLight2d, playerBullets, enemyBullets, turretBullets);
 
     }
     private void StartScene()
@@ -132,6 +134,26 @@ public class SceneSetup : MonoBehaviour
         pool.name = "ObjectPools";
         playerBullets = pool.transform.GetChild(0).GetComponent<PoolingObject>();
         enemyBullets = pool.transform.GetChild(1).GetComponent<PoolingObject>();
+        turretBullets = pool.transform.GetChild(2).GetComponent<PoolingObject>();
+    }
 
+    private void MakeAudioManager()
+    {
+        GameObject currentAudioManager = GameObject.Find("AudioManager");
+        if(currentAudioManager == null)
+        {
+            GameObject audio = Instantiate(audioManager);
+            audio.name = "AudioManager";
+        }
+        switch(scenetype)
+        {
+            case SceneType.hub:
+            case SceneType.playAble:
+                EventBroker.PlayThameSfx("level");
+                break;
+            case SceneType.mainMenu:
+                EventBroker.PlayThameSfx("menu");
+                break;
+        }
     }
 }

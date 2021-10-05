@@ -21,7 +21,7 @@ public class EnemyTurretPatrolState : EnemyStateFields, IState
         {
             if (hitInfo.transform.tag == "Player")
             {
-                stateMachine.Change("attack", enemy, stateMachine, null, playerLayerMask, raycastDistance, hitInfo, rayCastOffsetX, rayCastOffsetY, null);
+                stateMachine.Change("attack", enemy, stateMachine, null, playerLayerMask, raycastDistance, hitInfo, rayCastOffsetX, rayCastOffsetY, null, step);
                 Debug.Log(hitInfo.collider.name);
             }
         }

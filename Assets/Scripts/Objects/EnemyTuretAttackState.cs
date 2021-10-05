@@ -19,7 +19,7 @@
         enemy.Shoot();
         if (hitInfo.collider == null)
         {
-            stateMachine.Change("patrol", enemy, stateMachine, null, playerLayerMask, raycastDistance, hitInfo, rayCastOffsetX, rayCastOffsetY, null);
+            stateMachine.Change("patrol", enemy, stateMachine, null, playerLayerMask, raycastDistance, hitInfo, rayCastOffsetX, rayCastOffsetY, null, step);
         }
     }
 }

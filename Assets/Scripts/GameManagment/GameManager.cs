@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     private GameObject globalLight2D;
     private bool playerDeath = false;
     private int currentScenebuildIndex;
-    [SerializeField] private PoolingObject playerBullets, enemyBullets;
+    [SerializeField] private PoolingObject playerBullets, enemyBullets, turretBullets;
 
     private void Awake()
     {
@@ -39,15 +39,22 @@ public class GameManager : MonoBehaviour
         globalLight2D = (GameObject)args[4];
         playerBullets = (PoolingObject)args[5];
         enemyBullets = (PoolingObject)args[6];
+        turretBullets = (PoolingObject)args[7];
     }
     public void StartScene()
     {
+        GameObject existCheck = GameObject.FindGameObjectWithTag("Player");
+        if(existCheck != null)
+        {
+            Destroy(existCheck);
+        }
         var spownedPlayer = Instantiate(playerObject, currentCheckPoint.transform.position, Quaternion.identity);
         spownedPlayer.name = "PlayerCharacter";
         spownedPlayer.transform.SetParent(null);
         player = spownedPlayer.GetComponent<PlayerController>();
         player.GetParamsFromGameManager(playerBullets);
         EventBroker.CallGiveAllEnemyesOnSceneBulletPoolReference(enemyBullets);
+        EventBroker.CallGiveAllTurretsOnSceneBulletPoolRefenece(turretBullets);
         mainCamera.GetComponent<FollowObjectTransform>().SetObjectToFollow(spownedPlayer.transform);
     }
     public void OnPlayerDeath()

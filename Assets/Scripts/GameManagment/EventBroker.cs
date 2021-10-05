@@ -52,6 +52,15 @@ public class EventBroker : MonoBehaviour
         }
     }
 
+    public static event Action<PoolingObject> GiveAllTurretsOnSceneBulletPoolRefenece;
+    public static void CallGiveAllTurretsOnSceneBulletPoolRefenece(PoolingObject pool)
+    {
+        if (GiveAllTurretsOnSceneBulletPoolRefenece != null)
+        {
+            GiveAllTurretsOnSceneBulletPoolRefenece(pool);
+        }
+    }
+
     public static event Action<PlayerController> GiveToAllPlayerCharacterRef;
     public static void CallGiveToAllPlayerCharacterRef(PlayerController player)
     {

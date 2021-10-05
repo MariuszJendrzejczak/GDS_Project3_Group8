@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ObjectSFX : AudioManager
 {
-    [SerializeField] protected AudioClip objDoor, objBtn, objElevetorRunning, objLever, objPush, objLedderUse, objBoxFall, objShootedButton;
+    [SerializeField] protected AudioClip objDoor, objBtn, objElevetorRunning, objLever, objPush, objLedderUse, objBoxFall, objShootedButton, mainMenuBtn;
     protected override void Awake()
     {
         musicDictionary.Add("door", objDoor);
@@ -14,6 +14,7 @@ public class ObjectSFX : AudioManager
         musicDictionary.Add("boxfall", objBoxFall);
         musicDictionary.Add("push", objPush);
         musicDictionary.Add("btnshoot", objShootedButton);
+        musicDictionary.Add("menubtn", mainMenuBtn);
         base.Awake();
         EventBroker.PlayObjectSfx += PlaySound;
         EventBroker.StopPlayingObjectSfx += StopPlaying;

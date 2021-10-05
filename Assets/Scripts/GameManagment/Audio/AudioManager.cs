@@ -7,12 +7,13 @@ public class AudioManager : MonoBehaviour
     protected Dictionary<string, AudioClip> musicDictionary = new Dictionary<string, AudioClip>();
     protected AudioSource audio;
 
+
     protected virtual void Awake()
     {
         audio = GetComponent<AudioSource>();
     }
 
-    protected void PlaySound(string key)
+    public void PlaySound(string key)
     {
         if(musicDictionary[key] != null)
         {
@@ -21,7 +22,7 @@ public class AudioManager : MonoBehaviour
             audio.Play();
         }
     }
-    protected void StopPlaying()
+    public void StopPlaying()
     {
         audio.Stop();
     }

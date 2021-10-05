@@ -10,6 +10,7 @@ public class EnemyTurret : Enemy
     protected override void Awake()
     {
         base.Awake();
+        EventBroker.GiveAllTurretsOnSceneBulletPoolRefenece += GetBulletsPool;
     }
     protected override void Start()
     {

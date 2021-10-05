@@ -30,13 +30,9 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
     {
         stateMachine = new StateMachine();
         stateMachine.Add("empty", new EmptyState());
-
-        EventBroker.GiveAllEnemyesOnSceneBulletPoolReference += GetBulletsPool;
     }
     protected virtual void Start()
     {
-        EventBroker.PlayerDeath += OnPlayerDeath;
-
         respawn = GetComponent<IRespawnAble>();
         animator = GetComponent<Animator>();
     }
@@ -109,7 +105,7 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
         transform.position = value;
     }
 
-    private void GetBulletsPool(PoolingObject pool)
+    protected void GetBulletsPool(PoolingObject pool)
     {
         bulletsPool = pool;
     }
