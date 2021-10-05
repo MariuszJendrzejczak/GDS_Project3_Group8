@@ -35,7 +35,6 @@ public class InteractableObject : MonoBehaviour, IInteractable
     {
         if (collision.tag == "Player")
         {
-            Debug.Log("Kolizja z: " + collision.name);
             player = collision.GetComponent<PlayerController>();
             EventBroker.InteractWithObject += Interact;
             EventBroker.CallUpdateTipText(tipText);

@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
     public void GetParmsFromSceneSetup(params object[] args)
     {
         playerObject = (GameObject)args[0];
-        player = playerObject.GetComponent<PlayerController>();
         currentCheckPoint = (GameObject)args[1];
         mainCamera = (GameObject)args[2];
         canvas = (GameObject)args[3];
@@ -46,7 +45,8 @@ public class GameManager : MonoBehaviour
         var spownedPlayer = Instantiate(playerObject, currentCheckPoint.transform.position, Quaternion.identity);
         spownedPlayer.name = "PlayerCharacter";
         spownedPlayer.transform.SetParent(null);
-        spownedPlayer.GetComponent<PlayerController>().GetParamsFromGameManager(playerBullets);
+        player = spownedPlayer.GetComponent<PlayerController>();
+        player.GetParamsFromGameManager(playerBullets);
         EventBroker.CallGiveAllEnemyesOnSceneBulletPoolReference(enemyBullets);
         mainCamera.GetComponent<FollowObjectTransform>().SetObjectToFollow(spownedPlayer.transform);
     }

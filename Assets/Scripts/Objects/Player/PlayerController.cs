@@ -68,7 +68,6 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
         MakeInteraction();
         Shoot();
         FallCheck();
-        Debug.Log(stateMachine.currentStateId);
         QuitGame();
         if (Input.GetKeyDown(KeyCode.G))
         {
@@ -177,30 +176,6 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
         rigidbody.gravityScale = value;
     }
 
-   /* public bool IsGrounded()
-    {
-        RaycastHit2D rayCastHit = Physics2D.Raycast(collider.bounds.center, Vector2.down, 1.5f, platforemLayerMask);
-        Color rayColor;
-        float extraHightText = 1f;
-
-        if (rayCastHit.collider != null)
-        {
-            rayColor = Color.green;
-        }
-        else
-        {
-            rayColor = Color.red;
-        }
-        //Debug.DrawRay(collider.bounds.center, Vector2.down * 1.5f, rayColor, 1f);
-        
-        Debug.DrawRay(collider.bounds.center + new Vector3(collider.bounds.extents.x * 0.75f, 0), Vector2.down, rayColor, collider.bounds.extents.y + extraHightText);
-        Debug.DrawRay(collider.bounds.center - new Vector3(collider.bounds.extents.x * 0.75f, 0), Vector2.down, rayColor, collider.bounds.extents.y + extraHightText);
-        //Debug.DrawRay(collider.bounds.center - new Vector3(0, collider.bounds.extents.y), Vector2.right, rayColor, collider.bounds.extents.x);
-
-        return rayCastHit.collider != null;
-    }*/
-
-    //working version before changes
     public bool IsGrounded() 
     {
         RaycastHit2D rayCastHit = Physics2D.BoxCast(collider.bounds.center, collider.bounds.size * 0.5f, 0f, Vector2.down, 0.75f, platforemLayerMask);
@@ -300,7 +275,7 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
         Debug.Log("RespawnPlayer at: " + value.ToString());
         transform.position = value;
         this.gameObject.SetActive(true);
-        //ChangeState("idle");
+        ChangeState("idle");
     }
     private void QuitGame()
     {
@@ -348,7 +323,9 @@ private void OnTriggerEnter2D(Collider2D collision)
     private IEnumerator DeathRutine()
     {
         yield return new WaitForSeconds(2f);
-        this.gameObject.SetActive(false);
+        
+        //resigned, I keeped Rutine just in case if I whant to do something else in here later.
+        //this.gameObject.SetActive(false); 
     }
     private IEnumerator Cooldown(float value)
     {

@@ -23,7 +23,6 @@ public partial class PlayerController
 
         public void Update()
         {
-            Debug.Log("Falling..");
             if(player.IsGrounded())
             {
                 player.ChangeState("idle");
