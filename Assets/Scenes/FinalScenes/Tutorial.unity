@@ -8451,7 +8451,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 19
+  m_SortingOrder: 21
   m_Sprite: {fileID: 4430823036810558821, guid: 59ed786ace96f144f9da7a24bd11367c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8570,7 +8570,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 16
+  m_SortingOrder: 21
   m_Sprite: {fileID: 5573878730761730293, guid: 59ed786ace96f144f9da7a24bd11367c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8783,7 +8783,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 13
+  m_SortingOrder: 22
   m_Sprite: {fileID: 80297319739652610, guid: 59ed786ace96f144f9da7a24bd11367c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9029,7 +9029,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 28
+  m_SortingOrder: 23
   m_Sprite: {fileID: -5456344932684421637, guid: 59ed786ace96f144f9da7a24bd11367c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11028,8 +11028,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4106427950920281080, guid: d8206eb1d8617a649a1bc8fb63534869,
         type: 3}
+      propertyPath: simulationSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106427950920281080, guid: d8206eb1d8617a649a1bc8fb63534869,
+        type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106427950920281080, guid: d8206eb1d8617a649a1bc8fb63534869,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4106427950920281080, guid: d8206eb1d8617a649a1bc8fb63534869,
         type: 3}
@@ -11065,6 +11075,11 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.gravityModifier.scalar
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106427950920281080, guid: d8206eb1d8617a649a1bc8fb63534869,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4106427950920281080, guid: d8206eb1d8617a649a1bc8fb63534869,
         type: 3}
@@ -12189,7 +12204,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 22
   m_Sprite: {fileID: 4614997729213177894, guid: 59ed786ace96f144f9da7a24bd11367c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -15644,7 +15659,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 21
   m_Sprite: {fileID: -936672781435560873, guid: 59ed786ace96f144f9da7a24bd11367c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
