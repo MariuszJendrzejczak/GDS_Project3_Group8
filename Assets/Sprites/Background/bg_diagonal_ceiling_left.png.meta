@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 8ea9b0233c9c12d4f8fcd2e6776a39e5
+guid: 3c26840363724f943af3f4ada787dcbe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 689807916273398502
-    second: asset_laser_beam_head
+      213: 2017924733387296283
+    second: red_diagonal_ceiling_left
   - first:
-      213: -3042474914495155426
-    second: asset_laser_beam_middle
+      213: -197518962173130674
+    second: diagonal_left_4h_short
   - first:
-      213: 7404148254246358871
-    second: asset_laser_beam_tail
+      213: -3648769149556931392
+    second: yellow_diagonal
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -50,13 +50,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
-  spriteBorder: {x: 7, y: 0, z: 21, w: 0}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: asset_laser_beam_head
+      name: red_diagonal_ceiling_left
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 7
-        height: 6
+        width: 855
+        height: 1138
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,20 +114,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e27ab425a0b29900800000000000000
-      internalID: 689807916273398502
+      spriteID: b1e46058adb110c10800000000000000
+      internalID: 2017924733387296283
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asset_laser_beam_middle
+      name: diagonal_left_4h_short
       rect:
         serializedVersion: 2
-        x: 7
+        x: 0
         y: 0
-        width: 2
-        height: 6
+        width: 450
+        height: 303
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,29 +135,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e13ba7b5f25f6c5d0800000000000000
-      internalID: -3042474914495155426
+      spriteID: e484447ec85424df0800000000000000
+      internalID: -197518962173130674
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asset_laser_beam_tail
+      name: yellow_diagonal
       rect:
         serializedVersion: 2
-        x: 9
+        x: 154
         y: 0
-        width: 21
-        height: 6
+        width: 701
+        height: 759
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75fceaebb91d0c660800000000000000
-      internalID: 7404148254246358871
+      spriteID: 0c4414d5ac7fc5dc0800000000000000
+      internalID: -3648769149556931392
       vertices: []
       indices: 
       edges: []
