@@ -7,6 +7,12 @@ public class HorizontalProjectileMovement : MonoBehaviour
     private enum ShootTo { right, left }
     private ShootTo shootTo;
     [SerializeField][Range(1f, 25f)] private float bulletSpeed = 1f;
+    [SerializeField] [Range(1f, 5f)] private float switchoffafterSeconds = 3f;
+
+    private void Start()
+    {
+        StartCoroutine(Switchoff(switchoffafterSeconds));
+    }
 
     void Update()
     {
@@ -31,5 +37,11 @@ public class HorizontalProjectileMovement : MonoBehaviour
         {
             shootTo = ShootTo.right;
         }
+    }
+
+    private IEnumerator Switchoff(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+        this.gameObject.SetActive(false);
     }
 }
