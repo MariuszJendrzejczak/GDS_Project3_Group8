@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
         EventBroker.UpdateStoryText += UpdateStroyText;
         EventBroker.SwitchOnOffStoryPanel += SwitchOnOffStoryPanel;
         EventBroker.SwitchOffStoryPanel += SwitchOffStoryPanel;
+        EventBroker.SwitchOnOutroPanel += SwitchOnOutroPanel;
     }
 
     private void UpdateTipText(string value)
@@ -50,5 +51,10 @@ public class UIManager : MonoBehaviour
     {
         canvasPanels.StoryPanel.SetActive(false);
         storyPanelOn = false;
+    }
+
+    private void SwitchOnOutroPanel()
+    {
+        canvasPanels.OutroPanel.SetActive(true);
     }
 }

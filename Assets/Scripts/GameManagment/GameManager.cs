@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
         enemyBullets = (PoolingObject)args[6];
         turretBullets = (PoolingObject)args[7];
         sceneSetup = (SceneSetup)args[8];
+
     }
     public void StartScene()
     {

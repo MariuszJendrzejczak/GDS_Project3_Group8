@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InteractWithStoryNote : InteractableObject, IInteractable
 {
-    [SerializeField] StoryTextNote storyNote;
+    [SerializeField] private StoryTextNote storyNote;
     private Animator animator;
+    [SerializeField] private bool outro = false;
 
     protected override void Start()
     {
@@ -14,9 +16,17 @@ public class InteractWithStoryNote : InteractableObject, IInteractable
     }
     public override void Interact()
     {
-        animator.SetTrigger("activate");
-        EventBroker.CallUpdateStoryText(storyNote.StoryIndex.ToString(), storyNote.StoryHeader, storyNote.StoryText);
-        EventBroker.CallSwithcOnOffStoryPanel();
+        if(outro)
+        {
+            EventBroker.InteractWithObject -= Interact;
+            SceneManager.LoadScene(5);
+        }
+        else
+        {
+            animator.SetTrigger("activate");
+            EventBroker.CallUpdateStoryText(storyNote.StoryIndex.ToString(), storyNote.StoryHeader, storyNote.StoryText);
+            EventBroker.CallSwithcOnOffStoryPanel();
+        }
     }
 
     protected override void OnTriggerExit2D(Collider2D collision)

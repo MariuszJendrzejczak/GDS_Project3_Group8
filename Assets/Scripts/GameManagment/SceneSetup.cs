@@ -11,7 +11,7 @@ public class SceneSetup : MonoBehaviour
     private enum SceneType {mainMenu, hub, red, yellow, tutorial}
     [SerializeField] private SceneType scenetype;
     public enum HubState { fromTutorial, fromYellow, fromRed}
-    [SerializeField] private HubState hubState;
+    [SerializeField] public HubState hubState;
     [SerializeField] private GameObject hubLevelFromTutorial;
     [SerializeField] private GameObject hubLevelFromYellow;
     [SerializeField] private GameObject hubLevelFromRed;
@@ -24,6 +24,7 @@ public class SceneSetup : MonoBehaviour
     [SerializeField] private GameObject currentGlobalLight2d;
     [SerializeField] private GameObject poolingObjects;
     [SerializeField] private PoolingObject playerBullets, enemyBullets, turretBullets;
+    [SerializeField] private bool outro;
     private bool firstApperence;
     void Awake()
     {
@@ -66,7 +67,7 @@ public class SceneSetup : MonoBehaviour
     }
     private void MakeGameManager()
     {
-        currentGameManager = GameObject.Find("GameManagerConteiner");
+        currentGameManager = GameObject.Find("GameManagerContainer");
         if (currentGameManager == null)
         {
             currentGameManager = Instantiate(gameManager);
@@ -102,6 +103,10 @@ public class SceneSetup : MonoBehaviour
         {
             script.MainMenuPanel.SetActive(true);
             script.TipsPanel.SetActive(false);
+            if(outro)
+            {
+                script.OutroPanel.SetActive(true);
+            }
         }
     }
     private void MakeMainCamera()

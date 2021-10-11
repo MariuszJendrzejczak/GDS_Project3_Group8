@@ -115,6 +115,15 @@ public class EventBroker : MonoBehaviour
             SwitchOffStoryPanel();
         }
     }
+
+    public static event Action SwitchOnOutroPanel;
+    public static void CallSwitchOnOutroPanel()
+    {
+        if (SwitchOnOutroPanel != null)
+        {
+            SwitchOnOutroPanel();
+        }
+    }
     #endregion
     #region SFX
     public static Action<string> PlayCharacterSfx;
