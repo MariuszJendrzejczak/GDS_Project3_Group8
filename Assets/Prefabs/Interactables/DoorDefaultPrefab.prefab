@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 2693329251855673271, guid: 20cd0490de51ef047ad84932a79c6253,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8945486525255553297}
   - component: {fileID: 9011750446824548370}
+  - component: {fileID: 263325199}
   m_Layer: 0
   m_Name: DoorDefaultPrefab
   m_TagString: Untagged
@@ -134,3 +135,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &263325199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7633669280731001142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe937c4cec0956439ac242711d93827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toSwitchList: []
+  tipText: 
+  trigger: open
