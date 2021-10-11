@@ -8,7 +8,7 @@ public class SceneSetup : MonoBehaviour
     private GameObject currentGameManager;
     [SerializeField] private GameObject canvas;
     private GameObject currentCanvas;
-    private enum SceneType { playAble, mainMenu, hub}
+    private enum SceneType {mainMenu, hub, red, yellow, tutorial}
     [SerializeField] private SceneType scenetype;
     private enum HubState { fromTutorial, fromYellow, fromRed}
     [SerializeField] private HubState hubState;
@@ -83,7 +83,7 @@ public class SceneSetup : MonoBehaviour
     }
     private void StartScene()
     {
-        if (scenetype == SceneType.playAble || scenetype == SceneType.hub)
+        if (scenetype == SceneType.red || scenetype == SceneType.hub || scenetype == SceneType.tutorial || scenetype == SceneType.yellow)
         {
             currentGameManager.GetComponent<GameManager>().StartScene();
         }
@@ -98,7 +98,7 @@ public class SceneSetup : MonoBehaviour
             currentCanvas.name = "Canvas";
         }
         var script = currentCanvas.GetComponent<CanvasPanels>();
-        if (scenetype == SceneType.playAble || scenetype == SceneType.hub)
+        if (scenetype == SceneType.red || scenetype == SceneType.hub || scenetype == SceneType.tutorial || scenetype == SceneType.yellow)
         {
             script.MainMenuPanel.SetActive(false);
             script.TipsPanel.SetActive(true);
@@ -148,8 +148,10 @@ public class SceneSetup : MonoBehaviour
         switch(scenetype)
         {
             case SceneType.hub:
-            case SceneType.playAble:
-                EventBroker.PlayThameSfx("level");
+            case SceneType.tutorial:
+            case SceneType.red:
+            case SceneType.yellow:
+                EventBroker.PlayThameSfx(scenetype.ToString());
                 break;
             case SceneType.mainMenu:
                 EventBroker.PlayThameSfx("menu");
