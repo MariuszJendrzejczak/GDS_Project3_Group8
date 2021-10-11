@@ -29,7 +29,7 @@ public class SceneSetup : MonoBehaviour
     {
         if (scenetype == SceneType.hub)
         {
-            //MakeHubLevel(); to uncomment when prefabs will be ready;
+            MakeHubLevel();
         }
         MakeMainCamera();
         MakeObjectPools();
@@ -55,17 +55,17 @@ public class SceneSetup : MonoBehaviour
         {
             case HubState.fromTutorial:
                 level = Instantiate(hubLevelFromTutorial);
-                startingPoint = level.GetComponent<StartingCheckPointField>().StartingPoint;
+                var obj = GameObject.Find("Start").transform.GetChild(0).gameObject;
                 break;
 
             case HubState.fromYellow:
                 level = Instantiate(hubLevelFromYellow);
-                startingPoint = level.GetComponent<StartingCheckPointField>().StartingPoint;
+                startingPoint = GameObject.Find("Start").transform.GetChild(0).gameObject;
                 break;
 
             case HubState.fromRed:
                 level = Instantiate(hubLevelFromRed);
-                startingPoint = level.GetComponent<StartingCheckPointField>().StartingPoint;
+                startingPoint = GameObject.Find("Start").transform.GetChild(0).gameObject;
                 break;
         }
     }
