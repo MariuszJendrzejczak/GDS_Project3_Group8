@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private GameObject globalLight2D;
     private bool playerDeath = false;
     private int currentScenebuildIndex;
+    private SceneSetup sceneSetup;
     [SerializeField] private PoolingObject playerBullets, enemyBullets, turretBullets;
 
     private void Awake()
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
         playerBullets = (PoolingObject)args[5];
         enemyBullets = (PoolingObject)args[6];
         turretBullets = (PoolingObject)args[7];
+        sceneSetup = (SceneSetup)args[8];
     }
     public void StartScene()
     {

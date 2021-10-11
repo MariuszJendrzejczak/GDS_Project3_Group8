@@ -10,7 +10,7 @@ public class SceneSetup : MonoBehaviour
     private GameObject currentCanvas;
     private enum SceneType {mainMenu, hub, red, yellow, tutorial}
     [SerializeField] private SceneType scenetype;
-    private enum HubState { fromTutorial, fromYellow, fromRed}
+    public enum HubState { fromTutorial, fromYellow, fromRed}
     [SerializeField] private HubState hubState;
     [SerializeField] private GameObject hubLevelFromTutorial;
     [SerializeField] private GameObject hubLevelFromYellow;
@@ -43,11 +43,6 @@ public class SceneSetup : MonoBehaviour
         StartScene();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void MakeHubLevel()
     {
         GameObject level;
@@ -78,7 +73,7 @@ public class SceneSetup : MonoBehaviour
             currentGameManager.name = "GameManagerContainer";
         }
         var script = currentGameManager.GetComponent<GameManager>();
-        script.GetParmsFromSceneSetup(playerCharacter, startingPoint, currentMainCamera, currentCanvas, currentGlobalLight2d, playerBullets, enemyBullets, turretBullets);
+        script.GetParmsFromSceneSetup(playerCharacter, startingPoint, currentMainCamera, currentCanvas, currentGlobalLight2d, playerBullets, enemyBullets, turretBullets, this);
 
     }
     private void StartScene()
