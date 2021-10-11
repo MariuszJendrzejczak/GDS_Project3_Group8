@@ -38,7 +38,6 @@ public class EnemyPatrolState : EnemyStateFields, IState
 
     private void Patrol()
     {
-        Debug.Log("Enemy: PatrolCounter" + patrolCounter + "  patrolPoints.Count: " + patrolPoints.Count + "  target" + target.ToString() + "   step: " + step);
         if (patrolCounter < patrolPoints.Count)
         {
             if (enemy.transform.position != patrolPoints[patrolCounter].position)
