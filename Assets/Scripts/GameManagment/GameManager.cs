@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,7 +29,27 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        SwitchOnOffHowToPlayPanel();
         RespawnPlayer();
+    }
+
+    private void SwitchOnOffHowToPlayPanel()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            var script = canvas.GetComponent<CanvasPanels>();
+            if(script.HowToPlayPanel.activeInHierarchy)
+            {
+                script.HowToPlayBackButton.SetActive(true);
+                script.HowToPlayPanel.SetActive(false);
+            }
+            else
+            {
+                script.HowToPlayBackButton.SetActive(false);
+                script.HowToPlayPanel.SetActive(true);
+            }
+
+        }
     }
 
     public void GetParmsFromSceneSetup(params object[] args)
@@ -42,7 +63,6 @@ public class GameManager : MonoBehaviour
         enemyBullets = (PoolingObject)args[6];
         turretBullets = (PoolingObject)args[7];
         sceneSetup = (SceneSetup)args[8];
-
     }
     public void StartScene()
     {

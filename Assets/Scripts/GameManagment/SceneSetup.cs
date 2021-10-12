@@ -34,10 +34,10 @@ public class SceneSetup : MonoBehaviour
         }
         MakeMainCamera();
         MakeObjectPools();
-        MakeGameManager();
         MakeCanvas();
         MakeGlobalLight();
         MakeAudioManager();
+        MakeGameManager();
     }
     private void Start()
     {

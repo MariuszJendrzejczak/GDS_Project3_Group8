@@ -9,6 +9,7 @@ public class CanvasPanels : MonoBehaviour
     public GameObject TipsPanel;
     public GameObject StoryPanel;
     public GameObject HowToPlayPanel;
+    public GameObject HowToPlayBackButton;
     public GameObject CredistPanel;
     public GameObject IntroPanel;
     public GameObject OutroPanel;
