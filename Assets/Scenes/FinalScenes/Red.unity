@@ -2835,6 +2835,12 @@ Transform:
   m_Father: {fileID: 1045518915}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &377412540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8612993613177006350, guid: f0e2c759dc457924ca4b82480d37d319,
+    type: 3}
+  m_PrefabInstance: {fileID: 1827147504}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &392111994
 GameObject:
   m_ObjectHideFlags: 0
@@ -5194,6 +5200,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &863583705 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8612993613177006350, guid: f0e2c759dc457924ca4b82480d37d319,
+    type: 3}
+  m_PrefabInstance: {fileID: 126070521}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &889436838
 GameObject:
   m_ObjectHideFlags: 0
@@ -16822,6 +16834,7 @@ MonoBehaviour:
   bulletsPool: {fileID: 0}
   bulletXOffset: 0
   bulletYOffset: 2
+  raycastLight: {fileID: 377412540}
   cooldownTime: 1
   facing: 0
   animator: {fileID: 0}
@@ -18829,6 +18842,7 @@ MonoBehaviour:
   bulletsPool: {fileID: 0}
   bulletXOffset: 0
   bulletYOffset: 2
+  raycastLight: {fileID: 863583705}
   cooldownTime: 1
   facing: 0
   animator: {fileID: 0}

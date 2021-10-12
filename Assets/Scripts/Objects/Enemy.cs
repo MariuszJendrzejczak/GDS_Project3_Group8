@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
     [SerializeField] protected GameObject proyectilePrefab;
     [SerializeField] PoolingObject bulletsPool;
     [SerializeField] [Range(0, 5f)] private float bulletXOffset, bulletYOffset;
+    [SerializeField] private GameObject raycastLight;
     private bool cooldown = false;
     [SerializeField] [Range(0.5f, 5f)] private float cooldownTime;
     public enum Faceing { left, right }
@@ -87,6 +88,7 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
     {
         EventBroker.PlayerDeath -= OnPlayerDeath;
         respawn.OnMyDeath();
+        raycastLight.SetActive(false);
         StartCoroutine(DeathRutine());
     }
     public void ChangeRespawnedBool()
@@ -105,6 +107,7 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
     {
         animator.SetTrigger("respawn");
         transform.position = value;
+        raycastLight.SetActive(true);
     }
 
     protected void GetBulletsPool(PoolingObject pool)
