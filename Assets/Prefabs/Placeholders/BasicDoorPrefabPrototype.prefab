@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toSwitchList:
   - {fileID: 0}
+  tipText: 
   startingState: 1
   openDoorRenderer: {fileID: 8229307439287196012}
   closeDoorRenderer: {fileID: 8229307438914939189}
@@ -104,8 +105,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8229307438914939190}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.6, z: 1}
+  m_LocalPosition: {x: 0, y: 0.2991, z: 0}
+  m_LocalScale: {x: 0.6875, y: 0.5325, z: 1}
   m_Children: []
   m_Father: {fileID: 8229307438531053316}
   m_RootOrder: 0
@@ -150,12 +151,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: 21300104, guid: dbb1ff0fb3145da4581e36c16ce3cb72, type: 3}
+  m_Sprite: {fileID: 2693329251855673271, guid: 20cd0490de51ef047ad84932a79c6253,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 5}
+  m_DrawMode: 2
+  m_Size: {x: 1.3524059, y: 6.635147}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -176,12 +178,12 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0, y: 2.71875, z: 0, w: 0.625}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 5}
-    newSize: {x: 1, y: 5}
+    oldSize: {x: 1.375, y: 4.4375}
+    newSize: {x: 1.3524059, y: 6.635147}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
