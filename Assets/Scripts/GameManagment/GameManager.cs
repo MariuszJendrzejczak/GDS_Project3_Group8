@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     private GameObject mainCamera;
     private GameObject canvas;
     private GameObject globalLight2D;
-    private bool playerDeath = false;
+    public static bool playerDeath = false;
     private int currentScenebuildIndex;
     private SceneSetup sceneSetup;
     [SerializeField] private PoolingObject playerBullets, enemyBullets, turretBullets;

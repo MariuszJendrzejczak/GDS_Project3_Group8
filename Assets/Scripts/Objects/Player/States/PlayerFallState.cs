@@ -23,7 +23,7 @@ public partial class PlayerController
 
         public void Update()
         {
-            if(player.IsGrounded())
+            if(player.IsGrounded() && GameManager.playerDeath == false)
             {
                 player.ChangeState("idle");
             }
