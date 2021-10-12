@@ -5926,13 +5926,13 @@ Transform:
   - {fileID: 1559431199}
   - {fileID: 536753931}
   - {fileID: 1620402407}
+  - {fileID: 1704488848}
   - {fileID: 1162222065}
   - {fileID: 847574223}
+  - {fileID: 1278832294}
   - {fileID: 1216684675}
   - {fileID: 303317054}
   - {fileID: 2032887283}
-  - {fileID: 1704488848}
-  - {fileID: 1278832294}
   - {fileID: 278562236}
   m_Father: {fileID: 1556937910}
   m_RootOrder: 1
@@ -8836,7 +8836,7 @@ Transform:
   m_LocalScale: {x: 30.579071, y: 1.3091352, z: 1}
   m_Children: []
   m_Father: {fileID: 1167290422}
-  m_RootOrder: 20
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -90}
 --- !u!61 &1704488849
 BoxCollider2D:
@@ -9922,6 +9922,12 @@ PrefabInstance:
       propertyPath: scenetype
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 173678286207420971, guid: b742cb012a14d0b4cabff191c14bcd4c,
+        type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 7877986171906526982, guid: aba54ca038e767848ae6bf45906c62bf,
+        type: 3}
     - target: {fileID: 173678286207420971, guid: b742cb012a14d0b4cabff191c14bcd4c,
         type: 3}
       propertyPath: startingPoint
