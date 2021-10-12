@@ -25,6 +25,11 @@ public partial class PlayerController
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S))
             {
                 player.animator.SetTrigger("lclimb");
+                EventBroker.CallObjectPlaySfx("ledder");
+            }
+            else
+            {
+                EventBroker.CallStopPlayingObjectSfx();
             }
             if (Input.GetKeyDown(KeyCode.E))
             {

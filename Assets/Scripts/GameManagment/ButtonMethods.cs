@@ -76,4 +76,9 @@ public class ButtonMethods : MonoBehaviour
     #region OutroBtns
 
     #endregion
+
+    public void PlayButtonSound()
+    {
+        EventBroker.CallObjectPlaySfx("menubtn");
+    }
 }

@@ -16,7 +16,6 @@ public class MoveableBox : InteractableObject, IInteractable
     {
         if(moveMe == false)
         {
-            Debug.Log("Interact");
             edgeCollider.enabled = true;
             if(player!= null)
             {
@@ -74,6 +73,7 @@ public class MoveableBox : InteractableObject, IInteractable
     {
         moveMe = false;
         edgeCollider.enabled = false;
+        EventBroker.CallStopPlayingCharacterSfx();
         if (player != null)
         {
             player.ChangeState("idle");

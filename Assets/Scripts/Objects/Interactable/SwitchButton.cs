@@ -37,6 +37,7 @@ public class SwitchButton : InteractableObject, IInteractable
             }
         }
         currentStateId = stateMachine.currentStateId;
+        EventBroker.CallObjectPlaySfx("button");
     }
     protected void Update()
     {

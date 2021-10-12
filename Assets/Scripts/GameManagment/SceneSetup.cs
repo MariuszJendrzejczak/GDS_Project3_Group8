@@ -8,7 +8,7 @@ public class SceneSetup : MonoBehaviour
     private GameObject currentGameManager;
     [SerializeField] private GameObject canvas;
     private GameObject currentCanvas;
-    private enum SceneType {mainMenu, hub, red, yellow, tutorial}
+    private enum SceneType {mainMenu, hub, red, yellow, tutorial, outro}
     [SerializeField] private SceneType scenetype;
     public enum HubState { fromTutorial, fromYellow, fromRed}
     [SerializeField] public HubState hubState;
@@ -79,11 +79,15 @@ public class SceneSetup : MonoBehaviour
     }
     private void StartScene()
     {
-        if (scenetype == SceneType.red || scenetype == SceneType.hub || scenetype == SceneType.tutorial || scenetype == SceneType.yellow)
+        switch (scenetype)
         {
-            currentGameManager.GetComponent<GameManager>().StartScene();
+            case SceneType.red:
+            case SceneType.hub:
+            case SceneType.tutorial:
+            case SceneType.yellow:
+                currentGameManager.GetComponent<GameManager>().StartScene();
+                break;
         }
-
     }
     private void MakeCanvas()
     {
@@ -94,20 +98,26 @@ public class SceneSetup : MonoBehaviour
             currentCanvas.name = "Canvas";
         }
         var script = currentCanvas.GetComponent<CanvasPanels>();
-        if (scenetype == SceneType.red || scenetype == SceneType.hub || scenetype == SceneType.tutorial || scenetype == SceneType.yellow)
+        switch (scenetype)
         {
-            script.MainMenuPanel.SetActive(false);
-            script.TipsPanel.SetActive(true);
-        }
-        if (scenetype == SceneType.mainMenu)
-        {
-            script.MainMenuPanel.SetActive(true);
-            script.TipsPanel.SetActive(false);
-            if(outro)
-            {
+            case SceneType.red:
+            case SceneType.hub:
+            case SceneType.tutorial:
+            case SceneType.yellow:
+                script.MainMenuPanel.SetActive(false);
+                script.TipsPanel.SetActive(true);
+                break;
+            case SceneType.mainMenu:
+                script.MainMenuPanel.SetActive(true);
+                script.TipsPanel.SetActive(false);
+                break;
+            case SceneType.outro:
+                script.MainMenuPanel.SetActive(true);
+                script.TipsPanel.SetActive(false);
                 script.OutroPanel.SetActive(true);
-            }
+                break;
         }
+
     }
     private void MakeMainCamera()
     {
@@ -155,6 +165,9 @@ public class SceneSetup : MonoBehaviour
                 break;
             case SceneType.mainMenu:
                 EventBroker.PlayThameSfx("menu");
+                break;
+            case SceneType.outro:
+                EventBroker.PlayThameSfx("outro");
                 break;
         }
     }

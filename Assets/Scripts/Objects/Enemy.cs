@@ -69,6 +69,7 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
                 animator.SetTrigger("shoot");
             }
             StartCoroutine(Cooldown(cooldownTime));
+            EventBroker.CallEnemyPlaySfx("enemyshoot");
         }
     }
 
@@ -96,6 +97,7 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
     {
         stateMachine.Change("empty");
         animator.SetTrigger("death");
+        EventBroker.CallEnemyPlaySfx("ememydeath");
         yield return new WaitForSeconds(3f);
         this.gameObject.SetActive(false);
     }
