@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     private int currentScenebuildIndex;
     private SceneSetup sceneSetup;
     [SerializeField] private PoolingObject playerBullets, enemyBullets, turretBullets;
+    public enum HubState { fromTutorial, fromYellow, fromRed }
+    [SerializeField] public HubState HubStateGM = HubState.fromTutorial;
+
 
     private void Awake()
     {
@@ -31,6 +34,11 @@ public class GameManager : MonoBehaviour
     {
         SwitchOnOffHowToPlayPanel();
         RespawnPlayer();
+    }
+
+    public HubState ReturnHubStateToSceneSetup()
+    {
+        return HubStateGM;
     }
 
     private void SwitchOnOffHowToPlayPanel()

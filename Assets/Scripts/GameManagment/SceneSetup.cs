@@ -10,8 +10,8 @@ public class SceneSetup : MonoBehaviour
     private GameObject currentCanvas;
     private enum SceneType {mainMenu, hub, red, yellow, tutorial, outro}
     [SerializeField] private SceneType scenetype;
-    public enum HubState { fromTutorial, fromYellow, fromRed}
-    [SerializeField] public HubState hubState;
+   // public enum HubState { fromTutorial, fromYellow, fromRed}
+   // [SerializeField] public HubState hubState;
     [SerializeField] private GameObject hubLevelFromTutorial;
     [SerializeField] private GameObject hubLevelFromYellow;
     [SerializeField] private GameObject hubLevelFromRed;
@@ -46,23 +46,34 @@ public class SceneSetup : MonoBehaviour
 
     private void MakeHubLevel()
     {
-        GameObject level;
-        switch (hubState)
+        currentGameManager = GameObject.Find("GameManagerContainer");
+        if (currentGameManager != null)
         {
-            case HubState.fromTutorial:
-                level = Instantiate(hubLevelFromTutorial);
-                var obj = GameObject.Find("Start").transform.GetChild(0).gameObject;
-                break;
+            GameManager script = currentGameManager.GetComponent<GameManager>();
+            var hubState = script.ReturnHubStateToSceneSetup();
+            GameObject level;
+            switch (hubState)
+            {
+                case GameManager.HubState.fromTutorial:
+                    level = Instantiate(hubLevelFromTutorial);
+                    startingPoint = GameObject.Find("Start").transform.GetChild(0).gameObject;
+                    break;
 
-            case HubState.fromYellow:
-                level = Instantiate(hubLevelFromYellow);
-                startingPoint = GameObject.Find("Start").transform.GetChild(0).gameObject;
-                break;
+                case GameManager.HubState.fromYellow:
+                    level = Instantiate(hubLevelFromYellow);
+                    startingPoint = GameObject.Find("Start").transform.GetChild(0).gameObject;
+                    break;
 
-            case HubState.fromRed:
-                level = Instantiate(hubLevelFromRed);
-                startingPoint = GameObject.Find("Start").transform.GetChild(0).gameObject;
-                break;
+                case GameManager.HubState.fromRed:
+                    level = Instantiate(hubLevelFromRed);
+                    startingPoint = GameObject.Find("Start").transform.GetChild(0).gameObject;
+                    break;
+                default:
+                    level = Instantiate(hubLevelFromTutorial);
+                    startingPoint = GameObject.Find("Start").transform.GetChild(0).gameObject;
+                    Debug.LogError("No GMHUBState!");
+                    break;
+            }
         }
     }
     private void MakeGameManager()
@@ -75,6 +86,16 @@ public class SceneSetup : MonoBehaviour
         }
         var script = currentGameManager.GetComponent<GameManager>();
         script.GetParmsFromSceneSetup(playerCharacter, startingPoint, currentMainCamera, currentCanvas, currentGlobalLight2d, playerBullets, enemyBullets, turretBullets, this);
+
+        switch(scenetype)
+        {
+            case SceneType.red:
+                script.HubStateGM = GameManager.HubState.fromRed;
+                break;
+            case SceneType.yellow:
+                script.HubStateGM = GameManager.HubState.fromYellow;
+                break;
+        }
 
     }
     private void StartScene()
