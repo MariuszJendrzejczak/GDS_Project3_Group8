@@ -158,6 +158,14 @@ public class EventBroker : MonoBehaviour
             PlayObjectSfx(key);
         }
     }
+    public static Action<string> PlayObjectSfxLayer2;
+    public static void CallObjectPlaySfxLayer2(string key)
+    {
+        if (PlayObjectSfxLayer2 != null)
+        {
+            PlayObjectSfxLayer2(key);
+        }
+    }
     public static Action<string> PlayThameSfx;
     public static void CallPlayThemeSfx(string key)
     {
@@ -197,6 +205,14 @@ public class EventBroker : MonoBehaviour
         if (StopPlayingObjectSfx != null)
         {
             StopPlayingObjectSfx();
+        }
+    }
+    public static Action StopPlayingObjectSfxLayer2;
+    public static void CallStopPlayingObjectSfxLayer2()
+    {
+        if (StopPlayingObjectSfxLayer2 != null)
+        {
+            StopPlayingObjectSfxLayer2();
         }
     }
     public static Action StopPlayingThameSfx;

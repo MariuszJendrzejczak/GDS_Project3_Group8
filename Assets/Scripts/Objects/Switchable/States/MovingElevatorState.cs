@@ -24,6 +24,7 @@ public class MovingElevatorState : IState
                 player.ChangeState("empty");
             }
         }
+        EventBroker.CallObjectPlaySfxLayer2("elevator");
     }
 
     public void Exit()
@@ -33,6 +34,7 @@ public class MovingElevatorState : IState
             player.SetParrentNull();
             player.ChangeState("idle");
         }
+        EventBroker.CallStopPlayingObjectSfxLayer2();
     }
 
     public void HandleInput()
