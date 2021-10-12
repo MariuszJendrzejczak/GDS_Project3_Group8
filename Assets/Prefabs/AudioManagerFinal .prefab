@@ -152,6 +152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7877986171906526985}
   - component: {fileID: 4284197189273026606}
+  - component: {fileID: 6043196524104275666}
   m_Layer: 0
   m_Name: 'AudioManagerFinal '
   m_TagString: Untagged
@@ -191,6 +192,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b42261d04ee2b7d478a638ad60b3bccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6043196524104275666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7877986171906526982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c7177825a758248b683c471b5d2e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterSFXLayer1: {fileID: 7877986172557208518}
+  CharacterSFXLayer2: {fileID: 7877986172271962573}
+  EnemySFX: {fileID: 7877986172646188325}
+  ObjSFXLayer1: {fileID: 7877986172687631875}
+  ObjSFXLayer2: {fileID: 4824914329212692805}
+  Thames: {fileID: 7877986172938111622}
 --- !u!1 &7877986172271962568
 GameObject:
   m_ObjectHideFlags: 0
