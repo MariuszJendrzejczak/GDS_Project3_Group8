@@ -186,7 +186,7 @@ PrefabInstance:
     - target: {fileID: 8521213984554036184, guid: df4af075eafcc494d8b351c9942339db,
         type: 3}
       propertyPath: tipText
-      value: Press E to read
+      value: Press 'E' to read.
       objectReference: {fileID: 0}
     - target: {fileID: 8521213984554036184, guid: df4af075eafcc494d8b351c9942339db,
         type: 3}
@@ -1711,6 +1711,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1379502514}
     m_Modifications:
+    - target: {fileID: 1995513300, guid: 26bb8887579c4b742ab1b4b9e8f1c244, type: 3}
+      propertyPath: tipText
+      value: Press 'E' or shoot with 'L' to press the button.
+      objectReference: {fileID: 0}
     - target: {fileID: 1995513300, guid: 26bb8887579c4b742ab1b4b9e8f1c244, type: 3}
       propertyPath: toSwitchList.Array.size
       value: 2
@@ -3600,7 +3604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toSwitchList:
   - {fileID: 7988730430432763081}
-  tipText: "Wci\u015Bnij E lub strzel, abyby prze\u0142\u0105czyc w\u0142\u0105cznik"
+  tipText: Press 'E' or shoot with 'L' to press the button.
   onSprite: {fileID: -3523893405748047192, guid: 453fdfcc5d63f7547ab79929183a2051,
     type: 3}
   offSprite: {fileID: 6744803850101243893, guid: 453fdfcc5d63f7547ab79929183a2051,
@@ -3639,6 +3643,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1379502514}
     m_Modifications:
+    - target: {fileID: 1995513300, guid: 26bb8887579c4b742ab1b4b9e8f1c244, type: 3}
+      propertyPath: tipText
+      value: Press 'E' or shoot with 'L' to press the button.
+      objectReference: {fileID: 0}
     - target: {fileID: 1995513300, guid: 26bb8887579c4b742ab1b4b9e8f1c244, type: 3}
       propertyPath: toSwitchList.Array.size
       value: 1
@@ -5783,6 +5791,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5605361953962144777, guid: 548476b8f8872be4f84062b29ef879b6,
+        type: 3}
+      propertyPath: tipText
+      value: Press 'E' to change the Scene.
       objectReference: {fileID: 0}
     - target: {fileID: 5605361953962144777, guid: 548476b8f8872be4f84062b29ef879b6,
         type: 3}
@@ -12987,6 +13000,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2320862847014739483, guid: 3270f4943a783974d9e8b1d62930dada,
+        type: 3}
+      propertyPath: tipText
+      value: Press 'E' then use direction key to push the stone.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3270f4943a783974d9e8b1d62930dada, type: 3}
 --- !u!4 &1318409905 stripped
@@ -16506,6 +16524,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2320862847014739483, guid: 3270f4943a783974d9e8b1d62930dada,
+        type: 3}
+      propertyPath: tipText
+      value: Press 'E' then use direction key to push the stone.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3270f4943a783974d9e8b1d62930dada, type: 3}
 --- !u!1 &1886260710
@@ -17206,6 +17229,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320862847014739483, guid: 3270f4943a783974d9e8b1d62930dada,
+        type: 3}
+      propertyPath: tipText
+      value: Press 'E' then use direction key to push the stone.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3270f4943a783974d9e8b1d62930dada, type: 3}
@@ -18749,7 +18777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toSwitchList:
   - {fileID: 7988730430432763081}
-  tipText: "Wci\u015Bnij E lub strzel, abyby prze\u0142\u0105czyc w\u0142\u0105cznik"
+  tipText: Press 'E' or shoot with 'L' to press the button.
   onSprite: {fileID: -3523893405748047192, guid: 453fdfcc5d63f7547ab79929183a2051,
     type: 3}
   offSprite: {fileID: 6744803850101243893, guid: 453fdfcc5d63f7547ab79929183a2051,
@@ -18962,7 +18990,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toSwitchList:
   - {fileID: 7988730430432763081}
-  tipText: 'Shoot to Switch '
+  tipText: Place the box on the elevator and shoot the switch.
   moveToTransform: {fileID: 7988730430322687479}
   startTransform: {fileID: 7988730430896977934}
   startingPositionBool: 1
