@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PoolingObject playerBullets, enemyBullets, turretBullets;
     public enum HubState { fromTutorial, fromYellow, fromRed }
     [SerializeField] public HubState HubStateGM = HubState.fromTutorial;
+    private string thameKay;
 
 
     private void Awake()
@@ -71,6 +72,7 @@ public class GameManager : MonoBehaviour
         enemyBullets = (PoolingObject)args[6];
         turretBullets = (PoolingObject)args[7];
         sceneSetup = (SceneSetup)args[8];
+        thameKay = (string)args[9];
     }
     public void StartScene()
     {
@@ -104,6 +106,7 @@ public class GameManager : MonoBehaviour
             player.Respawn(currentCheckPoint.transform.position);
             playerDeath = false;
             EventBroker.CallRespawntoCheckPoint();
+            EventBroker.CallPlayThemeSfx(thameKay);
         }
     }
 }

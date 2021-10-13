@@ -85,7 +85,7 @@ public class SceneSetup : MonoBehaviour
             currentGameManager.name = "GameManagerContainer";
         }
         var script = currentGameManager.GetComponent<GameManager>();
-        script.GetParmsFromSceneSetup(playerCharacter, startingPoint, currentMainCamera, currentCanvas, currentGlobalLight2d, playerBullets, enemyBullets, turretBullets, this);
+        script.GetParmsFromSceneSetup(playerCharacter, startingPoint, currentMainCamera, currentCanvas, currentGlobalLight2d, playerBullets, enemyBullets, turretBullets, this, scenetype.ToString());
 
         switch(scenetype)
         {
