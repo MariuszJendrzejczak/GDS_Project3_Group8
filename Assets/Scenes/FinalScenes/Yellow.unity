@@ -26674,6 +26674,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 220583357}
     m_Modifications:
     - target: {fileID: 1995513300, guid: 26bb8887579c4b742ab1b4b9e8f1c244, type: 3}
+      propertyPath: tipText
+      value: Press E to switch button
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995513300, guid: 26bb8887579c4b742ab1b4b9e8f1c244, type: 3}
       propertyPath: toSwitchList.Array.data[0]
       value: 
       objectReference: {fileID: 948116313}
@@ -28800,7 +28804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toSwitchList:
   - {fileID: 263325199}
-  tipText: Press E to swich button
+  tipText: Press E to switch button
   onSprite: {fileID: -3523893405748047192, guid: 453fdfcc5d63f7547ab79929183a2051,
     type: 3}
   offSprite: {fileID: 6744803850101243893, guid: 453fdfcc5d63f7547ab79929183a2051,
