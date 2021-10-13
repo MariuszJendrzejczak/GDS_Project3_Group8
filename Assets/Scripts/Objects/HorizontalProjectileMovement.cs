@@ -9,9 +9,16 @@ public class HorizontalProjectileMovement : MonoBehaviour
     [SerializeField][Range(1f, 25f)] private float bulletSpeed = 1f;
     [SerializeField] [Range(1f, 5f)] private float switchoffafterSeconds = 3f;
 
-    private void Start()
+    private void OnEnable()
     {
         StartCoroutine(Switchoff(switchoffafterSeconds));
+    }
+    private void Start()
+    {
+        if(shootTo == ShootTo.right)
+        {
+            transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
     }
 
     void Update()
@@ -23,7 +30,6 @@ public class HorizontalProjectileMovement : MonoBehaviour
                 break;
             case ShootTo.right:
                 transform.Translate(Vector2.right * bulletSpeed * Time.deltaTime);
-                transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
                 break;
         }
     }
