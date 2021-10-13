@@ -16,7 +16,7 @@ public class MovingElevatorState : IState
         stateMachine = (StateMachine)args[3];
         elevator.startingPositionBool = false;
         player = (PlayerController)args[4];
-        if (player != null)
+        if (player != null && elevator != null)
         {
             player.GetElevatorAsParemt(elevator.gameObject);
             if (player.onElevator)
