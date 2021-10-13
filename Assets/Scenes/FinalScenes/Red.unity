@@ -2063,6 +2063,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -10.7
       objectReference: {fileID: 0}
+    - target: {fileID: 7988730430198478051, guid: e8aa8f580a8e3b54e84da51db6d733e6,
+        type: 3}
+      propertyPath: tipText
+      value: Switch the button to use the elevator.
+      objectReference: {fileID: 0}
     - target: {fileID: 7988730430441604362, guid: e8aa8f580a8e3b54e84da51db6d733e6,
         type: 3}
       propertyPath: m_RootOrder
@@ -5455,6 +5460,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5605361953962144777, guid: 548476b8f8872be4f84062b29ef879b6,
         type: 3}
+      propertyPath: tipText
+      value: Press 'E' to change the Scene.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5605361953962144777, guid: 548476b8f8872be4f84062b29ef879b6,
+        type: 3}
       propertyPath: sceneToLoad
       value: 1
       objectReference: {fileID: 0}
@@ -6210,7 +6220,7 @@ PrefabInstance:
     - target: {fileID: 8521213984554036184, guid: df4af075eafcc494d8b351c9942339db,
         type: 3}
       propertyPath: tipText
-      value: Press E to read
+      value: Press 'E' to read.
       objectReference: {fileID: 0}
     - target: {fileID: 8521213984554036184, guid: df4af075eafcc494d8b351c9942339db,
         type: 3}
@@ -6506,6 +6516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
+  horizontalInputValue: 0
 --- !u!1001 &1065414330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6835,7 +6846,7 @@ PrefabInstance:
     - target: {fileID: 8521213984554036184, guid: df4af075eafcc494d8b351c9942339db,
         type: 3}
       propertyPath: tipText
-      value: Press E to read
+      value: Press 'E' to read.
       objectReference: {fileID: 0}
     - target: {fileID: 8521213984554036184, guid: df4af075eafcc494d8b351c9942339db,
         type: 3}
@@ -22385,6 +22396,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1045518915}
     m_Modifications:
     - target: {fileID: 1995513300, guid: 26bb8887579c4b742ab1b4b9e8f1c244, type: 3}
+      propertyPath: tipText
+      value: Shoot with 'L' to switch the button.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995513300, guid: 26bb8887579c4b742ab1b4b9e8f1c244, type: 3}
       propertyPath: toSwitchList.Array.data[0]
       value: 
       objectReference: {fileID: 1539281668}
@@ -25547,7 +25562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toSwitchList: []
-  tipText: It looks like this switch is not working any more.!
+  tipText: It looks like this switch is not working anymore...
   onSprite: {fileID: -3523893405748047192, guid: 453fdfcc5d63f7547ab79929183a2051,
     type: 3}
   offSprite: {fileID: 6744803850101243893, guid: 453fdfcc5d63f7547ab79929183a2051,
