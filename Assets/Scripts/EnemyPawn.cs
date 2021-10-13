@@ -43,6 +43,7 @@ public class EnemyPawn : Enemy
     {
         if(respawned)
         {
+            transform.localScale = new Vector2(0.5f, 0.5f);
             ChangeState(startingState.ToString());
         }
     }
