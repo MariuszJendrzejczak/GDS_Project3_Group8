@@ -13404,7 +13404,7 @@ Transform:
   - {fileID: 767220014}
   - {fileID: 1596718174}
   - {fileID: 376253603}
-  m_Father: {fileID: 1043345014}
+  m_Father: {fileID: 1996465917}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!68 &923460964
@@ -14101,7 +14101,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 921265181}
   - {fileID: 1825922517}
   - {fileID: 8945486523722436021}
   m_Father: {fileID: 1489338279}
@@ -28219,7 +28218,7 @@ Transform:
   - {fileID: 1654986521}
   - {fileID: 1079609613}
   m_Father: {fileID: 1996465917}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1533252435
 GameObject:
@@ -28595,12 +28594,12 @@ PrefabInstance:
     - target: {fileID: 8997578993478146107, guid: 2420a7b6230cd0743bbf7eec6e78a496,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -83.8
+      value: -59.1
       objectReference: {fileID: 0}
     - target: {fileID: 8997578993478146107, guid: 2420a7b6230cd0743bbf7eec6e78a496,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -21
+      value: -23.1
       objectReference: {fileID: 0}
     - target: {fileID: 8997578993478146107, guid: 2420a7b6230cd0743bbf7eec6e78a496,
         type: 3}
@@ -36381,7 +36380,7 @@ PrefabInstance:
     - target: {fileID: 8945486525255553297, guid: 9df9f1f4dd3db084ca74c574fe8f35ce,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8945486525255553297, guid: 9df9f1f4dd3db084ca74c574fe8f35ce,
         type: 3}
@@ -37732,6 +37731,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 921265181}
   - {fileID: 1489338279}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -50060,7 +50060,7 @@ Transform:
   m_Children:
   - {fileID: 2013859411310041748}
   m_Father: {fileID: 1043345014}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &9011750445258011830
 Animator:
