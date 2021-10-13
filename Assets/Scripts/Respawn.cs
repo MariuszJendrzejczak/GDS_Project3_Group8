@@ -45,4 +45,9 @@ public class Respawn : MonoBehaviour, IRespawnAble
         this.gameObject.SetActive(true);
         myDeath = false;
     }
+    private void OnDisable()
+    {
+        EventBroker.RespawnToCheckPoint -= RespawnMe;
+        EventBroker.CheckPointReached -= CancelRespawn;
+    }
 }
