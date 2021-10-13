@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HidePoint : MonoBehaviour, IInteractable
+public class HidePoint : InteractableObject, IInteractable
 {
     private PlayerController player;
     [SerializeField] SpriteRenderer renderer;
