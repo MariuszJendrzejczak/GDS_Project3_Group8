@@ -7547,7 +7547,7 @@ PrefabInstance:
     - target: {fileID: 8521213984554036184, guid: df4af075eafcc494d8b351c9942339db,
         type: 3}
       propertyPath: tipText
-      value: Press E to read
+      value: Press 'E' to read.
       objectReference: {fileID: 0}
     - target: {fileID: 8521213984554036184, guid: df4af075eafcc494d8b351c9942339db,
         type: 3}
@@ -7772,6 +7772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
+  horizontalInputValue: 0
 --- !u!1 &388730196
 GameObject:
   m_ObjectHideFlags: 0
@@ -7812,7 +7813,7 @@ PrefabInstance:
     - target: {fileID: 8521213984554036184, guid: df4af075eafcc494d8b351c9942339db,
         type: 3}
       propertyPath: tipText
-      value: Press E to read
+      value: Press 'E' to read.
       objectReference: {fileID: 0}
     - target: {fileID: 8521213984554036184, guid: df4af075eafcc494d8b351c9942339db,
         type: 3}
@@ -8146,6 +8147,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7988730430198478051, guid: e8aa8f580a8e3b54e84da51db6d733e6,
+        type: 3}
+      propertyPath: tipText
+      value: Switch the button to use the elevator.
+      objectReference: {fileID: 0}
     - target: {fileID: 7988730430441604362, guid: e8aa8f580a8e3b54e84da51db6d733e6,
         type: 3}
       propertyPath: m_RootOrder
@@ -8264,7 +8270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toSwitchList: []
-  tipText: 
+  tipText: Press 'E' then use 'W' to climb up or 'S' to climb down the ladder.
   coliderToIngnore: {fileID: 1372286487}
 --- !u!1 &439089947
 GameObject:
@@ -9914,6 +9920,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2320862847014739483, guid: 3270f4943a783974d9e8b1d62930dada,
+        type: 3}
+      propertyPath: tipText
+      value: Press 'E' then use direction key to push the stone.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3270f4943a783974d9e8b1d62930dada, type: 3}
 --- !u!4 &584131503 stripped
@@ -10460,6 +10471,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2320862847014739483, guid: 3270f4943a783974d9e8b1d62930dada,
+        type: 3}
+      propertyPath: tipText
+      value: Press 'E' then use direction key to push the stone.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3270f4943a783974d9e8b1d62930dada, type: 3}
 --- !u!4 &647475824 stripped
@@ -10612,6 +10628,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5605361953962144777, guid: 548476b8f8872be4f84062b29ef879b6,
+        type: 3}
+      propertyPath: tipText
+      value: Press 'E' to change the Scene.
       objectReference: {fileID: 0}
     - target: {fileID: 5605361953962144777, guid: 548476b8f8872be4f84062b29ef879b6,
         type: 3}
@@ -13156,6 +13177,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2320862847014739483, guid: 3270f4943a783974d9e8b1d62930dada,
+        type: 3}
+      propertyPath: tipText
+      value: Press 'E' then use direction key to push the stone.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3270f4943a783974d9e8b1d62930dada, type: 3}
 --- !u!1001 &879931230
@@ -13724,7 +13750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toSwitchList: []
-  tipText: 
+  tipText: Switch a button to open the door.
   trigger: open
 --- !u!1 &963291852
 GameObject:
@@ -28964,6 +28990,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2320862847014739483, guid: 3270f4943a783974d9e8b1d62930dada,
+        type: 3}
+      propertyPath: tipText
+      value: Press 'E' then use direction key to push the stone.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3270f4943a783974d9e8b1d62930dada, type: 3}
 --- !u!1 &1596718173
@@ -36376,6 +36407,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1043345014}
     m_Modifications:
+    - target: {fileID: 263325199, guid: 9df9f1f4dd3db084ca74c574fe8f35ce, type: 3}
+      propertyPath: tipText
+      value: Switch a button to open the door.
+      objectReference: {fileID: 0}
     - target: {fileID: 2013859409651156528, guid: 9df9f1f4dd3db084ca74c574fe8f35ce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -43522,7 +43557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toSwitchList:
   - {fileID: 263325199}
-  tipText: Press E to switch button
+  tipText: Press 'E' or shoot with 'L' to press the button.
   onSprite: {fileID: -3523893405748047192, guid: 453fdfcc5d63f7547ab79929183a2051,
     type: 3}
   offSprite: {fileID: 6744803850101243893, guid: 453fdfcc5d63f7547ab79929183a2051,
@@ -43784,7 +43819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toSwitchList: []
-  tipText: 
+  tipText: Press 'E' then use 'W' to climb up or 'S' to climb down the ladder.
   coliderToIngnore: {fileID: 1044605861}
 --- !u!61 &2144052849
 BoxCollider2D:
