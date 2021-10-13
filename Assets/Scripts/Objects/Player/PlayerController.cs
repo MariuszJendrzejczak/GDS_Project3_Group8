@@ -8,7 +8,7 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
     public float PushSpeed { get { return pushSpeed; } }
     public LayerMask PlatformLayerMask { get { return platforemLayerMask; } }
 
-    private Rigidbody2D rigidbody;
+    public Rigidbody2D rigidbody;
     private CapsuleCollider2D collider;
     [SerializeField] private Animator animator;
     private StateMachine stateMachine;
