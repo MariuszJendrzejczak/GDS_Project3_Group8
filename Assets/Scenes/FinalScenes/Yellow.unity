@@ -1783,6 +1783,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe937c4cec0956439ac242711d93827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &270689657 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1075839279359866171, guid: 9df9f1f4dd3db084ca74c574fe8f35ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 1825922516}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &270689658
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270689657}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 2.71875, z: 0, w: 0.625}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.375, y: 4.4375}
+    newSize: {x: 1.375, y: 4.4375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.375, y: 4.4375}
+  m_EdgeRadius: 0
 --- !u!1001 &280626772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18752,12 +18784,12 @@ PrefabInstance:
     - target: {fileID: 8997578993478146107, guid: 2420a7b6230cd0743bbf7eec6e78a496,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -59.2
+      value: -83.8
       objectReference: {fileID: 0}
     - target: {fileID: 8997578993478146107, guid: 2420a7b6230cd0743bbf7eec6e78a496,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -22.7
+      value: -21
       objectReference: {fileID: 0}
     - target: {fileID: 8997578993478146107, guid: 2420a7b6230cd0743bbf7eec6e78a496,
         type: 3}
@@ -28768,7 +28800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toSwitchList:
   - {fileID: 263325199}
-  tipText: "Wci\u015Bnij E, \u017Ceby prze\u0142\u0105czyc w\u0142\u0105cznik"
+  tipText: Press E to swich button
   onSprite: {fileID: -3523893405748047192, guid: 453fdfcc5d63f7547ab79929183a2051,
     type: 3}
   offSprite: {fileID: 6744803850101243893, guid: 453fdfcc5d63f7547ab79929183a2051,
