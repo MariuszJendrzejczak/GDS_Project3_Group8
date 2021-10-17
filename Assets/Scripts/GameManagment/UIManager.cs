@@ -21,6 +21,12 @@ public class UIManager : MonoBehaviour
         EventBroker.SwitchOnOffStoryPanel += SwitchOnOffStoryPanel;
         EventBroker.SwitchOffStoryPanel += SwitchOffStoryPanel;
         EventBroker.SwitchOnOutroPanel += SwitchOnOutroPanel;
+        EventBroker.LoadingPanel += StartLoadingPanel;
+    }
+
+    private void StartLoadingPanel(float seconds)
+    {
+        StartCoroutine(LoadingPanelCorutine(seconds));
     }
 
     private void UpdateTipText(string value)
@@ -56,5 +62,19 @@ public class UIManager : MonoBehaviour
     private void SwitchOnOutroPanel()
     {
         canvasPanels.OutroPanel.SetActive(true);
+    }
+
+    private IEnumerator LoadingPanelCorutine(float seconds)
+    {
+        Debug.Log("!!!!!!!!!!!!!!!!");
+        canvasPanels.Slider.maxValue = seconds;
+        canvasPanels.Slider.value = 0;
+        canvasPanels.LoadingPanel.SetActive(true);
+        for(float i = 0; i < seconds; i += 0.1f)
+        {
+            yield return new WaitForSeconds(0.1f);
+            canvasPanels.Slider.value += 0.1f;
+        }
+        canvasPanels.LoadingPanel.SetActive(false);
     }
 }

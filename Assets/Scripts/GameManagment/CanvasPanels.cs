@@ -14,4 +14,7 @@ public class CanvasPanels : MonoBehaviour
     public GameObject IntroPanel;
     public GameObject OutroPanel;
     public GameObject IntroImage1, IntroImege2, IntroImage3;
+    public GameObject LoadingPanel;
+    public Slider Slider;
+    public GameObject DeadPanel;
 }

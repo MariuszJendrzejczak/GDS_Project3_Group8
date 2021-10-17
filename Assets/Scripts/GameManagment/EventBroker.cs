@@ -79,6 +79,16 @@ public class EventBroker : MonoBehaviour
         }
     }
 
+    public static event Action<float> LoadingPanel;
+    public static void CallLoadingPanel(float value)
+    {
+        if (LoadingPanel != null)
+        {
+            LoadingPanel(value);
+            Debug.Log("LoadingPanelCalled");
+        }
+    }
+
     #endregion
     #region UI
     public static event Action<String> UpdateTipText;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,9 +26,12 @@ public class SceneSetup : MonoBehaviour
     [SerializeField] private GameObject poolingObjects;
     [SerializeField] private PoolingObject playerBullets, enemyBullets, turretBullets;
     [SerializeField] private bool outro;
+    [SerializeField] private float loadingPanelTimeOfExposition;
     private bool firstApperence;
+
     void Awake()
     {
+        EventBroker.CallLoadingPanel(loadingPanelTimeOfExposition);
         if (scenetype == SceneType.hub)
         {
             MakeHubLevel();
