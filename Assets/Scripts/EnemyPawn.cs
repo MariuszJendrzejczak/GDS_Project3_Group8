@@ -14,6 +14,7 @@ public class EnemyPawn : Enemy
         stateMachine.Add("attack", new EnemyAttackState());
 
         EventBroker.GiveAllEnemyesOnSceneBulletPoolReference += GetBulletsPool;
+        EventBroker.RespawnToCheckPoint += AfterPlayerRespawn;
     }
     protected override void Start()
     {
@@ -26,6 +27,11 @@ public class EnemyPawn : Enemy
     public void ChangeState(string key)
     {
         stateMachine.Change(key, this, stateMachine, patrolPoints, playerLeyerMask, raycastDistance, null, rayCastOffsetX, rayCastOffsetY, null, patrolSpeed);
+    }
+
+    public void AfterPlayerRespawn()
+    {
+        ChangeState("patrol");
     }
 
     // Update is called once per frame
@@ -44,7 +50,7 @@ public class EnemyPawn : Enemy
         if(respawned)
         {
             transform.localScale = new Vector2(0.5f, 0.5f);
-            ChangeState(startingState.ToString());
+            ChangeState("patrol");
         }
     }
 }
