@@ -21,7 +21,7 @@ public partial class PlayerController
             player.SetGravityValue(0);
             target = transformList[1];
             edge.colliderToIngrre.enabled = false;
-            player.animator.SetTrigger("fall");
+            player.animator.SetTrigger("hang");
             climbedUp = false;
             
         }
@@ -44,7 +44,6 @@ public partial class PlayerController
             if (Input.GetKeyDown(KeyCode.S))
             {
                 player.ChangeState("idle");
-                Debug.Log("tu jestem");
             }
         }
 
