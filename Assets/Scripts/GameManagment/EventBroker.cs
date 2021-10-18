@@ -100,6 +100,23 @@ public class EventBroker : MonoBehaviour
         }
     }
 
+    public static event Action SwitchOnTipPanel;
+    public static void CallSwitchOnTipPanel()
+    {
+        if (SwitchOnTipPanel != null)
+        {
+            SwitchOnTipPanel();
+        }
+    }
+    public static event Action SwitchOffTipPanel;
+    public static void CallSwitchOffTipPanel()
+    {
+        if (SwitchOffTipPanel != null)
+        {
+            SwitchOffTipPanel();
+        }
+    }
+
     public static event Action<String, String, String> UpdateStoryText;
     public static void CallUpdateStoryText(String value, String value2, String value3)
     {

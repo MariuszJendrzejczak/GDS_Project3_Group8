@@ -131,7 +131,6 @@ public class SceneSetup : MonoBehaviour
             case SceneType.tutorial:
             case SceneType.yellow:
                 script.MainMenuPanel.SetActive(false);
-                script.TipsPanel.SetActive(true);
                 break;
             case SceneType.mainMenu:
                 script.MainMenuPanel.SetActive(true);
