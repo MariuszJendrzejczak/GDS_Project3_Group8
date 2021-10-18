@@ -66,14 +66,13 @@ public class UIManager : MonoBehaviour
 
     private IEnumerator LoadingPanelCorutine(float seconds)
     {
-        Debug.Log("!!!!!!!!!!!!!!!!");
         canvasPanels.Slider.maxValue = seconds;
         canvasPanels.Slider.value = 0;
         canvasPanels.LoadingPanel.SetActive(true);
-        for(float i = 0; i < seconds; i += 0.1f)
+        for(float i = 0; i < seconds; i += 0.01f)
         {
-            yield return new WaitForSeconds(0.1f);
-            canvasPanels.Slider.value += 0.1f;
+            yield return new WaitForSeconds(0.01f);
+            canvasPanels.Slider.value += 0.01f;
         }
         canvasPanels.LoadingPanel.SetActive(false);
     }

@@ -29,12 +29,11 @@ public class AudioControler : MonoBehaviour
         {
             if(Thames.volume > 0)
             {
-                musicVolumeBeforeMute = Thames.volume;
                 Thames.volume = 0;
             }
             else if(Thames.volume == 0)
             {
-                Thames.volume = musicVolumeBeforeMute;
+                Thames.volume = 0.7f;
             }
         }
 
@@ -43,7 +42,6 @@ public class AudioControler : MonoBehaviour
         {
             if(CharacterSFXLayer1.volume > 0)
             {
-                sfxVolumeBeforeMute = CharacterSFXLayer1.volume;
                 foreach (AudioSource source in sfxSourcesList)
                 {
                     source.volume = 0;
@@ -53,7 +51,7 @@ public class AudioControler : MonoBehaviour
             {
                 foreach (AudioSource source in sfxSourcesList)
                 {
-                    source.volume = sfxVolumeBeforeMute;
+                    source.volume = 0.7f;
                 }
             }
         }
@@ -64,12 +62,12 @@ public class AudioControler : MonoBehaviour
         {
             foreach (AudioSource source in sfxSourcesList)
             {
-                if (source.volume < 1)
+                if (source.volume < 0.7f)
                 {
                     source.volume += 0.1f;
                 }
             }
-            if (Thames.volume < 1)
+            if (Thames.volume < 0.7f)
             {
                 Thames.volume += 0.1f;
             }
