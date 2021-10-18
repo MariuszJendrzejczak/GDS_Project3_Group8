@@ -49,6 +49,7 @@ public partial class PlayerController
 
         public void Update()
         {
+            player.animator.SetTrigger("hang");
         }
         private void ClimbUp()
         {
