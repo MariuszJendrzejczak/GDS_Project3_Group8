@@ -28,6 +28,7 @@ public class SceneSetup : MonoBehaviour
     [SerializeField] private bool outro;
     [SerializeField] private float loadingPanelTimeOfExposition;
     private bool firstApperence;
+    private GameObject deathPanel;
 
     void Awake()
     {
@@ -89,7 +90,7 @@ public class SceneSetup : MonoBehaviour
             currentGameManager.name = "GameManagerContainer";
         }
         var script = currentGameManager.GetComponent<GameManager>();
-        script.GetParmsFromSceneSetup(playerCharacter, startingPoint, currentMainCamera, currentCanvas, currentGlobalLight2d, playerBullets, enemyBullets, turretBullets, this, scenetype.ToString());
+        script.GetParmsFromSceneSetup(playerCharacter, startingPoint, currentMainCamera, currentCanvas, currentGlobalLight2d, playerBullets, enemyBullets, turretBullets, this, scenetype.ToString(), deathPanel);
 
         switch(scenetype)
         {
@@ -142,7 +143,7 @@ public class SceneSetup : MonoBehaviour
                 script.OutroPanel.SetActive(true);
                 break;
         }
-
+        deathPanel = script.DeadPanel;
     }
     private void MakeMainCamera()
     {

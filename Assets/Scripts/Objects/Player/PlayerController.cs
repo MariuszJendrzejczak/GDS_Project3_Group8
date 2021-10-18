@@ -69,10 +69,12 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
         Shoot();
         FallCheck();
         QuitGame();
-        if (Input.GetKeyDown(KeyCode.G))
+        
+        //switched off development tool
+        /*if (Input.GetKeyDown(KeyCode.G))
         {
             GodModeMethod();
-        }
+        }*/
     }
     public void GetParamsFromGameManager(params object[] args)
     {
@@ -323,9 +325,6 @@ private void OnTriggerEnter2D(Collider2D collision)
     private IEnumerator DeathRutine()
     {
         yield return new WaitForSeconds(2f);
-        
-        //resigned, I keeped Rutine just in case if I whant to do something else in here later.
-        //this.gameObject.SetActive(false); 
     }
     private IEnumerator Cooldown(float value)
     {

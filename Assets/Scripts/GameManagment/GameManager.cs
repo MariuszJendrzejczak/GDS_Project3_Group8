@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private GameObject canvas;
     private GameObject globalLight2D;
     public static bool playerDeath = false;
+    public GameObject DeathPanel;
     private int currentScenebuildIndex;
     private SceneSetup sceneSetup;
     [SerializeField] private PoolingObject playerBullets, enemyBullets, turretBullets;
@@ -73,6 +74,7 @@ public class GameManager : MonoBehaviour
         turretBullets = (PoolingObject)args[7];
         sceneSetup = (SceneSetup)args[8];
         thameKay = (string)args[9];
+        DeathPanel = (GameObject)args[10];
     }
     public void StartScene()
     {
@@ -92,6 +94,7 @@ public class GameManager : MonoBehaviour
     }
     public void OnPlayerDeath()
     {
+        DeathPanel.SetActive(true);
         playerDeath = true;
     }
 
@@ -107,6 +110,7 @@ public class GameManager : MonoBehaviour
             playerDeath = false;
             EventBroker.CallRespawntoCheckPoint();
             EventBroker.CallPlayThemeSfx(thameKay);
+            DeathPanel.SetActive(false);
         }
     }
 }
