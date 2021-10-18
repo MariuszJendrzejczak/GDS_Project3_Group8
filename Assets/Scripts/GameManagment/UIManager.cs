@@ -22,8 +22,7 @@ public class UIManager : MonoBehaviour
         EventBroker.SwitchOffStoryPanel += SwitchOffStoryPanel;
         EventBroker.SwitchOnOutroPanel += SwitchOnOutroPanel;
         EventBroker.LoadingPanel += StartLoadingPanel;
-        EventBroker.SwitchOnTipPanel += SwitchOnTipPanel;
-        EventBroker.SwitchOffTipPanel += SwitchOffTipPanel;
+        EventBroker.SwitchOnOffTipPanel += SwitchOnOffTipPanel;
     }
 
     private void StartLoadingPanel(float seconds)
@@ -31,15 +30,11 @@ public class UIManager : MonoBehaviour
         StartCoroutine(LoadingPanelCorutine(seconds));
     }
 
-    private void SwitchOnTipPanel()
+    private void SwitchOnOffTipPanel(bool value)
     {
-        canvasPanels.TipsPanel.SetActive(true);
+        canvasPanels.TipsPanel.SetActive(value);
     }
 
-    private void SwitchOffTipPanel()
-    {
-        canvasPanels.TipsPanel.SetActive(false);
-    }
     private void UpdateTipText(string value)
     {
         tipText.text = value;

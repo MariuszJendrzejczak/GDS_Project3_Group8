@@ -100,20 +100,12 @@ public class EventBroker : MonoBehaviour
         }
     }
 
-    public static event Action SwitchOnTipPanel;
-    public static void CallSwitchOnTipPanel()
+    public static event Action<bool> SwitchOnOffTipPanel;
+    public static void CallSwitchOnOffTipPanel(bool value)
     {
-        if (SwitchOnTipPanel != null)
+        if (SwitchOnOffTipPanel != null)
         {
-            SwitchOnTipPanel();
-        }
-    }
-    public static event Action SwitchOffTipPanel;
-    public static void CallSwitchOffTipPanel()
-    {
-        if (SwitchOffTipPanel != null)
-        {
-            SwitchOffTipPanel();
+            SwitchOnOffTipPanel(value);
         }
     }
 

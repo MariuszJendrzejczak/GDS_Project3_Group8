@@ -38,7 +38,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
             player = collision.GetComponent<PlayerController>();
             EventBroker.InteractWithObject += Interact;
             EventBroker.CallUpdateTipText(tipText);
-            EventBroker.CallSwitchOnTipPanel();
+            EventBroker.CallSwitchOnOffTipPanel(true);
         }
     }
 
@@ -48,7 +48,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
         {
             EventBroker.InteractWithObject -= Interact;
             EventBroker.CallUpdateTipText("");
-            EventBroker.CallSwitchOffTipPanel();
+            EventBroker.CallSwitchOnOffTipPanel(false);
         }
     }
 }
