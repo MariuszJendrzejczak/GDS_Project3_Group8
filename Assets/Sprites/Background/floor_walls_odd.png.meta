@@ -35,6 +35,12 @@ TextureImporter:
   - first:
       213: -8378889130546199293
     second: brick_short_left
+  - first:
+      213: 4927902798060387652
+    second: brick_inside_up
+  - first:
+      213: -6465921497353033881
+    second: brick_inside_down
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -342,7 +348,7 @@ TextureImporter:
         width: 155
         height: 76
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -350,6 +356,48 @@ TextureImporter:
       bones: []
       spriteID: 3058961aab438bb80800000000000000
       internalID: -8378889130546199293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brick_inside_up
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 155
+        width: 148
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44dfa065c7d636440800000000000000
+      internalID: 4927902798060387652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: brick_inside_down
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 3
+        width: 137
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767e5b4f7ae6446a0800000000000000
+      internalID: -6465921497353033881
       vertices: []
       indices: 
       edges: []
