@@ -8,6 +8,7 @@ public class InteractWithStoryNote : InteractableObject, IInteractable
     [SerializeField] private StoryTextNote storyNote;
     private Animator animator;
     [SerializeField] private bool outro = false;
+    private bool activated = false;
 
     protected override void Start()
     {
@@ -26,7 +27,11 @@ public class InteractWithStoryNote : InteractableObject, IInteractable
             animator.SetTrigger("activate");
             EventBroker.CallUpdateStoryText(storyNote.StoryIndex.ToString(), storyNote.StoryHeader, storyNote.StoryText);
             EventBroker.CallSwithcOnOffStoryPanel();
-            EventBroker.CallObjectPlaySfx("note");
+            if(activated == false)
+            {
+                EventBroker.CallObjectPlaySfx("note");
+                activated = true;
+            }
         }
     }
 

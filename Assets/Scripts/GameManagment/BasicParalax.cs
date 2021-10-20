@@ -6,6 +6,13 @@ public class BasicParalax : MonoBehaviour
 {
     [SerializeField][Range(0, 5)] private float speed;
     [SerializeField] private float horizontalInputValue;
+    private float length, startPos;
+
+    private void Start()
+    {
+        startPos = transform.position.x;
+        length = GetComponent<SpriteRenderer>().bounds.size.x;
+    }
 
     private void Update()
     {

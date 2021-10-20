@@ -7,6 +7,9 @@ public class EnemyPawn : Enemy
     [SerializeField] private List<Transform> patrolPoints;
     private enum StartingState { patrol, attack }
     [SerializeField] StartingState startingState;
+    protected float localScaleXbase, localScaleXrevers;
+    private float startPosX, startPosY;
+
     protected override void Awake()
     {
         base.Awake();
@@ -18,6 +21,10 @@ public class EnemyPawn : Enemy
     }
     protected override void Start()
     {
+        startPosX = transform.position.x;
+        startPosY = transform.position.y;
+        localScaleXbase = transform.localScale.x;
+        localScaleXrevers = transform.localScale.x * -1f;
         base.Start();
         ChangeState(startingState.ToString());
 
@@ -31,6 +38,7 @@ public class EnemyPawn : Enemy
 
     public void AfterPlayerRespawn()
     {
+        transform.position = new Vector2(startPosX, startPosY);
         ChangeState("patrol");
     }
 
@@ -51,6 +59,17 @@ public class EnemyPawn : Enemy
         {
             transform.localScale = new Vector2(0.5f, 0.5f);
             ChangeState("patrol");
+        }
+    }
+    public void FlipMethod2(bool facingRight)
+    {
+        if (facingRight)
+        {
+            transform.localScale = new Vector2(localScaleXrevers, transform.localScale.y);
+        }
+        else
+        {
+            transform.localScale = new Vector2(localScaleXbase, transform.localScale.y);
         }
     }
 }

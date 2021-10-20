@@ -9,6 +9,7 @@ public class EnemyPatrolState : EnemyStateFields, IState
     public void Enter(params object[] args)
     {
         AddParmsToVaribles(args);
+        patrolCounter = 0;
     }
 
     public void Exit()
@@ -21,10 +22,15 @@ public class EnemyPatrolState : EnemyStateFields, IState
 
     public void Update()
     {
-        RaycastMethod();
-        FacingCheck();
-        FlipMethod();
         Patrol();
+        RaycastMethod2(FaceingRight());
+        //FacingCheck(); - old method
+        //FlipMethod(); - old method
+        var pawn = enemy.GetComponent<EnemyPawn>();
+        if (pawn != null)
+        {
+            pawn.FlipMethod2(FaceingRight());
+        }
         if (hitInfo.collider != null)
         {
             if (hitInfo.transform.tag == "Player")

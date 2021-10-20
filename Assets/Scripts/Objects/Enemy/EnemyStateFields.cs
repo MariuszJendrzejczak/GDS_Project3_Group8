@@ -42,21 +42,34 @@ public class EnemyStateFields
         localScaleXbase = enemy.transform.localScale.x;
         localScaleXrevers = enemy.transform.localScale.x * -1f;
     }
-    protected void FacingCheck()
+    protected void FacingCheck() // old method still used
     {
         if (enemy.transform.position.x > target.x)
         {
             facing = Faceing.left;
             enemy.EnemyFaceing = Enemy.Faceing.left;
         }
-        if (enemy.transform.position.x < target.x)
+        else if (enemy.transform.position.x < target.x)
         {
             facing = Faceing.right;
             enemy.EnemyFaceing = Enemy.Faceing.right;
         }
     }
 
-    protected void FlipMethod()
+    protected bool FaceingRight() // new method fixing fliping pawn problem
+    {
+        if(enemy.transform.position.x > target.x)
+        {
+            return false;
+        }
+        else if (enemy.transform.position.x < target.x)
+        {
+            return true;
+        }
+        return true;
+    }
+
+    protected void FlipMethod() // old method still used
     {
         switch (facing)
         {
@@ -69,8 +82,7 @@ public class EnemyStateFields
                 break;
         }
     }
-
-    protected void RaycastMethod()
+    protected void RaycastMethod() // old method still used
     {
         switch (facing)
         {
@@ -83,6 +95,19 @@ public class EnemyStateFields
                 hitInfo = Physics2D.Raycast(new Vector2(enemy.transform.position.x + rayCastOffsetX, enemy.transform.position.y + rayCastOffsetY), Vector2.right, raycastDistance, playerLayerMask);
                 Debug.DrawRay(new Vector2(enemy.transform.position.x + rayCastOffsetX, enemy.transform.position.y + rayCastOffsetY), Vector2.right * raycastDistance, Color.green, 0.1f);
                 break;
+        }
+    }
+    protected void RaycastMethod2(bool facingRight) // new method fixing fliping pawn problem
+    {
+        if (facingRight)
+        {
+            hitInfo = Physics2D.Raycast(new Vector2(enemy.transform.position.x + rayCastOffsetX, enemy.transform.position.y + rayCastOffsetY), Vector2.right, raycastDistance, playerLayerMask);
+            Debug.DrawRay(new Vector2(enemy.transform.position.x + rayCastOffsetX, enemy.transform.position.y + rayCastOffsetY), Vector2.right * raycastDistance, Color.green, 0.1f);
+        }
+        else
+        {
+            hitInfo = Physics2D.Raycast(new Vector2(enemy.transform.position.x - rayCastOffsetX, enemy.transform.position.y + rayCastOffsetY), Vector2.left, raycastDistance, playerLayerMask);
+            Debug.DrawRay(new Vector2(enemy.transform.position.x - rayCastOffsetX, enemy.transform.position.y + rayCastOffsetY), Vector2.left * raycastDistance, Color.green, 0.1f);
         }
     }
 }
