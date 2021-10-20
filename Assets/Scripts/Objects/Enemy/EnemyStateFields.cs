@@ -56,7 +56,7 @@ public class EnemyStateFields
         }
     }
 
-    protected bool FaceingRight() // new method fixing fliping pawn problem
+    protected bool CheckIfFaceingRight() // new method fixing fliping pawn problem
     {
         if(enemy.transform.position.x > target.x)
         {

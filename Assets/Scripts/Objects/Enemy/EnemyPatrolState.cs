@@ -23,13 +23,13 @@ public class EnemyPatrolState : EnemyStateFields, IState
     public void Update()
     {
         Patrol();
-        RaycastMethod2(FaceingRight());
+        RaycastMethod2(CheckIfFaceingRight());
         //FacingCheck(); - old method
         //FlipMethod(); - old method
         var pawn = enemy.GetComponent<EnemyPawn>();
         if (pawn != null)
         {
-            pawn.FlipMethod2(FaceingRight());
+            pawn.FlipMethod2(CheckIfFaceingRight());
         }
         if (hitInfo.collider != null)
         {
