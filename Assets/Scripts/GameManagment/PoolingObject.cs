@@ -30,7 +30,6 @@ public class PoolingObject : MonoBehaviour
         {
             if (!pooledObjects[i].activeInHierarchy)
             {
-                Debug.Log("pooled list: " + i);
                 return pooledObjects[i];
             }
         }

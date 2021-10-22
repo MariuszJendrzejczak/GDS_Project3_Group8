@@ -36,6 +36,10 @@ public class GameManager : MonoBehaviour
     {
         SwitchOnOffHowToPlayPanel();
         RespawnPlayer();
+        if(playerDeath == false)
+        {
+            DeathPanel.SetActive(false);
+        }
     }
 
     public HubState ReturnHubStateToSceneSetup()

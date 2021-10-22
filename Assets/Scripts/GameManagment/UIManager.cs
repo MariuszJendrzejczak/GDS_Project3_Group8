@@ -41,7 +41,6 @@ public class UIManager : MonoBehaviour
     }
     private void UpdateStroyText(string index, string header, string story )
     {
-        Debug.Log("Index: " + index + " Header: " + header + " Story: " + story);
         storyIndex.text = "#" + index;
         storyHeader.text = header;
         storyText.text = story;

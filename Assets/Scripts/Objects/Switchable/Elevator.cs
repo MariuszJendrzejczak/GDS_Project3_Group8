@@ -29,7 +29,7 @@ public class Elevator : InteractableObject, ISwitchable
     protected override void Awake()
     {
         base.Awake();
-        EventBroker.GiveToAllPlayerCharacterRef += GetPlayerControlerRef;
+        EventBroker.GiveToAllPlayerCharacterControlerRef += GetPlayerControlerRef;
     }
 
     // Start is called before the first frame update

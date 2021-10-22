@@ -56,7 +56,8 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
         collider = GetComponent<CapsuleCollider2D>();
         stateMachine.Change("idle", this);
         PlayerArmedAndUnarmedSpriteSwitch();
-        EventBroker.CallGiveToAllPlayerCharacterRef(GetComponent<PlayerController>());
+        EventBroker.CallGiveToAllPlayerCharacterControlerRef(GetComponent<PlayerController>());
+        EventBroker.CallGiveToAllPlayerCharacterRef(this.gameObject);
         EventBroker.ChangeOnElevatorBoolOnPlayer += ChangeOnElevatorBool;
     }
 
@@ -71,10 +72,10 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
         QuitGame();
         
         //switched off development tool
-        /*if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.G))
         {
             GodModeMethod();
-        }*/
+        }
     }
     public void GetParamsFromGameManager(params object[] args)
     {
@@ -222,16 +223,16 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
                 Debug.Log("Shoot");
                 animator.SetTrigger("shoot");
                 EventBroker.CallCharacterPlaySfx("shoot");
-                bool shootLeftBool = true;
+                bool shootRightbool = true;
                 var offset = new Vector2(transform.position.x + bulletXOffset, transform.position.y + bulletYOffset);
                 switch (faceing)
                 {
                     case Facing.left:
                         offset = new Vector2(transform.position.x + (bulletXOffset * -1f), transform.position.y + bulletYOffset);
-                        shootLeftBool = true;
+                        shootRightbool = false;
                         break;
                     case Facing.right:
-                        shootLeftBool = false;
+                        shootRightbool = true;
                         break;
                 }
                 GameObject projectile = bulletPool.GetPooledObject();
@@ -240,7 +241,7 @@ public partial class PlayerController : MonoBehaviour, IDestroyAble, IMakeIntera
                     projectile.transform.position = offset;
                     projectile.SetActive(true);
                     var movement = projectile.GetComponent<HorizontalProjectileMovement>();
-                    movement.UpdateShootTo(shootLeftBool);
+                    movement.UpdateShootTo(shootRightbool);
                 }
 
                 cooldown = true;

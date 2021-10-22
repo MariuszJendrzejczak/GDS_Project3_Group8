@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
     protected bool respawned = false;
     public Animator animator;
     [SerializeField][Range(1f, 5f)] protected float patrolSpeed;
+    protected GameObject player;
 
     protected virtual void Awake()
     {
@@ -42,6 +43,7 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
         stateMachine.Update();
         stateMachine.HandleInput();
     }
+
     public void Shoot()
     {
         if (cooldown == false)
@@ -64,6 +66,30 @@ public class Enemy : MonoBehaviour, IDestroyAble, IRespawnBool
             projectile.transform.position = offset;
             projectile.SetActive(true);
             projectile.GetComponent<HorizontalProjectileMovement>().UpdateShootTo(shootLeftBool);
+            cooldown = true;
+            if (animator != null)
+            {
+                animator.SetTrigger("shoot");
+            }
+            StartCoroutine(Cooldown(cooldownTime));
+            EventBroker.CallEnemyPlaySfx("enemyshoot");
+        }
+    }
+
+    public void Shoot2(bool facingRight)
+    {
+        if (cooldown == false)
+        {
+            var offset = new Vector2(transform.position.x + bulletXOffset, transform.position.y + bulletYOffset);
+            if (facingRight == false)
+            {
+                offset = new Vector2(transform.position.x + (bulletXOffset * -1f), transform.position.y + bulletYOffset);
+            }
+            //GameObject projectile = Instantiate(proyectilePrefab, offset, Quaternion.identity);
+            GameObject projectile = bulletsPool.GetPooledObject();
+            projectile.transform.position = offset;
+            projectile.SetActive(true);
+            projectile.GetComponent<HorizontalProjectileMovement>().UpdateShootTo(facingRight);
             cooldown = true;
             if (animator != null)
             {

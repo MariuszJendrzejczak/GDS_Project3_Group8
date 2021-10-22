@@ -14,6 +14,7 @@ public class EnemyPatrolState : EnemyStateFields, IState
 
     public void Exit()
     {
+        Debug.Log("Facing Right Exit = " + facingRight.ToString());
     }
 
     public void HandleInput()
@@ -22,24 +23,30 @@ public class EnemyPatrolState : EnemyStateFields, IState
 
     public void Update()
     {
-        Patrol();
-        RaycastMethod2(CheckIfFaceingRight());
-        //FacingCheck(); - old method
-        //FlipMethod(); - old method
+        Debug.Log("Facing Right = " + facingRight.ToString());
         var pawn = enemy.GetComponent<EnemyPawn>();
         if (pawn != null)
         {
             pawn.FlipMethod2(CheckIfFaceingRight());
         }
+
+        //FacingCheck(); - old method
+        //FlipMethod(); - old method
+
+        
+        if (stateMachine.currentStateId == "patrol")
+        {
+            Patrol();
+            RaycastMethod2(facingRight);
+        }
         if (hitInfo.collider != null)
         {
             if (hitInfo.transform.tag == "Player")
             {
-                stateMachine.Change("attack", enemy, stateMachine, patrolPoints, playerLayerMask, raycastDistance, hitInfo, rayCastOffsetX, rayCastOffsetY, null, step);
-                Debug.Log(hitInfo.collider.name);
+                Debug.Log("Facing Right Befoer = " + facingRight.ToString());
+                stateMachine.Change("attack", enemy, stateMachine, patrolPoints, playerLayerMask, raycastDistance, hitInfo, rayCastOffsetX, rayCastOffsetY, null, step, facingRight);
             }
         }
-
     }
 
     private void Patrol()

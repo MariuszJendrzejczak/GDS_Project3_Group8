@@ -10,7 +10,6 @@ public class KillOnColision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Kolizja: " + collision.name);
         if (collision.tag == collisionTag)
         {
             if (killCollidedObject)

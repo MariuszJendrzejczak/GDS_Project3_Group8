@@ -35,13 +35,14 @@ public class HorizontalProjectileMovement : MonoBehaviour
     }
     public void UpdateShootTo(bool value)
     {
+        Debug.Log("Bool inside projectile: " + value);
         if (value)
         {
-            shootTo = ShootTo.left;
-        }
-        else if (value == false)
-        {
             shootTo = ShootTo.right;
+        }
+        else
+        {
+            shootTo = ShootTo.left;
         }
     }
 

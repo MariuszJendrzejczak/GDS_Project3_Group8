@@ -12,6 +12,7 @@ public class EnemyStateFields
     protected float rayCastOffsetX, rayCastOffsetY;
     protected enum Faceing { left, right}
     protected Faceing facing;
+    protected bool facingRight;
     protected Vector2 target;
     protected float raycastDistance;
     protected RaycastHit2D hitInfo;
@@ -60,10 +61,12 @@ public class EnemyStateFields
     {
         if(enemy.transform.position.x > target.x)
         {
+            facingRight = false;
             return false;
         }
         else if (enemy.transform.position.x < target.x)
         {
+            facingRight = true;
             return true;
         }
         return true;

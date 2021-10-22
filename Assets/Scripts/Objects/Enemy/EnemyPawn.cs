@@ -30,6 +30,10 @@ public class EnemyPawn : Enemy
 
         EventBroker.PlayerDeath += OnPlayerDeath;
     }
+    private void OnDestroy()
+    {
+        EventBroker.RespawnToCheckPoint -= AfterPlayerRespawn;
+    }
 
     public void ChangeState(string key)
     {
